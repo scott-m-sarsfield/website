@@ -1,0 +1,236 @@
+#gamescreen{
+	width:95%;
+	border-color: white;
+	border-width: 2pt;
+	border-style: solid;
+ 	margin-bottom: 20px;
+	margin:auto;
+	overflow: hidden;
+
+	/*background-image:url('../img/tetris_back.png');
+	background-repeat:repeat;
+	background-position:center;*/
+	background:rgba(255,255,255,0.2);
+}
+
+#gamescreen.active{
+	position:fixed;
+	z-index:20;
+	top:0;
+	bottom:0;
+	left:0;
+	right:0;
+	padding:3em;
+	margin:3em;
+	width:auto;
+}
+
+#gamescreen *{
+	overflow:hidden;
+}
+
+
+#gs_title{
+	text-align:center;
+	width: 100%;
+	padding: 5px 0px;
+	text-shadow: 3pt 3pt 6pt black;
+}
+
+
+#gs_launch{
+	width: 100%;
+	text-align:center;
+	padding: 10px 0px;
+
+}
+
+#gs_display{
+	margin:auto;
+	text-align:center;
+	font-size:120%;
+	width:90%;
+	background:#000;
+	border:inset #444 8pt;
+}
+
+#gs_display #main_grid{
+	background-color:#333;
+	box-shadow:50px 50px 100px #000 inset,
+			-50px -50px 100px #000 inset;
+	float:left;
+}
+
+#main_grid td{
+	border:solid 2pt #000;
+}
+
+#gs_display #side_grid{
+	background-color:silver;
+}
+
+#side_grid #preview{
+	width:80%;
+	margin:auto;
+	border-style:inset;
+	border-width:5px;
+	border-color:#000;
+	background-color:#ddd;
+	text-align:center;
+	box-shadow: 20px 20px 50px #555 inset,
+			-20px -20px 50px #555 inset;
+}
+
+#side_grid #preview table, #side_grid #preview td{
+	text-align:center;
+	margin:auto;
+	border-width: 2pt;
+	border-style: none;
+}
+
+#side_grid #preview td{
+	width:20%;
+}
+
+#gs_display img{
+	box-shadow: 5pt 5pt 10pt black;
+}
+#instr{
+	max-width:800px;
+}
+
+#gs_display table{
+	margin:auto;
+	border-collapse:collapse;
+	border-spacing:0px;
+	border-style:none;
+}
+
+#gs_control{
+	width:100%;
+	float:left;
+	text-align:center;
+	padding:10px 0px;
+	/*display:none;*/
+}
+
+#side_grid input{
+	border-radius:50%;
+	box-shadow: 1.5pt 1.5pt grey;
+	/*width:10%;
+	height:100%;*/
+	margin: 0px 5px;
+	border: silver 2pt solid;
+	background-size:100% 100%;
+}
+#gs_control input{
+
+    margin: 0px 5px;
+    padding: 0.5em 3em;
+    font-weight: bold;
+    font-size: 1.2em;
+    border-width: 2px 4px 4px 4px;
+    box-shadow: 0 0 8px 2px #eee;
+    border-style: solid;
+    border-color: black;
+
+}
+
+#button1{
+	top:-10px;
+	padding-top:10px;
+}
+
+#gs_results{
+	background-color:#ddd;
+	border: #000 10pt inset;
+	box-shadow: 10pt 10pt 50pt #555 inset,
+			-10pt -10pt 50pt #555 inset;
+
+	position: absolute;
+	top:20%;
+
+}
+
+#pause{
+	position:absolute;
+	top:20%;
+}
+
+#pause{
+	z-index:2;
+}
+
+#screen{
+	background-color:#ddd;
+	box-shadow: 10pt 10pt 50pt #555 inset,
+			-10pt -10pt 50pt #555 inset;
+
+	position: absolute;
+
+	top:0px;
+	left:0px;
+
+	height:100%;
+	width:100%;
+	z-index:1;
+}
+
+#gs_results #num{
+	font-size:140%;
+}
+
+#leaderboard{
+	padding-top:10px;
+	width:95%;
+	border-color: white;
+	border-width: 2pt;
+	border-style: solid;
+ 	margin-bottom: 20px;
+	margin:auto;
+	overflow: hidden;
+
+	text-align:center;
+	background-color:#004;
+}
+
+#rankings{
+	margin:auto;
+	text-align:center;
+}
+
+#rankings table{
+	width:80%;
+	margin:auto;
+	margin-top:15px;
+	margin-bottom:30px;
+	text-align:center;
+	/*border: 2pt #fc0 inset;
+	background-color:#fc3;*/
+}
+
+#rankings td{
+	border: 2pt #fc0 outset;
+	background-color:#fc0;
+	color:black;
+	font-weight:bolder;
+}
+
+#rankings .rank{
+	width:20%;
+}
+
+#rankings .name{
+	width:60%;
+}
+
+#rankings .score{
+	width:20%;
+}
+
+h2.classy{
+	color:white;
+	letter-spacing: 3px;
+	font-family: monospace;
+	font-size: 2.5em;
+}

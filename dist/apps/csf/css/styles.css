@@ -1,0 +1,117 @@
+/* ============================== */
+/* ! Layout for desktop version   */
+/* ============================== */
+
+	body {
+		height:100%;
+		background:url(' ../img/gray_jean.png');'
+	}
+
+	html {
+		font-family: 'Arbutus Slab', serif;
+	}
+	
+	img{
+		width:100%;
+	}
+
+	#header {
+		background:url(../img/wood.png);
+		position: relative;
+		overflow:visible;
+	}
+	
+	#headerRow, #headerContainer{
+		overflow:visible;
+	}
+	
+	#logo {
+		display: block;
+		margin:0 auto;
+		position:relative;
+		top:3em;
+		
+		width:30%;
+		max-width:200px;
+		min-width:100px;
+		
+		z-index:2;
+	}
+
+	#powered-by {
+		position:absolute;
+		top:1em;
+		left:1em;
+		color:#fff;
+	}
+
+	#login {
+		position:absolute;
+		top:1em;
+		right:1em;
+	}
+
+	#nav {
+		list-style-type: none;
+		width:100%;
+		height:3.13em;
+		background:url(../img/nav1.png);
+		overflow:visible;
+		margin-bottom:0.5em;
+	}
+	
+	
+	#nav a {
+		display: block;
+		width:100%;
+		text-align:center;
+		margin:0px;
+		padding:1em 0;
+		/*color:#6E270F;*/
+		text-decoration:none;
+	}
+
+	#nav a:hover {
+		background:url(../img/nav3.png);
+		color:#fff;
+	}
+	
+	#nav li {
+		/*float:left;*/
+		margin: 0em 1em;
+		list-style-type:none;
+		width:15%;
+	}
+	
+	#nav li.last {margin:0;}
+	#nav li#nav-gap {margin-right:32%;}
+
+	#venue_list {padding:0;}
+
+	svg {background:url(../img/pane.png);}
+
+/* ============================= */
+/* ! Layout for mobile version   */
+/* ============================= */
+
+@media handheld, only screen and (max-width: 767px) {
+
+	body {
+		
+	}
+
+}
+
+
+/* ========================================== */
+/* ! Provide higher res assets for iPhone 4   */
+/* ========================================== */
+
+@media only screen and (-webkit-min-device-pixel-ratio: 2) { 
+
+/*	.logo {
+		background: url(logo2x.jpg) no-repeat;
+		background-size: 212px 303px;
+	}*/
+
+}

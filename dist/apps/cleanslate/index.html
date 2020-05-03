@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>CleanSlate</title>
+		<link rel="stylesheet" href="styles/stylesheet.css" type="text/css" media="screen">
+		<link rel="print stylesheet" href="styles/print.css" type="text/css" media="print">
+		<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400' rel='stylesheet' type='text/css'>
+	</head>
+	<body ng-app='CleanSlateApp' ng-controller="CleanSlateController">
+		<!-- Background Image -->
+		<div id="background-img"></div>
+		<!-- Top Bar -->
+		<header id="top-bar">
+			<ul id="major">
+				<li> {{ current_major }}  
+					<ul>
+						<li ng-click="setMajor('cse')">Computer Science & Engineering</li>
+						<li ng-click="setMajor('wde')">Web Design & Engineering</li>
+					</ul>
+				</li>
+
+			</ul>
+			<button id='clearButton' ng-click="reset()">
+				X Reset
+			</button>
+			<h1>{{ CurrentStep.description }} &nbsp; 
+			</h1>
+		</header>
+		<!-- App Container -->
+		<main id="app-container">
+			<!-- Step 1 (Choose a major) -->
+			<ul id="choose-major" ng-show="CurrentStep.view === 'initial'">
+				<li ng-click="setMajor('cse')">Computer Science & Engineering</li>
+				<li ng-click="setMajor('wde')">Web Design & Enginnering</li>
+			</ul>
+			<!-- Steps 2-5 User Input Section (Top Half of UI) -->
+			<section id="input-component" ng-cloak="CurrentStep.view === 'main'" ng-show="CurrentStep.view === 'main'"  ng-class="{reviewed: reviewMode}">
+				<nav>
+					<ul>
+						<li ng-click="skipToStep(1)"><a href="#">AP Credit</a></li>
+						<li ng-click="skipToStep(2)"><a href="#">IB Credit</a></li>
+						<li ng-click="skipToStep(3)"><a href="#">Transfer Credit</a></li>
+						<li ng-click="skipToStep(4)"><a href="#">Miscellaneous</a></li>
+					</ul>
+				</nav>
+				<div id="ap-credit-field" ng-show="CurrentStep.step_number === 2">
+					<h2 class="input-label">AP Credit: </h2>
+					<select ng-model="currently_viewing_ap_test.id" ng-options="APTest.id as APTest.name for APTest in APTests">
+					</select>
+					<p class="selection-description" ng-model="currently_viewing_ap_test.description"> {{ APTests[ currently_viewing_ap_test.id ].description }}</p>
+					<ul id="ap-test-score" ng-show="currently_viewing_ap_test.id >= 0">
+						<li class="selected-ap-test-score" ng-click="setCurrentlyViewingAPTestScore(3)">3</li>
+						<li ng-click="setCurrentlyViewingAPTestScore(4)">4</li>
+						<li ng-click="setCurrentlyViewingAPTestScore(5)">5</li>
+					</ul>
+					<button class="add-selection" ng-show="currently_viewing_ap_test.id >= 0" ng-click="addAPTest()">Add</button>
+					<div class="added-selections">
+						<h2>Your Added AP Scores</h2>
+						<ul>
+							<li ng-repeat="test in StudentInput.ap_credit">
+								<button ng-click="removeAPTest($index)" >Remove</button>
+								{{ APTests[ test.id ].name }} ({{ test.score }}) 
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div id="ib-credit-field" ng-cloak="CurrentStep.step_number === 3" ng-show="CurrentStep.step_number === 3">
+					<h2 class="input-label">IB Credit: </h2>
+					<select ng-model="currently_viewing_ib_test.id" ng-options="IBTest.id as IBTest.name for IBTest in IBTests">
+					</select>
+					<p class="selection-description" ng-model="currently_viewing_ib_test.description"> {{ IBTests[ currently_viewing_ib_test.id ].description }}</p>
+					<ul id="ib-test-score" ng-show="currently_viewing_ib_test.id >= 0">
+						<li class="selected-ib-test-score" ng-click="setCurrentlyViewingIBTestScore(6)">6</li>
+						<li ng-click="setCurrentlyViewingIBTestScore(7)">7</li>
+					</ul>
+					<button class="add-selection" ng-show="currently_viewing_ib_test.id >= 0" ng-click="addIBTest()">Add</button>
+					<div class="added-selections">
+						<h2>Your Added IB Scores</h2>
+						<ul>
+							<li ng-repeat="test in StudentInput.ib_credit">
+								<button ng-click="removeIBTest($index)" >Remove</button>
+								{{ IBTests[ test.id ].name }} ({{ test.score }}) 
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div id="transfer-credit-field" ng-cloak="CurrentStep.step_number === 4" ng-show="CurrentStep.step_number === 4">
+					<h2 class="input-label">Transfer Credit: </h2>
+					<select ng-model="currently_viewing_transfer.id" ng-options="TransCred.id as TransCred.name for TransCred in TransferCredit">
+					</select>
+					<p class="selection-description" ng-model="currently_viewing_transfer.description"> {{ TransferCredit[ currently_viewing_transfer.id ].description }}</p>
+					<button id="add-transfer-credit-selection" class="add-selection" ng-show="currently_viewing_transfer.id >= 0" ng-click="addTransferCredit()">Add</button>
+					<div class="added-selections">
+						<h2>Your Added Transfer Credit</h2>
+						<ul>
+							<li ng-repeat="test in StudentInput.transfer_credit">
+								<button ng-click="removeTransferCredit($index)" >Remove</button>
+								{{ TransferCredit[ test.id ].name }}
+							</li>
+						</ul>
+					</div>
+				</div>
+				<div id="prev-exp-field" ng-show="CurrentStep.step_number === 5">
+					<h2 class="input-label">Miscellaneous</h2>
+					<p class="prev-exp-paragraph" id="prev-exp-programming"> Do you have previous programming experience in a C-based language? (C, C++, Java)
+						<input id="prevProgramming" type="checkbox" ng-model="previousProgramming" ng-click="updateProgExp()" />
+					</p>
+					<p class="prev-exp-paragraph" id="prev-exp-precalc">Did the Calculus Readiness Exam suggest you take MATH 9 (Precalculus)?
+						<input id="calculusReady" type="checkbox"  ng-model="math9Suggested" ng-click="updateCalcReady()" />
+					</p>
+					<!--p class="prev-exp-paragraph" id="prev-exp-honors"> Are you enrolled in the Honors Program?
+						<input id="honorStudent" type="checkbox"  ng-model="honorStudent" ng-click="updateHonors()" />
+					</p-->
+					<!--p class="prev-exp-paragraph" id="prev-exp-lead"> Are you a LEAD Scholar?
+						<input id="leadStudent" type="checkbox" ng-model="leadStudent" ng-click="updateLEAD()" />
+					</p-->
+					
+				</div>
+			</section>
+			<!-- Steps 2-5 Output Section (Bottom Half of UI)-->
+			<section id="output-component" ng-cloak="CurrentStep.view === 'main'" ng-show="CurrentStep.view === 'main'" ng-class="{reviewed: reviewMode}">
+				<ul id="quarter-titles">
+					<li>Fall</li>
+					<li>Winter</li>
+					<li>Spring</li>
+				</ul>
+				<ul id="courses">
+					<ul id="fall-quarter" class="quarter">
+						<li class="course" ng-class="assignCSSCourseClass()" ng-repeat="course in Schedule.fall_quarter">
+							<h3 class="course-title">{{course.department}} {{course.course_number}}</h3>
+							<h6 class="course-units">{{course.units}} units</h6>
+							<h6 class="course-description">{{course.name}}</h6>
+						</li>
+					</ul>
+					<ul id="winter-quarter" class="quarter">
+						<li class="course" ng-class="assignCSSCourseClass()" ng-repeat="course in Schedule.winter_quarter">
+							<h3 class="course-title">{{course.department}} {{course.course_number}}</h3>
+							<h6 class="course-units">{{course.units}} units</h6>
+							<h6 class="course-description">{{course.name}}</h6>
+						</li>
+					</ul>
+					<ul id="spring-quarter" class="quarter">
+						<li class="course" ng-class="assignCSSCourseClass()" ng-repeat="course in Schedule.spring_quarter">
+							<h3 class="course-title">{{course.department}} {{course.course_number}}</h3>
+							<h6 class="course-units">{{course.units}} units</h6>
+							<h6 class="course-description">{{course.name}}</h6>
+						</li>
+					</ul>
+				</ul>
+				<ul id="key">
+					<li><div id="engineering-key"></div>Engineering</li>
+					<li><div id="math-key"></div>Math & Science</li>
+					<li><div id="humanities-key"></div>Humanities & Social Science</li>
+					<li><div id="other-key"></div>Other</li>
+				</ul>
+				<button id="review-button" ng-click='toggleReview()'>{{reviewButtonText}}</button>
+				<button id="print-button" ng-click='printSchedule()'>Print</button>
+			</section>	
+			
+			<section id="print-header">
+				<h2>Your Incoming Freshman Course Plan</h2>
+				<h4>{{current_major}}</h4>
+			</section>
+			<section id="profile-component" ng-cloak="CurrentStep.view === 'main'" ng-show="CurrentStep.view === 'main'"  ng-class="{reviewed: reviewMode}">
+				<h3 ng-show="math9Suggested || previousProgramming || honorStudent || leadStudent">GENERAL INFORMATION</h3>
+				<ul>
+					<li ng-show="math9Suggested">The Calculus Readiness Exam suggests you should take MATH 9.</li>
+					<li ng-show="previousProgramming">Has previous programming experience : Does not need to take COEN 10</li>
+					<!--li ng-show="honorStudent">Honors Student</li-->
+					<!--li ng-show="leadStudent">LEAD Student</li-->					
+				</ul>
+				<h3 ng-show="StudentInput.ap_credit.length">AP TESTS</h4>
+				<ul>
+					<li ng-repeat="test in StudentInput.ap_credit">
+						<b>{{ APTests[ test.id ].name }} ({{ test.score }})</b> : Credit obtained for {{ creditObtainedStrings["AP_"+test.id] }}
+					</li>
+				</ul>
+				<h3 ng-show="StudentInput.ib_credit.length">IB TESTS</h4>
+				<ul>
+					<li ng-repeat="test in StudentInput.ib_credit">
+						<b>{{ IBTests[ test.id ].name }} ({{ test.score }})</b> : Credit obtained for {{ creditObtainedStrings["IB_"+test.id] }}
+					</li>
+				</ul>
+				<h3 ng-show="StudentInput.transfer_credit.length">TRANSFER CREDIT</h4>
+				<ul>
+					<li ng-repeat="test in StudentInput.transfer_credit">
+						<b>{{ TransferCredit[ test.id ].name }}</b> : Credit obtained for {{ creditObtainedStrings["TR_"+test.id] }}
+					</li>
+				</ul>
+			</section>
+		</main>
+
+		<!-- Angular & jQuery -->
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+		<script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.min.js"></script>
+		<script src="js/view_controller.js"></script>
+		<script src="js/objects.js"></script>
+		<script src="js/compute_new_schedule.js"></script>
+		<script src="js/ap_tests.js"></script>
+		<script src="js/ib_tests.js"></script>
+		<script src="js/transfer_credit.js"></script>
+		<script src="js/all_courses.js"></script>
+	</body>
+</html>

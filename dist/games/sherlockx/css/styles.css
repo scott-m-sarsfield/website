@@ -1,0 +1,41 @@
+
+#gamescreen{
+	background-image:url('../img/gs_sher_back.png');
+	background-repeat:repeat;
+	background-position:center;
+	background-color:#000;
+	
+	color:#ddd;
+	text-align:center;
+}
+
+
+#gamescreen input[type="button"]{
+	background: #ddd;
+}
+
+/* existing styles */
+
+#gs_title{
+	text-align:center;
+	width: 100%;
+	padding: 5px 0px;
+	text-shadow: 3pt 3pt 6pt black;
+}
+
+
+#gs_display{
+	margin:auto;
+	text-align:center;
+	color:#ddd;
+	text-shadow: 2pt 2pt 3pt black;
+}
+
+#gs_display img{
+	box-shadow: 5pt 5pt 10pt black;
+}
+
+#gs_display table{
+	margin:auto;
+}
+

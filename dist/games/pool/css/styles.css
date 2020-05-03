@@ -1,0 +1,110 @@
+/*CSS Style Sheet for POOLPICKER*/
+/*Written by Scott Sarsfield*/
+
+/*--ULTIMATE BACKGROUND / FALLBACK FORMATTING--*/
+
+body {
+	background-color:black;
+}
+
+/*--WEB PAGE CANVAS--*/
+
+.foreground {
+	height:1194px;
+	width:800px;
+	float:center;
+	margin-left:auto;
+	margin-right:auto;
+	position:relative;
+}
+
+.home {	
+	background-image:url(../img/PoolPickerHomePage.png);
+}
+
+.sub {	
+	background-image:url(../img/PoolPickerPage.png);
+}
+
+/*--STANDARD BUTTON SETTINGS--*/
+
+.game_button {
+	background:transparent no-repeat top left;
+	border-style:none;
+}
+
+.bottom_left{
+	position:absolute;
+	bottom:100px;
+	left:150px;
+}
+
+.bottom_right{
+	position:absolute;
+	bottom:100px;
+	right:150px;
+}
+
+/*--GAME SELECTION FORMATTING [HOME PAGE]--*/
+
+/*for <div>'s */
+.game {
+	height:150px;
+	width:500px;
+	position:relative;
+	float:center;
+	margin-left:auto;
+	margin-right:auto;
+	border-style:none;
+}
+
+/*for <img>'s */
+.game_select {
+	height:150px;
+	width:500px;
+}
+
+#g3 {
+	top:350px;
+}
+
+#g5 {
+	top:400px;
+}
+
+
+#textarea {
+	width:600px;
+	float:center;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	position:relative;
+	top: 250px;
+}
+
+h1, h2 {
+	margin: 0px;
+	padding: 0px;
+	font-size:400%;
+}
+
+.balls{
+	position:relative;
+	top: 300px;
+	text-align:center;
+}
+
+.balls img{
+	width:30%;
+}
+
+
+#play {
+	float:center;
+	margin-left:auto;
+	margin-right:auto;
+	text-align:center;
+	position:relative;
+	top: 300px;
+}

@@ -78,9 +78,6 @@ typings/
 # Next.js build output
 .next
 
-# Nuxt.js build / generate output
-.nuxt
-dist
 
 # Gatsby files
 .cache/
@@ -102,3 +99,7 @@ dist
 
 # TernJS port file
 .tern-port
+
+# SSH Keys
+github_action
+github_action.pub

@@ -1,0 +1,13 @@
+{
+  "name": "@scott-m-sarsfield/website",
+  "version": "1.0.0",
+  "description": "My website",
+  "main": "index.js",
+  "author": "Scott Sarsfield <scott.m.sarsfield@gmail.com>",
+  "license": "UNLICENSED",
+  "private": true,
+  "scripts": {
+    "server": "php -S 127.0.0.1:4000 -t dist router.php",
+    "deploy": "git ftp push --force --auto-init --verbose --syncroot dist --user scottmsarsfield --insecure --key github_action --pubkey github_action.pub sftp://scottmsarsfield.com/home/scottmsarsfield/public_html/"
+  }
+}

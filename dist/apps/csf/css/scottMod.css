@@ -1,0 +1,505 @@
+/* Scott Mod CSS */
+
+/* TESTING STYLES (for layout verification)*/
+
+#venue_list{
+	list-style-type:none;
+}
+
+#venue_list a{
+	color:inherit;
+	text-decoration:none;
+}
+
+#venue_list a:hover{
+	color:#f00;
+}
+
+
+.green{
+	color:green;
+}
+
+.wireframe {
+		border-style:solid;
+		border-width: 1px;
+		overflow:hidden;
+}
+
+fieldset {
+		color:black;
+		border-style:solid;
+		border-width:2px;
+		border-color:black;
+		text-align:center;
+		font-size:150%;
+		height:100%;
+		min-height:40px;
+		margin: 20px;
+		padding:20px;
+		background:url(../img/pane.png);
+}
+
+fieldset div{
+		margin:5px 0px;
+		padding:5px 0px;
+}
+
+fieldset input{
+		margin: 10px 0px;
+}
+
+legend {
+		text-align:left;
+		margin: 0px 20px;
+}
+
+#registerButton {
+		border-style: solid;
+		border-width: 1px;
+		border-radius: 5px;
+		background:#78E37A;
+		padding:0.5em;
+		text-align:center;
+		font-weight:bold;
+		text-align:center;
+		font-weight:bold;
+}
+
+/*to fix the sizing issue (it's annoying me...)*/
+
+.container {
+		/*max-width: 1140px;
+		min-width: 755px;*/
+		margin: 0px auto;
+}
+
+/* to fix the navigation bar (so 'Venues' doesn't have an outrageous padding)
+		Also, this helps with 'Tracking Tools' tendency to skip a line...  */
+
+.right{
+		float:right;
+}
+
+.left {
+		float:left;
+}
+
+.right-align, .right-aligned{
+		text-align:right;
+}
+
+.center{
+		text-align:center;
+}
+
+.italic{
+		font-style: italic;
+}
+
+.underline{
+		text-decoration:underline;
+}
+
+.altRow{
+		width:100%;
+		float:none;
+		overflow:hidden;
+}
+
+.linkTable{
+		text-align:center;
+		
+}
+
+h1,h2,h3,h4,h5,h6,#nav, .addButton, fieldset{
+		font-family: 'Homenaje', 'Times', serif !important; 
+		margin:0px;
+		padding:0px;
+
+}
+
+h1 {
+		margin-bottom: 10px;
+}
+
+#nav{
+		font-size: 120%;
+}
+
+.puffed{
+		margin: 10px 0px;
+}
+
+.centerheader {
+		text-align:center;
+		margin: 0px auto 20px auto;
+}
+
+.noImageBuffer {
+		margin-top: 50px;
+}
+
+.wireframe {
+		border-style:solid;
+		border-width: 1px;
+		overflow:hidden;
+}
+
+/*TRACKER STYLES */
+
+#tracking_visualization{
+		height: 350px;
+		width: 600px;
+}
+
+.recordTable{
+		margin:10px 0px;
+		width:100%;
+		border-style:solid;
+		border-width:2px;
+		background:url(../img/pane.png);
+		text-align:center;
+}
+
+.recordTable th{
+		text-decoration:underline;
+		font-size:120%;
+		width:33.3%;
+}
+
+/* NAVIGATION BAR STYLES */
+
+.navNormal a{
+		color:#6E270F;
+}
+
+.navWithSub:hover{
+		background-color:#6E270F;
+		color:#fff;
+		overflow:visible;
+		position:relative;
+}
+
+.navWithSub .nav_source a{
+		color:inherit;
+		position:relative;
+}
+
+.nav_sub{
+		display:none;
+		margin:0px auto;
+		position:absolute;
+		width:8.8em;
+		z-index:500;
+}
+
+/*
+.navWithSub#tools_nav .nav_sub, .navWithSub#forum_nav .nav_sub{
+		right:0px;
+*/
+}
+
+#nav.nav_source a{
+		background:inherit;
+}
+
+#nav .nav_sub a{
+		list-style-type: none;
+		background:url(../img/nav4.png);
+		color:#fff;
+		padding:0.5em 0;
+}
+#nav .nav_sub ul{padding:0;}
+#nav .nav_sub a:hover{
+		background:url(../img/nav2.png);
+		color:#6E270F;
+}
+
+#nav .nav_sub li{
+		width:100%;
+		margin:0px;
+}
+
+/* REVIEW PAGE STYLES */
+
+.review img{
+		height: 35px;
+		width: auto;
+}
+
+.review{
+		padding: 20px;
+		margin: 10px 0px;
+}
+
+#prevRev, #moreRev {
+		background-color:orange;
+		color:white;
+		
+		border-style: solid;
+		border-width:2px;
+		border-color:black;
+		border-radius: 20px;
+		
+		margin: 10px 0px 20px 0px;
+}
+
+textarea#reviewDescription{
+		width:100%;
+}
+
+#writeOwnReview input[type=text]{
+		width:100%;
+}
+
+
+/* FORUM STYLES */
+
+.forumOffshoot {
+		padding:10px 0px;
+		margin:10px 0px;
+		color:black;
+}
+
+#forumVenueList div{
+		padding: 10px 0px;
+		margin: 10px 0px;
+}
+
+#forumVenueList a{
+		color:inherit;
+		text-decoration:none;
+}
+
+/* ORDER CONFIRMATION BOX STYLES */
+
+.orderSubmittedMessage{
+		text-align:center;
+		margin: 40px auto;
+		
+		border-style:solid;
+		border-width:2px;
+		border-radius: 20px;
+}
+
+.orderSubmittedMessage h1{
+		padding: 10px;
+		
+}
+
+#orderSucceeded{
+		background-color:#FFC068;
+}
+
+#orderFailed{
+		background-color:#FF746D;
+}
+
+/* MENU STYLES */
+
+.twelvecol img{
+	width:100%;
+}
+
+#budgetWarning{
+	display:none;
+	background:url(../img/nav3.png);
+	color:#fff;
+	border-style:solid;
+	border-color:black;
+	border-width:2px;
+	padding: 5px;
+	
+	z-index:5;
+	position:fixed;
+	top:30%;
+	left: 30%;
+	width:40%;
+}
+
+#budgetOverdrawn, #caloriesOverdrawn{
+	text-align:center;
+}
+
+#cancelButton, #continueButton{
+	display:block;
+	font-size:1.5em;
+	font-family: 'Homenaje', 'Times', serif !important;
+}
+
+#cancelButton{
+	left: 5px;
+}
+
+#continueButton{
+	right: 5px;
+}
+
+
+
+#menuList, #orderPane{
+	margin-top: 20px;
+}
+
+#venueTitle h1{
+	margin: 10px;
+	margin-left: 30px;
+}
+
+#reviewsLink a{
+	font-style:italic;
+	font-size: 16pt;
+	text-decoration:none;
+	color:inherit;
+	margin-top: 400px;
+
+}
+
+#menuHeader{
+		text-align:center;
+		text-decoration:underline;
+		margin-bottom: 20px;
+}
+
+.menuItem{
+		padding: 10px;
+}
+
+.itemImage img{
+		border-style:solid;
+		border-width:1px;
+}
+
+.itemDescription{
+		text-indent: 20px;
+}
+
+.itemCalories, .itemPrice{
+		font-style: italic;
+		padding:0.5em 0;
+}
+
+.addButton {
+		background:#78E37A;
+		border-style: solid;
+		border-width: 1px;
+		border-radius: 5px;
+		width:5em;
+		margin-top:0.2em;
+		padding:0.5em 0;
+		text-align:center;
+		font-weight:bold;
+}
+
+
+#orderPane {
+		padding:20px;
+		background:url(../img/pane.png);
+		overflow:hidden;
+}
+
+		/*ORDERED ITEM STYLES*/
+		
+		.foodCartItem{
+			display:none;
+		}
+		
+
+#costCalculator .eightcol{
+		text-align:right;
+}
+
+#orderPane input{
+		text-align:center;
+}
+
+#delOnly {
+		display:none;
+}
+
+.padded{
+		/*display:none;*/
+		margin:20px inherit;
+}
+
+#confirmButton {
+		background:#78E37A;
+		border-radius: 5px; 
+		
+		text-align:center;
+		font-weight:bold;
+		font-size: 150%;
+}
+
+
+
+/*LOG IN MODULE STYLES */
+
+#log-in{
+		background-color:#777;
+
+		position: absolute;
+		top: 1em;
+		right:1em;
+		height:50px;
+		width:150px;
+		border-style:solid;
+		border-width:2px;
+		border-color:black;
+		border-radius:5px;
+		z-index:3;
+		overflow:visible;
+}
+
+#log-in #start{
+		height:90%;
+		padding:5%;
+		color:white;
+		position:relative;
+}
+
+#log-in img{
+		position:absolute;
+		height: 10px;
+		width:15px;
+		margin:5px;
+		bottom:10px;
+		right:5px;
+		
+}
+
+.login_sub{
+		background-color:#aaa;
+		display:none;
+		width:80%;
+		margin:0px auto;
+		position:relative;
+		top: -8px;
+		border-style:solid;
+		border-width:0px 2px 2px 2px;
+}
+
+#log-in ul{
+		list-style-type: none;
+		text-align:center;
+		margin:0px;
+		padding:0px;
+}
+#log-in a{
+		color:inherit;
+		text-decoration:none;
+}
+
+#log-in  a li:hover{
+		background-color:#777;
+		color:white;
+}
+
+#log-in li{
+		width:100%;
+}
+
+#log-in input[type=text]{
+		width:50%;
+}

@@ -103,3 +103,5 @@ typings/
 # SSH Keys
 github_action
 github_action.pub
+
+dist/

@@ -8,6 +8,9 @@
   "private": true,
   "scripts": {
     "server": "php -S 127.0.0.1:4000 -t dist router.php",
-    "deploy": "git ftp push --force --auto-init --verbose --syncroot dist --user scottmsarsfield --insecure --key github_action --pubkey github_action.pub sftp://scottmsarsfield.com/home/scottmsarsfield/public_html/"
+    "predeploy": "yarn run build",
+    "deploy": "git ftp push --force --auto-init --verbose --syncroot dist --user scottmsarsfield --insecure --key github_action --pubkey github_action.pub sftp://scottmsarsfield.com/home/scottmsarsfield/public_html/",
+    "build": "yarn run copy-static",
+    "copy-static": "cp -r static dist"
   }
 }

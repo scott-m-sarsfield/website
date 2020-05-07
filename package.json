@@ -9,8 +9,8 @@
   "scripts": {
     "server": "php -S 127.0.0.1:4000 -t dist router.php",
     "predeploy": "yarn run build",
-    "deploy": "echo 'something else'",
+    "deploy": "sftp -b deploy.sftp sftp://scottmsarsfield@scottmsarsfield.com",
     "build": "yarn run copy-static",
-    "copy-static": "cp -r static dist"
+    "copy-static": "cp -r static/* dist"
   }
 }

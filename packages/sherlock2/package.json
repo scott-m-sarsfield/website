@@ -5,4 +5,4 @@
     "scripts": {
         "build:static": "mkdir -p ../../dist/games/sherlock2 && cp -R * ../../dist/games/sherlock2/"
     }
-  }
+}

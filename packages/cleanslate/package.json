@@ -1,0 +1,8 @@
+{
+    "name": "cleanslate",
+    "version": "0.0.1",
+    "license": "UNLICENSED",
+    "scripts": {
+        "build:static": "mkdir -p ../../dist/apps/cleanslate && cp -R * ../../dist/apps/cleanslate/"
+    }
+}

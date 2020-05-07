@@ -1,0 +1,8 @@
+{
+  "name": "sherlock",
+  "version": "0.0.1",
+  "license": "UNLICENSED",
+  "scripts": {
+      "build:static": "mkdir -p ../../dist/games/sherlock && cp -R * ../../dist/games/sherlock/"
+  }
+}

@@ -1,3 +1,5 @@
+@import '../../styles//responsive_utilities.scss';
+
 .header-bar {
   background: rgba(255, 255, 255, 0.8);
   display: flex;
@@ -10,7 +12,7 @@
     padding: 0;
     letter-spacing: 1px;
     color: black;
-    font-family: "Poiret One", sans-serif;
+    font-family: 'Poiret One', sans-serif;
     font-weight: normal;
     margin-left: 1em;
   }
@@ -21,20 +23,26 @@
   }
 
   .navigation {
-    display: flex;
-    margin-right: 30px;
+    display: none;
+  }
 
-    .nav-link {
-      font-family: "Poiret One", sans-serif;
-      margin: 0 5px;
-      padding: 10px 10px;
-      line-height: 36px;
-      height: 56px;
-      box-sizing: border-box;
+  @include whenDesktop {
+    .navigation {
+      display: flex;
+      margin-right: 30px;
 
-      &.active {
-        background: #333;
-        color: white;
+      .nav-link {
+        font-family: 'Poiret One', sans-serif;
+        margin: 0 5px;
+        padding: 10px 10px;
+        line-height: 36px;
+        height: 56px;
+        box-sizing: border-box;
+
+        &.active {
+          background: #333;
+          color: white;
+        }
       }
     }
   }

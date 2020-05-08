@@ -7,19 +7,9 @@ import './home_page.scss';
 const HomePage = () => (
   <PageWithHeader className="main-page">
     <div className="pic-and-blurb">
-      <div className="profile-image">
-        <img src={profileImage} alt="Scott M Sarsfield (Me)" />
-        <div className="photo-label">
-          Scott M Sarsfield
-          <br />
-          Software Engineer
-          <br />
-          EY - GigNow
-        </div>
-      </div>
-
       <div className="blurb">
         <b>Hi there!</b>
+        <br />
         <br />
         {'Thanks for checking out my website. '}
         {
@@ -46,6 +36,18 @@ const HomePage = () => (
         {' if you want to get in touch. (Or use any of the links above.)'}
         <br />
         <br />
+      </div>
+      <div className="profile-image-wrapper">
+        <div className="profile-image">
+          <img src={profileImage} alt="Scott M Sarsfield (Me)" />
+          <div className="photo-label">
+          Scott M Sarsfield
+            <br />
+          Software Engineer
+            <br />
+          EY - GigNow
+          </div>
+        </div>
       </div>
     </div>
   </PageWithHeader>

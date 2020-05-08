@@ -1,8 +1,11 @@
 import React from 'react';
 import types from 'prop-types';
+import siteFavicon from '../img/favicon.png';
+
+import './game_entry.scss';
 
 const GameEntry = (props) => {
-  const { name, description, directory, tags, onSelectTag, buttonLabel } = props;
+  const { name, description, directory, tags, onSelectTag, buttonLabel, imgSrc } = props;
 
   let _tags = tags.sort().map((v, i) => {
     return (
@@ -22,35 +25,42 @@ const GameEntry = (props) => {
   });
 
   return (
-    <div className="pic-and-blurb">
-      <div style={{ overflow: 'hidden' }}>
-        <div className="profile-image">
-          <img
-            src={'games/' + directory + '/img/favicon.png'}
-            alt={name}
-          />
-        </div>
+    <div className="game-entry">
+      <div className="logo-etc-play">
+        <div className="logo-title-tags">
+          <div className="logo">
+            <img
+              src={imgSrc}
+              alt={name}
+            />
+          </div>
 
-        <div className="blurb">
-          <b className="title">{name}</b>
-          <br />
-          <span className="tags">
+          <div className="title-tags">
+            <b className="title">{name}</b>
+            <br />
+            <span className="tags">
                         Tags: {_tags}
-          </span>
-        </div>
-      </div>
-      <div>
-        <div className="blurb description">
-          {description}
+            </span>
+          </div>
+
         </div>
 
         <a
-          className="play-button"
+          className="play-button desktop"
           href={'games/' + directory}>
           <button>{buttonLabel}</button>
         </a>
-
       </div>
+
+      <div className="blurb description">
+        {description}
+      </div>
+
+      <a
+        className="play-button mobile"
+        href={'games/' + directory}>
+        <button>{buttonLabel}</button>
+      </a>
     </div>
   );
 };
@@ -61,12 +71,14 @@ GameEntry.propTypes = {
   directory: types.string.isRequired,
   tags: types.arrayOf(types.string),
   onSelectTag: types.func.isRequired,
-  buttonLabel: types.string
+  buttonLabel: types.string,
+  imgSrc: types.string
 };
 
 GameEntry.defaultProps = {
   tags: [],
-  buttonLabel: 'Play'
+  buttonLabel: 'Play',
+  imgSrc: siteFavicon
 };
 
 export default GameEntry;

@@ -1,0 +1,86 @@
+@import '../styles/responsive_utilities.scss';
+
+.game-entry {
+  background: white;
+  border: solid 1px black;
+  margin: auto;
+  margin-top: 0.5em;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  overflow: hidden;
+  position: relative;
+  padding: 1em;
+
+  .logo-etc-play {
+    display: flex;
+    justify-content: space-between;
+
+    .logo-title-tags {
+      display: flex;
+      .logo {
+        height: 50px;
+        width: auto;
+        max-width: 50px;
+        margin-right: 15px;
+
+        img {
+          max-height: 100%;
+        }
+      }
+      .title {
+        overflow-x: hidden;
+      }
+
+      .tags {
+        font-size: 0.9em;
+        margin-top: 5px;
+      }
+    }
+
+    .play-button.desktop {
+      display: none;
+    }
+  }
+
+  .blurb {
+    margin: 1em 0;
+  }
+
+  .play-button {
+    display: block;
+    overflow: hidden;
+
+    button {
+      letter-spacing: 1px;
+      background: #fc4;
+      border: none;
+      padding: 0.25em 1em;
+      font-size: 1.5em;
+      float: right;
+      width: 100%;
+    }
+  }
+
+  @include whenDesktop {
+    .logo-etc-play {
+      .logo-title-tags {
+        .title {
+          white-space: nowrap;
+          text-overflow: ellipsis;
+        }
+      }
+
+      .play-button.desktop {
+        display: block;
+        button {
+          width: auto;
+          font-size: 1.5em;
+        }
+      }
+    }
+
+    .play-button.mobile {
+      display: none;
+    }
+  }
+}

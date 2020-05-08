@@ -1,0 +1,8 @@
+{
+    "name": "sudoku",
+    "version": "0.0.1",
+    "license": "UNLICENSED",
+    "scripts": {
+        "build:static": "mkdir -p ../../dist/games/sudoku && cp -R * ../../dist/games/sudoku/"
+    }
+}

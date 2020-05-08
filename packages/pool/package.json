@@ -1,0 +1,8 @@
+{
+    "name": "pool",
+    "version": "0.0.1",
+    "license": "UNLICENSED",
+    "scripts": {
+        "build:static": "mkdir -p ../../dist/games/pool && cp -R * ../../dist/games/pool/"
+    }
+}

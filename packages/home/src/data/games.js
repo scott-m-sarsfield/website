@@ -5,7 +5,8 @@ export default [
     description: 'A simple game where you attempt to change the color the fewest number of times to fill the entire grid.',
     tags: [
       'Archived'
-    ]
+    ],
+    imgSrc: 'http://scottmsarsfield.com/games/floodit/img/favicon.png'
   },
 
   {
@@ -15,7 +16,8 @@ export default [
     tags: [
       'Archived',
       'Arcade'
-    ]
+    ],
+    imgSrc: 'http://scottmsarsfield.com/games/tetris/img/favicon.png'
   },
 
   {
@@ -25,7 +27,8 @@ export default [
     tags: [
       'Archived',
       'Arcade'
-    ]
+    ],
+    imgSrc: 'http://scottmsarsfield.com/games/snake/img/favicon.png'
   },
 
   {
@@ -34,7 +37,8 @@ export default [
     description: 'A utility for the billiards game Knockout. Select the number of players (3 or 5), then pass the device around until everyone knows their balls.',
     tags: [
       'Archived'
-    ]
+    ],
+    imgSrc: 'http://scottmsarsfield.com/games/pool/img/favicon.png'
   },
 
   {
@@ -43,7 +47,8 @@ export default [
     description: 'A utility for the billiards game Knockout. Select the number of balls per player and tell your friends on other devices to join the group. Balls are assigned to each phone when group is ready.',
     tags: [
       'Archived'
-    ]
+    ],
+    imgSrc: 'http://scottmsarsfield.com/games/pool2/img/favicon.png'
   },
 
   {
@@ -52,7 +57,8 @@ export default [
     description: 'Sherlock Holmes (represented by my program) will deduce a number you choose from 1-100 asking you a series of Yes / No questions.',
     tags: [
       'Archived'
-    ]
+    ],
+    imgSrc: 'http://scottmsarsfield.com/games/sherlock/img/favicon.png'
   },
 
   {
@@ -61,7 +67,8 @@ export default [
     description: 'Sherlock Holmes (represented by my program) will deduce a card you choose from a standard playing card deck by asking you a series of Yes / No questions.',
     tags: [
       'Archived'
-    ]
+    ],
+    imgSrc: 'http://scottmsarsfield.com/games/sherlock2/img/favicon.png'
   },
 
   {
@@ -70,7 +77,8 @@ export default [
     description: 'Sherlock PHP games... in JavaScript.',
     tags: [
       'Archived'
-    ]
+    ],
+    imgSrc: 'http://scottmsarsfield.com/games/sherlockx/img/favicon.png'
   }
 
 ];

@@ -10,7 +10,8 @@ export default [
          `,
     tags: [
       'Archived'
-    ]
+    ],
+    imgSrc: 'http://scottmsarsfield.com/apps/cleanslate/images/scu_logo_large.jpg'
   },
 
   {
@@ -24,7 +25,8 @@ export default [
         `,
     tags: [
       'Archived'
-    ]
+    ],
+    imgSrc: 'http://scottmsarsfield.com/apps/csf/img/favicon.ico'
   }
 
 ];

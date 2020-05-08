@@ -23,6 +23,8 @@ const GamesPageContent = () => {
     return activeTags[v];
   });
 
+  console.log(APPS);
+
   return (
     <div className="row">
       <SearchSidebar

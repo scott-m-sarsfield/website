@@ -58,7 +58,7 @@ const SearchSidebar = ({ onSearch, tags, activeTags, onSelectTag }) => {
 SearchSidebar.propTypes = {
   onSearch: types.func.isRequired,
   tags: types.array,
-  activeTags: types.array,
+  activeTags: types.object,
   onSelectTag: types.func.isRequired
 };
 

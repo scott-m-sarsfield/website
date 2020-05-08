@@ -36,11 +36,12 @@ const GameEntry = (props) => {
           </div>
 
           <div className="title-tags">
-            <b className="title">{name}</b>
-            <br />
-            <span className="tags">
-                        Tags: {_tags}
-            </span>
+            <div className="title">
+              {name}
+            </div>
+            <div className="tags">
+              Tags: {_tags}
+            </div>
           </div>
 
         </div>

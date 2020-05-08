@@ -17,6 +17,7 @@
 
     .logo-title-tags {
       display: flex;
+
       .logo {
         height: 50px;
         width: auto;
@@ -26,9 +27,6 @@
         img {
           max-height: 100%;
         }
-      }
-      .title {
-        overflow-x: hidden;
       }
 
       .tags {
@@ -64,14 +62,30 @@
   @include whenDesktop {
     .logo-etc-play {
       .logo-title-tags {
-        .title {
-          white-space: nowrap;
-          text-overflow: ellipsis;
+        flex: 1 1 auto;
+        min-width: 300px;
+
+        .logo {
+          height: 100px;
+          max-width: 100px;
+        }
+        .title-tags {
+          flex: 1 1 auto;
+          min-width: 200px;
+
+          .title {
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            overflow: hidden;
+          }
         }
       }
 
       .play-button.desktop {
         display: block;
+        flex: 0 0 auto;
+        margin-left: 15px;
+
         button {
           width: auto;
           font-size: 1.5em;

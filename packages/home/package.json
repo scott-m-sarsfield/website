@@ -1,8 +1,48 @@
 {
-    "name": "home",
-    "version": "0.0.1",
-    "license": "UNLICENSED",
-    "scripts": {
-        "build:static": "mkdir -p ../../dist && cp -R * ../../dist/"
-    }
+  "name": "home",
+  "private": true,
+  "description": "A simplified bare-bones starter for Gatsby",
+  "version": "0.1.0",
+  "license": "UNLICENSED",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "clean": "gatsby clean",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "build:static": "yarn run build && mkdir -p ../../dist && cp -R public/* ../../dist/"
+  },
+  "dependencies": {
+    "classnames": "^2.2.6",
+    "gatsby": "^2.21.13",
+    "gatsby-plugin-favicon": "^3.1.6",
+    "gatsby-plugin-react-helmet": "^3.3.1",
+    "gatsby-plugin-sass": "^2.3.1",
+    "node-sass": "^4.14.1",
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-helmet": "^6.0.0"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.0.0",
+    "eslint-loader": "^4.0.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-jsx-a11y": "^6.2.3",
+    "eslint-plugin-lodash": "^7.1.0",
+    "eslint-plugin-react": "^7.19.0",
+    "eslint-plugin-react-hooks": "^4.0.0",
+    "gatsby-plugin-eslint": "^2.0.8",
+    "lodash": "^4.17.15",
+    "prettier": "2.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/gatsbyjs/gatsby-starter-hello-world"
+  },
+  "bugs": {
+    "url": "https://github.com/gatsbyjs/gatsby/issues"
+  }
 }

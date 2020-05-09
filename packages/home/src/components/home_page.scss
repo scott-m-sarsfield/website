@@ -1,0 +1,87 @@
+@import '../styles/responsive_utilities.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: url('../img/tile.png');
+}
+
+@include whenDesktop {
+  body {
+    font-size: 20px;
+  }
+}
+
+.main-page {
+  .blurb {
+    padding: 1em;
+    font-family: 'Lato', sans-serif;
+    color: white;
+    background-color: transparent;
+    border: none;
+
+    a {
+      color: #00aaba;
+    }
+  }
+
+  .profile-image-wrapper {
+    display: flex;
+
+    .profile-image {
+      display: block;
+      position: relative;
+      background: white;
+      border: 1px solid black;
+      padding: 1em;
+      box-shadow: 0 3px 8px 5px rgba(0, 0, 0, 0.12);
+      margin: auto;
+
+      img {
+        width: 200px;
+        margin: auto;
+        text-align: center;
+        display: block;
+      }
+
+      .photo-label {
+        display: none;
+      }
+    }
+  }
+
+  @include whenDesktop {
+    .pic-and-blurb {
+      margin: auto;
+      overflow: hidden;
+      margin-top: 30px;
+      max-width: 1200px;
+      display: flex;
+
+      .profile-image-wrapper {
+        flex: 0 0 auto;
+
+        .profile-image {
+          padding-bottom: 4em;
+          transform: rotate(5deg);
+          margin: 2em 2em 3em;
+
+          .photo-label {
+            display: block;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            font-size: 0.9em;
+            padding: 0.5em;
+            text-align: center;
+            font-family: 'Lato', sans-serif;
+          }
+        }
+      }
+    }
+  }
+}

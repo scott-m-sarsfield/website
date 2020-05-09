@@ -15,12 +15,12 @@ const GamesList = ({ games, onSelectTag, searchText, mustHaveTags, buttonLabel }
     }
 
     return true;
-  }).map(({ name, directory, tags, description, imgSrc }, i) => {
+  }).map(({ name, href, tags, description, imgSrc }, i) => {
     return (
       <GameEntry key={i} {...{
         buttonLabel,
         name,
-        directory,
+        href,
         tags,
         description,
         onSelectTag,

@@ -5,7 +5,7 @@ import siteFavicon from '../img/favicon.png';
 import './game_entry.scss';
 
 const GameEntry = (props) => {
-  const { name, description, directory, tags, onSelectTag, buttonLabel, imgSrc } = props;
+  const { name, description, href, tags, onSelectTag, buttonLabel, imgSrc } = props;
 
   let _tags = tags.sort().map((v, i) => {
     return (
@@ -48,7 +48,7 @@ const GameEntry = (props) => {
 
         <a
           className="play-button desktop"
-          href={'games/' + directory}>
+          href={href}>
           <button>{buttonLabel}</button>
         </a>
       </div>
@@ -59,7 +59,7 @@ const GameEntry = (props) => {
 
       <a
         className="play-button mobile"
-        href={'games/' + directory}>
+        href={href}>
         <button>{buttonLabel}</button>
       </a>
     </div>
@@ -69,7 +69,7 @@ const GameEntry = (props) => {
 GameEntry.propTypes = {
   name: types.string.isRequired,
   description: types.string,
-  directory: types.string.isRequired,
+  href: types.string.isRequired,
   tags: types.arrayOf(types.string),
   onSelectTag: types.func.isRequired,
   buttonLabel: types.string,

@@ -6,11 +6,13 @@
   "author": "Scott Sarsfield <scott.m.sarsfield@gmail.com>",
   "license": "UNLICENSED",
   "private": true,
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "scripts": {
     "server": "php -S 127.0.0.1:4000 -t dist router.php",
     "predeploy": "yarn run build",
-    "deploy": "sftp -b deploy.sftp sftp://scottmsarsfield@scottmsarsfield.com",
+    "deploy": "rsync -avzhe ssh dist/ scottmsarsfield@scottmsarsfield.com:/home/scottmsarsfield/public_html",
     "build:workspaces": "yarn workspaces run build:static",
     "build": "yarn run build:workspaces",
     "clean": "rm -rf dist/*"

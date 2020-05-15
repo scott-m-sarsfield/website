@@ -18,10 +18,10 @@ const HeaderBar = ({ activeNav }) => (
       <Link className={cx('nav-link', { active: activeNav === 'apps' })} to="/apps">
         <h2>Apps</h2>
       </Link>
-      <a className="nav-link" href="https://github.com/scott-m-sarsfield">
+      <a className="nav-link" href="https://github.com/scott-m-sarsfield" target="_blank" rel="noopener noreferrer">
         <h2 >GitHub</h2>
       </a>
-      <a className="nav-link" href="https://www.linkedin.com/in/scottmsarsfield">
+      <a className="nav-link" href="https://www.linkedin.com/in/scottmsarsfield" target="_blank" rel="noopener noreferrer">
         <h2 >LinkedIn</h2>
       </a>
     </div>

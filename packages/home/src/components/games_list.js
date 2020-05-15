@@ -24,8 +24,6 @@ const GamesList = ({ games, buttonLabel }) => {
 
 GamesList.propTypes = {
   games: types.array,
-  searchText: types.string,
-  mustHaveTags: types.array,
   buttonLabel: types.string
 };
 

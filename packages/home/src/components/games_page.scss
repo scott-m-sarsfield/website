@@ -6,33 +6,10 @@
     padding-bottom: 2em;
   }
 
-  .search-bar {
-    background: white;
-    border: solid 1px black;
-    margin: auto;
-    margin-top: 0.5em;
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-    overflow: hidden;
-    position: relative;
-    padding: 0.5em;
-    box-sizing: border-box;
-  }
-
   @include whenDesktop {
-    .sidebar,
-    .main-list {
-      float: left;
-    }
-    .sidebar {
-      width: 33.3%;
-    }
-    .sidebar .search-bar {
-      padding-bottom: 4em;
-      min-height: 100%;
-    }
-    .main-list {
-      width: 66.7%;
+    .content {
+      max-width: 1200px;
+      margin: auto;
     }
   }
 }

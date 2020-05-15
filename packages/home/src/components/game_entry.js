@@ -5,24 +5,7 @@ import siteFavicon from '../img/favicon.png';
 import './game_entry.scss';
 
 const GameEntry = (props) => {
-  const { name, description, href, tags, onSelectTag, buttonLabel, imgSrc } = props;
-
-  let _tags = tags.sort().map((v, i) => {
-    return (
-      <a style={{
-        fontStyle: 'italic',
-        marginRight: '0.25em',
-        color: '#444',
-        textDecoration: 'underline',
-        cursor: 'pointer'
-      }}
-      onClick={onSelectTag.bind(null, v)}
-      href="#"
-      key={i}>
-        {v}
-      </a>
-    );
-  });
+  const { name, description, href, tags, buttonLabel, imgSrc } = props;
 
   return (
     <div className="game-entry">
@@ -40,7 +23,7 @@ const GameEntry = (props) => {
               {name}
             </div>
             <div className="tags">
-              Tags: {_tags}
+              {tags.sort().join(', ')}
             </div>
           </div>
 
@@ -71,7 +54,6 @@ GameEntry.propTypes = {
   description: types.string,
   href: types.string.isRequired,
   tags: types.arrayOf(types.string),
-  onSelectTag: types.func.isRequired,
   buttonLabel: types.string,
   imgSrc: types.string
 };

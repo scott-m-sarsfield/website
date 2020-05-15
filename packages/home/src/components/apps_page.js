@@ -6,7 +6,7 @@ import './games_page.scss';
 
 const AppsPage = () => (
   <PageWithHeader className="games-page" activeNav="apps">
-    <div id="content">
+    <div className="content">
       <AppsPageContent />
     </div>
   </PageWithHeader>

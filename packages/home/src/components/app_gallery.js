@@ -12,8 +12,8 @@ const ArchiveNotice = () => (
   </div>
 );
 
-const AppGallery = ({ archived, name, description, logoSrc, screenshots, href }) => (
-  <div className="app-gallery">
+const AppGallery = ({ id, archived, name, description, logoSrc, screenshots, href }) => (
+  <div className="app-gallery" id={id}>
 
     <div className="gallery-header">
       <div className="logo-name">
@@ -54,6 +54,7 @@ const AppGallery = ({ archived, name, description, logoSrc, screenshots, href })
 );
 
 AppGallery.propTypes = {
+  id: types.string.isRequired,
   archived: types.bool.isRequired,
   name: types.string.isRequired,
   description: types.string.isRequired,

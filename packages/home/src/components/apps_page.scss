@@ -1,0 +1,30 @@
+@import '../styles/responsive_utilities.scss';
+
+.apps-page {
+  .header-bar {
+    margin-bottom: 15px;
+  }
+  .content {
+    overflow: hidden;
+    padding-bottom: 2em;
+
+    .tag-row {
+      display: none;
+    }
+  }
+
+  @include whenDesktop {
+    .content {
+      max-width: 1200px;
+      margin: auto;
+
+      .tag-row {
+        display: block;
+        margin: 0 15px 5px 15px;
+        padding: 0;
+        overflow: hidden;
+        white-space: normal;
+      }
+    }
+  }
+}

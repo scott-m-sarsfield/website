@@ -1,6 +1,12 @@
 import cleanSlateAPScores from '../img/cleanslate_ap_credit.png';
 import cleanSlateMiscQuestions from '../img/cleanslate_misc.png';
 import cleanSlateReview from '../img/cleanslate_review.png';
+import csfHomePage from '../img/csf_home_page.png';
+import csfHealthBlurb from '../img/csf_health_blurb.png';
+import csfMyAccount from '../img/csf_my_account_page.png';
+import csfOrderPage from '../img/csf_order_page.png';
+import csfReviewsPage from '../img/csf_reviews.png';
+import csfCalorieTracking from '../img/csf_calorie_tracking.png';
 
 export default [
   {
@@ -38,10 +44,35 @@ export default [
 
         Developed with Stefan Zecevic for Web Programming I.
         `,
-    archived: false,
+    archived: true,
     href: '/apps/csf',
     logoSrc: 'http://scottmsarsfield.com/apps/csf/img/favicon.ico',
-    screenshots: []
+    screenshots: [
+      {
+        src: csfHomePage,
+        alt: 'Campus Smart Foods - Home Page'
+      },
+      {
+        src: csfHealthBlurb,
+        alt: 'Campus Smart Foods - Health Page'
+      },
+      {
+        src: csfMyAccount,
+        alt: 'Campus Smart Foods - My Account Settings Page'
+      },
+      {
+        src: csfOrderPage,
+        alt: 'Campus Smart Foods - Order Page'
+      },
+      {
+        src: csfReviewsPage,
+        alt: 'Campus Smart Foods - Reviews Page'
+      },
+      {
+        src: csfCalorieTracking,
+        alt: 'Campus Smart Foods - Calorie Tracking Page'
+      }
+    ]
   },
 
   {

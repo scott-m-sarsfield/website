@@ -59,13 +59,40 @@
     }
   }
 
-  .carousel-wrapper {
-    border: solid 1px black;
-  }
-
   img {
     width: 100%;
     height: auto;
+  }
+
+  .view-gallery-button {
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 56.25vmin;
+    position: relative;
+    text-transform: none;
+
+    .screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background: rgba(0, 0, 0, 0.8);
+      color: white;
+      display: flex;
+      justify-content: space-around;
+
+      .screen-label {
+        margin: auto;
+        font-size: 20px;
+        display: flex;
+        align-items: center;
+
+        > *:first-child {
+          margin-right: 10px;
+        }
+      }
+    }
   }
 
   @include whenDesktop {
@@ -91,5 +118,19 @@
         margin-top: 0;
       }
     }
+  }
+  .view-gallery-button {
+    .screen {
+      background: rgba(0, 0, 0, 0.6);
+    }
+  }
+}
+
+.carousel-wrapper {
+  border: solid 1px black;
+
+  img {
+    width: 100%;
+    height: auto;
   }
 }

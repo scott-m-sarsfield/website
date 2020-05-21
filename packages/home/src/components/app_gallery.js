@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import types from 'prop-types';
-import Button from '@material-ui/core/Button';
+import useMediaQuery from '@material-ui/core/useMediaQuery';
+import AppsIcon from '@material-ui/icons/Apps';
 import isEmpty from 'lodash/isEmpty';
+import Button from './library/button';
 import Dialog from './library/dialog';
 import Carousel from './library/carousel';
 
@@ -16,11 +18,33 @@ const ArchiveNotice = () => (
 
 const AppGallery = ({ id, archived, name, description, logoSrc, screenshots, href }) => {
   const [modalOpen, setModalOpen] = useState(false);
+  const isDesktop = useMediaQuery('(min-width: 850px)');
 
   return (
     <React.Fragment>
-      <Dialog onClose={() => setModalOpen(false)} open={modalOpen}>
-      Sample content.
+      <Dialog onClose={() => setModalOpen(false)} open={modalOpen} scroll="body">
+        <div className="carousel-wrapper">
+          { isDesktop ? (
+            <Carousel>
+              {
+                screenshots.map(({ src, alt }, i) => (
+                  <img key={i}src={src} alt={alt}/>
+                ))
+              }
+            </Carousel>
+          ) : (
+            <React.Fragment>
+              {
+                screenshots.map(({ src, alt }, i) => (
+                  <React.Fragment key={i}>
+                    <img src={src} alt={alt}/>
+                    <hr />
+                  </React.Fragment>
+                ))
+              }
+            </React.Fragment>
+          )}
+        </div>
       </Dialog>
       <div className="app-gallery" id={id}>
 
@@ -46,20 +70,18 @@ const AppGallery = ({ id, archived, name, description, logoSrc, screenshots, hre
           {description}
         </div>
 
-        <div>
-          <Button onClick={() => setModalOpen(true)}>click me</Button>
-        </div>
-
         {
           isEmpty(screenshots) ? null : (
-            <div className="carousel-wrapper">
-              <Carousel>
-                {
-                  screenshots.map(({ src, alt }, i) => (
-                    <img key={i}src={src} alt={alt}/>
-                  ))
-                }
-              </Carousel>
+            <div >
+              <Button onClick={() => setModalOpen(true)} className="view-gallery-button">
+                <img src={screenshots[0].src} alt="View Gallery"/>
+                <div className="screen">
+                  <div className="screen-label">
+                    <AppsIcon fontSize="large" />
+                    <span>View Gallery</span>
+                  </div>
+                </div>
+              </Button>
             </div>
           )
         }

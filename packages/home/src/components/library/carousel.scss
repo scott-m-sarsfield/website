@@ -1,0 +1,15 @@
+.carousel-navigation-button {
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  color: white;
+  outline: none;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  &.disabled {
+    display: none;
+  }
+}

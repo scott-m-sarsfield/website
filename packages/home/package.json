@@ -15,6 +15,8 @@
     "build:static": "yarn run build && mkdir -p ../../dist && cp -R public/* ../../dist/"
   },
   "dependencies": {
+    "@material-ui/core": "^4.9.14",
+    "@material-ui/icons": "^4.9.1",
     "classnames": "^2.2.6",
     "gatsby": "^2.21.13",
     "gatsby-plugin-favicon": "^3.1.6",

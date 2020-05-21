@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import types from 'prop-types';
-import Carousel from 'nuka-carousel';
+import Button from '@material-ui/core/Button';
 import isEmpty from 'lodash/isEmpty';
+import Dialog from './library/dialog';
+import Carousel from './library/carousel';
 
 import './app_gallery.scss';
 
@@ -12,46 +14,59 @@ const ArchiveNotice = () => (
   </div>
 );
 
-const AppGallery = ({ id, archived, name, description, logoSrc, screenshots, href }) => (
-  <div className="app-gallery" id={id}>
+const AppGallery = ({ id, archived, name, description, logoSrc, screenshots, href }) => {
+  const [modalOpen, setModalOpen] = useState(false);
 
-    <div className="gallery-header">
-      <div className="logo-name">
-        <img className="logo" src={logoSrc} alt={name}/>
-        <h2 className="name"> {name} </h2>
-      </div>
-      {
-        !archived ? (
-          <a href={href} className="launch-button"><button>Launch</button></a>
-        ) : null
-      }
-    </div>
+  return (
+    <React.Fragment>
+      <Dialog onClose={() => setModalOpen(false)} open={modalOpen}>
+      Sample content.
+      </Dialog>
+      <div className="app-gallery" id={id}>
 
-    {
-      archived ? (
-        <ArchiveNotice />
-      ) : null
-    }
-
-    <div className="description">
-      {description}
-    </div>
-
-    {
-      isEmpty(screenshots) ? null : (
-        <div className="carousel-wrapper">
-          <Carousel >
-            {
-              screenshots.map(({ src, alt }, i) => (
-                <img key={i}src={src} alt={alt}/>
-              ))
-            }
-          </Carousel>
+        <div className="gallery-header">
+          <div className="logo-name">
+            <img className="logo" src={logoSrc} alt={name}/>
+            <h2 className="name"> {name} </h2>
+          </div>
+          {
+            !archived ? (
+              <a href={href} className="launch-button"><button>Launch</button></a>
+            ) : null
+          }
         </div>
-      )
-    }
-  </div>
-);
+
+        {
+          archived ? (
+            <ArchiveNotice />
+          ) : null
+        }
+
+        <div className="description">
+          {description}
+        </div>
+
+        <div>
+          <Button onClick={() => setModalOpen(true)}>click me</Button>
+        </div>
+
+        {
+          isEmpty(screenshots) ? null : (
+            <div className="carousel-wrapper">
+              <Carousel>
+                {
+                  screenshots.map(({ src, alt }, i) => (
+                    <img key={i}src={src} alt={alt}/>
+                  ))
+                }
+              </Carousel>
+            </div>
+          )
+        }
+      </div>
+    </React.Fragment>
+  );
+};
 
 AppGallery.propTypes = {
   id: types.string.isRequired,

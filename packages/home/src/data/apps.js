@@ -1,12 +1,14 @@
 import cleanSlateAPScores from '../img/cleanslate_ap_credit.png';
 import cleanSlateMiscQuestions from '../img/cleanslate_misc.png';
 import cleanSlateReview from '../img/cleanslate_review.png';
+import cleanSlateLogo from '../img/cleanslate_logo.jpg';
 import csfHomePage from '../img/csf_home_page.png';
 import csfHealthBlurb from '../img/csf_health_blurb.png';
 import csfMyAccount from '../img/csf_my_account_page.png';
 import csfOrderPage from '../img/csf_order_page.png';
 import csfReviewsPage from '../img/csf_reviews.png';
 import csfCalorieTracking from '../img/csf_calorie_tracking.png';
+import csfLogo from '../img/csf_logo.ico';
 
 export default [
   {
@@ -19,7 +21,7 @@ export default [
          `,
     href: '/apps/cleanslate',
     archived: true,
-    logoSrc: 'http://scottmsarsfield.com/apps/cleanslate/images/scu_logo_large.jpg',
+    logoSrc: cleanSlateLogo,
     screenshots: [
       {
         src: cleanSlateAPScores,
@@ -46,7 +48,7 @@ export default [
         `,
     archived: true,
     href: '/apps/csf',
-    logoSrc: 'http://scottmsarsfield.com/apps/csf/img/favicon.ico',
+    logoSrc: csfLogo,
     screenshots: [
       {
         src: csfHomePage,

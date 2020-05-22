@@ -8,6 +8,14 @@ import csfMyAccount from '../img/csf_my_account_page.png';
 import csfOrderPage from '../img/csf_order_page.png';
 import csfReviewsPage from '../img/csf_reviews.png';
 import csfCalorieTracking from '../img/csf_calorie_tracking.png';
+import babypoolLogo from '../img/babypool_logo.png';
+import babypoolScreenshot from '../img/babypool_screenshot.png';
+import poolTwoMenu from '../img/pool2_menu.png';
+import poolTwoIcon from '../img/pool2_icon.png';
+import poolTwoCreateGame from '../img/pool2_create_game.png';
+import poolTwoWaiting from '../img/pool2_waiting.png';
+import poolTwoJoinGame from '../img/pool2_join_game.png';
+import poolTwoBallsAssigned from '../img/pool2_balls_assigned.png';
 import csfLogo from '../img/csf_logo.ico';
 
 export default [
@@ -96,10 +104,50 @@ export default [
       Select the number of balls per player and tell your friends on other devices to join the group. 
       Balls are assigned to each phone when group is ready.
     `,
-    archived: false,
+    archived: true,
     href: '/apps/pool2',
-    logoSrc: 'http://scottmsarsfield.com/games/pool2/img/favicon.png',
-    screenshots: []
+    logoSrc: poolTwoIcon,
+    screenshots: [
+      {
+        src: poolTwoMenu,
+        alt: 'Pool Picker 2 - Menu'
+      },
+      {
+        src: poolTwoCreateGame,
+        alt: 'Pool Picker 2 - Create Game'
+      },
+      {
+        src: poolTwoWaiting,
+        alt: 'Pool Picker 2 - Waiting'
+      },
+      {
+        src: poolTwoJoinGame,
+        alt: 'Pool Picker 2 - Join Game'
+      },
+      {
+        src: poolTwoBallsAssigned,
+        alt: 'Pool Picker 2 - Balls Assigned'
+      }
+    ]
+  },
+
+  {
+    name: 'BabyPool',
+    description: `
+      Leading up to the birth of my first-cousin-once-removed Vaughn, my mom asked if I could
+      set up a baby pool to guess the height, weight, and date of his birth.  I was anxious to
+      test my skills and I made this.  Unfortunately, I wasn't able to develop it fast enough
+      to share before the date arrived. Se la vie.
+    `,
+    archived: true,
+    href: '',
+    logoSrc: babypoolLogo,
+    screenshots: [
+      {
+        src: babypoolScreenshot,
+        alt: 'BabyPool'
+      }
+    ]
   }
 
 ];

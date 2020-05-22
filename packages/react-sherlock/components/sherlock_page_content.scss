@@ -1,4 +1,12 @@
 .sherlock-page-content {
+  margin: 0 20px;
+
+  .title {
+    font-family: 'Poiret One', sans-serif;
+    color: white;
+    margin-bottom: 20px;
+  }
+
   .sherlock-button {
     font-family: inherit;
     color: inherit;
@@ -6,18 +14,42 @@
     padding: 0 15px;
     border: none;
     background: none;
-    width: 100px;
+
+    &::before {
+      content: '> ';
+      color: transparent;
+    }
+    &:after {
+      content: ' <';
+      color: transparent;
+    }
 
     &:focus,
     &:hover {
       color: yellow;
 
       &::before {
-        content: '> ';
+        color: yellow;
       }
       &:after {
-        content: ' <';
+        color: yellow;
       }
+    }
+  }
+
+  .jrpg {
+    background: #1111a7;
+    color: white;
+    padding: 10px 15px;
+    border: 1px outset;
+    border-radius: 4px;
+    font-family: 'Ubuntu Mono', sans-serif;
+    letter-spacing: 2px;
+    margin: 10px 0;
+
+    &.location {
+      background: rgb(9, 90, 16);
+      margin: 10px;
     }
   }
 }

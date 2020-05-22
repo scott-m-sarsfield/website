@@ -1,8 +1,0 @@
-{
-    "name": "babypool",
-    "version": "0.0.1",
-    "license": "UNLICENSED",
-    "scripts": {
-        "build:static": "mkdir -p ../../dist/apps/babypool && cp -R * ../../dist/apps/babypool/"
-    }
-}

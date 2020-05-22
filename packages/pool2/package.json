@@ -1,8 +1,0 @@
-{
-  "name": "pool2",
-  "version": "0.0.1",
-  "license": "UNLICENSED",
-  "scripts": {
-    "build:static": "mkdir -p ../../dist/apps/pool2 && cp -R * ../../dist/apps/pool2/"
-  }
-}

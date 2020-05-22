@@ -1,8 +1,0 @@
-{
-    "name": "csf",
-    "version": "0.0.1",
-    "license": "UNLICENSED",
-    "scripts": {
-        "build:static": "mkdir -p ../../dist/apps/csf && cp -R * ../../dist/apps/csf/"
-    }
-}

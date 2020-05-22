@@ -1,5 +1,23 @@
 .sherlock-page-content {
-  img {
-    max-width: 100%;
+  .sherlock-button {
+    font-family: inherit;
+    color: inherit;
+    font-size: inherit;
+    padding: 0 15px;
+    border: none;
+    background: none;
+    width: 100px;
+
+    &:focus,
+    &:hover {
+      color: yellow;
+
+      &::before {
+        content: '> ';
+      }
+      &:after {
+        content: ' <';
+      }
+    }
   }
 }

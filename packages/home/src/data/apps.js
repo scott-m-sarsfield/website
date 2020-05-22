@@ -1,3 +1,4 @@
+import poolLogo from '@scott-m-sarsfield/pool/img/favicon.png';
 import cleanSlateAPScores from '../img/cleanslate_ap_credit.png';
 import cleanSlateMiscQuestions from '../img/cleanslate_misc.png';
 import cleanSlateReview from '../img/cleanslate_review.png';
@@ -93,7 +94,7 @@ export default [
     `,
     archived: false,
     href: '/apps/pool',
-    logoSrc: 'http://scottmsarsfield.com/games/pool/img/favicon.png',
+    logoSrc: poolLogo,
     screenshots: []
   },
 

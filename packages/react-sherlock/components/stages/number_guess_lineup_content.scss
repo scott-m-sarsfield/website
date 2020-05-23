@@ -12,24 +12,4 @@
     padding: 10px;
     box-sizing: border-box;
   }
-
-  .number-card {
-    display: inline-block;
-    margin: auto;
-    background: white;
-    min-width: 50px;
-    min-height: 50px;
-    border-radius: 4px;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-
-    .number {
-      font-weight: bold;
-      font-style: italic;
-      font-size: 28px;
-      position: relative;
-      right: 2px;
-    }
-  }
 }

@@ -20,7 +20,15 @@ const SherlockFrame = ({ children }) => (
       <div style={{ flex: '0 0 33.333%' }}>
         <img src={bigbear} alt="Big Bear dressed as Sherlock" style={bigBearStyles} />
       </div>
-      <div style={{ height: '100%', display: 'flex', flexDirection: 'column', padding: 10, boxSizing: 'border-box' }}>
+      <div style={{
+        height: '100%',
+        flex: '1 1 auto',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'flex-end',
+        padding: 10,
+        boxSizing: 'border-box'
+      }}>
         {children}
       </div>
     </div>

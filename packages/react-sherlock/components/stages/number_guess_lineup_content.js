@@ -2,20 +2,20 @@ import React from 'react';
 import types from 'prop-types';
 import map from 'lodash/map';
 import Dialogue from '../dialogue';
+import NumberCard from './number_card';
+import SherlockButton from './sherlock_button';
 
 import './number_guess_lineup_content.scss';
 
-const NumberGuessLineupContent = ({ numbers }) => (
+const NumberGuessLineupContent = ({ numbers, onResponse }) => (
   <React.Fragment>
     <div className="number-lineup">
       {
         map(numbers, (number) => (
           <div key={number} className="number-card-space">
-            <div className="number-card">
-              <span className="number">
-                {number}
-              </span>
-            </div>
+            <NumberCard>
+              {number}
+            </NumberCard>
           </div>
         ))
       }
@@ -24,14 +24,19 @@ const NumberGuessLineupContent = ({ numbers }) => (
       Is your number here?
     </Dialogue>
     <div className="jrpg" style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-      <button className="sherlock-button">No</button>
-      <button className="sherlock-button">Yes</button>
+      <SherlockButton onClick={() => onResponse(false)}>
+        No
+      </SherlockButton>
+      <SherlockButton onClick={() => onResponse(true)}>
+        Yes
+      </SherlockButton>
     </div>
   </React.Fragment>
 );
 
 NumberGuessLineupContent.propTypes = {
-  numbers: types.arrayOf(types.number).isRequired
+  numbers: types.arrayOf(types.number).isRequired,
+  onResponse: types.func.isRequired
 };
 
 NumberGuessLineupContent.defaultProps = {

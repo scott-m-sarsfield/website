@@ -1,7 +1,9 @@
 import React from 'react';
+import types from 'prop-types';
 import Dialogue from '../dialogue';
+import SherlockButton from './sherlock_button';
 
-const NumberGuessIntroContent = () => (
+const NumberGuessIntroContent = ({ onStart }) => (
   <React.Fragment>
     <Dialogue className="jrpg">
       {`
@@ -23,10 +25,13 @@ const NumberGuessIntroContent = () => (
           Ready?
     </Dialogue>
     <div className="jrpg" style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-      <button className="sherlock-button">No</button>
-      <button className="sherlock-button">Ready!</button>
+      <SherlockButton onClick={onStart}>Ready!</SherlockButton>
     </div>
   </React.Fragment>
 );
+
+NumberGuessIntroContent.propTypes = {
+  onStart: types.func.isRequired
+};
 
 export default NumberGuessIntroContent;

@@ -12,13 +12,15 @@ export const stages = {
 export const actions = {
   RESET: 'reset',
   START: 'start',
-  ELIMINATE: 'eliminate'
+  ELIMINATE: 'eliminate',
+  TOGGLE_ANIMATION: 'toggleAnimation'
 };
 
 export const initialState = {
   stage: stages.INTRO,
   possibleNumbers: [],
-  displayedNumbers: []
+  displayedNumbers: [],
+  animated: true
 };
 
 function oneTo100() {
@@ -91,7 +93,14 @@ const sherlockGameplay = {
       possibleNumbers,
       displayedNumbers
     };
-  }
+  },
+
+  [actions.TOGGLE_ANIMATION]: (state) => (
+    {
+      ...state,
+      animated: !state.animated
+    }
+  )
 };
 
 function sherlockReducer(state, action) {

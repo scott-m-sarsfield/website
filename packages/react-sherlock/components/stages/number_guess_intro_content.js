@@ -3,9 +3,9 @@ import types from 'prop-types';
 import Dialogue from '../dialogue';
 import SherlockButton from './sherlock_button';
 
-const NumberGuessIntroContent = ({ onStart }) => (
+const NumberGuessIntroContent = ({ onStart, animated }) => (
   <React.Fragment>
-    <Dialogue className="jrpg">
+    <Dialogue className="jrpg" animated={animated}>
       {`
             Hi.  I want you to think of a number between 1 and 100. 
           `}
@@ -31,7 +31,8 @@ const NumberGuessIntroContent = ({ onStart }) => (
 );
 
 NumberGuessIntroContent.propTypes = {
-  onStart: types.func.isRequired
+  onStart: types.func.isRequired,
+  animated: types.bool
 };
 
 export default NumberGuessIntroContent;

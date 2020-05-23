@@ -3,6 +3,7 @@ import types from 'prop-types';
 import background from './sherlock-background.jpg';
 import bigbear from './bigbear_sherlock.png';
 import DynamicBackground from './dynamic_background';
+import SherlockButton from './stages/sherlock_button';
 
 const bigBearStyles = {
   position: 'absolute',
@@ -13,9 +14,12 @@ const bigBearStyles = {
   maxWidth: '100%'
 };
 
-const SherlockFrame = ({ children }) => (
+const SherlockFrame = ({ children, animated, onToggleAnimation }) => (
   <DynamicBackground src={background} style={{ height: 500, position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
-    <div className="jrpg location">221B Baker St.</div>
+    <div className="jrpg location">
+      <div>221B Baker St.</div>
+      <SherlockButton onClick={onToggleAnimation}>{animated ? 'Disable Animation' : 'Enable Animation'}</SherlockButton>
+    </div>
     <div style={{ display: 'flex', alignItems: 'flex-end', flex: '1 1 auto' }}>
       <div style={{ flex: '0 0 33.333%' }}>
         <img src={bigbear} alt="Big Bear dressed as Sherlock" style={bigBearStyles} />
@@ -36,7 +40,9 @@ const SherlockFrame = ({ children }) => (
 );
 
 SherlockFrame.propTypes = {
-  children: types.node
+  children: types.node,
+  animated: types.bool,
+  onToggleAnimation: types.func.isRequired
 };
 
 export default SherlockFrame;

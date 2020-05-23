@@ -7,7 +7,7 @@ import SherlockButton from './sherlock_button';
 
 import './number_guess_lineup_content.scss';
 
-const NumberGuessLineupContent = ({ numbers, onResponse }) => (
+const NumberGuessLineupContent = ({ numbers, onResponse, animated }) => (
   <React.Fragment>
     <div className="number-lineup">
       {
@@ -20,7 +20,7 @@ const NumberGuessLineupContent = ({ numbers, onResponse }) => (
         ))
       }
     </div>
-    <Dialogue className="jrpg">
+    <Dialogue className="jrpg" animated={animated}>
       Is your number here?
     </Dialogue>
     <div className="jrpg" style={{ display: 'flex', justifyContent: 'space-evenly' }}>
@@ -36,7 +36,8 @@ const NumberGuessLineupContent = ({ numbers, onResponse }) => (
 
 NumberGuessLineupContent.propTypes = {
   numbers: types.arrayOf(types.number).isRequired,
-  onResponse: types.func.isRequired
+  onResponse: types.func.isRequired,
+  animated: types.bool
 };
 
 NumberGuessLineupContent.defaultProps = {

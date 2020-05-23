@@ -14,7 +14,8 @@ const SherlockGame = () => {
   const {
     stage,
     displayedNumbers,
-    possibleNumbers: [guessedNumber]
+    possibleNumbers: [guessedNumber],
+    animated
   } = state;
 
   let content;
@@ -25,6 +26,7 @@ const SherlockGame = () => {
         <NumberGuessLineupContent
           numbers={displayedNumbers}
           onResponse={(numberDisplayed) => dispatch({ type: actions.ELIMINATE, numberDisplayed })}
+          animated={animated}
         />
       );
       break;
@@ -34,6 +36,7 @@ const SherlockGame = () => {
           number={guessedNumber}
           onPlayAgain={() => dispatch({ type: actions.RESET })}
           onExit={exit}
+          animated={animated}
         />
       );
       break;
@@ -42,13 +45,14 @@ const SherlockGame = () => {
       content = (
         <NumberGuessIntroContent
           onStart={() => dispatch({ type: actions.START })}
+          animated={animated}
         />
       );
       break;
   }
 
   return (
-    <SherlockFrame >
+    <SherlockFrame animated={animated} onToggleAnimation={() => dispatch({ type: actions.TOGGLE_ANIMATION })}>
       {content}
     </SherlockFrame>
   );

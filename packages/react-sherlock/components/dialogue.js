@@ -5,6 +5,7 @@ import noop from 'lodash/noop';
 
 const DialogueText = ({ children, onFinish = noop }) => {
   const finished = useRef(false);
+  const timeoutId = useRef(null);
   const [displayCount, setDisplayCount] = useState(1);
   let childrenArray = React.Children.toArray(children);
 
@@ -28,13 +29,20 @@ const DialogueText = ({ children, onFinish = noop }) => {
   useEffect(() => {
     if (childrenArray.length === 1) {
       if (isString(childrenArray[0])) {
-        setTimeout(() => {
+        timeoutId.current = setTimeout(() => {
           showNextChild();
         }, 50);
       } else {
         showNextChild();
       }
     }
+
+    return () => {
+      if (timeoutId.current) {
+        clearTimeout(timeoutId.current);
+        timeoutId.current = null;
+      }
+    };
   }, []);
 
   if (childrenArray.length === 1) {
@@ -50,8 +58,8 @@ const DialogueText = ({ children, onFinish = noop }) => {
   return currentChildren;
 };
 
-const Dialogue = ({ children, style, ...otherProps }) => {
-  return (
+const Dialogue = ({ children, style, animated, ...otherProps }) => {
+  return animated ? (
     <div {...otherProps} style={{ ...style, position: 'relative' }}>
       <div style={{ visibility: 'hidden' }}>
         {children}
@@ -62,12 +70,17 @@ const Dialogue = ({ children, style, ...otherProps }) => {
         </DialogueText>
       </div>
     </div>
+  ) : (
+    <div {...otherProps} style={{ ...style, position: 'relative' }}>
+      {children}
+    </div>
   );
 };
 
 Dialogue.propTypes = {
   children: types.node,
-  style: types.object
+  style: types.object,
+  animated: types.bool
 };
 
 export default Dialogue;

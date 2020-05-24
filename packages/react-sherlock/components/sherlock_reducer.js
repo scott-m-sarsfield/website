@@ -20,7 +20,8 @@ export const initialState = {
   stage: stages.INTRO,
   possibleNumbers: [],
   displayedNumbers: [],
-  animated: true
+  animated: true,
+  gameType: 'cards' // should be null
 };
 
 function oneTo100() {
@@ -28,6 +29,15 @@ function oneTo100() {
   for (let i = 1; i <= 100; i++) {
     arr.push(i);
   }
+  return arr;
+}
+
+function standardDeck() {
+  let arr = [];
+  for (let i = 0; i < 52; i++) {
+    arr.push(i);
+  }
+
   return arr;
 }
 
@@ -54,13 +64,25 @@ function randomlyChoose(fromArray, count) {
   return chosenArray;
 }
 
+const NUMBERS_PER_LINEUP = 25;
+const CARDS_PER_LINEUP = 16;
+
+function getTotalSlots(gameType) {
+  return gameType === 'cards' ? CARDS_PER_LINEUP : NUMBERS_PER_LINEUP;
+}
+
+function getAllOptions(gameType) {
+  return gameType === 'cards' ? standardDeck() : oneTo100();
+}
+
 const sherlockGameplay = {
   [actions.RESET]: () => {
     return { ...initialState };
   },
   [actions.START]: (state) => {
-    const possibleNumbers = oneTo100();
-    const displayedNumbers = sortBy(randomlyChoose(possibleNumbers, 25));
+    const { gameType } = state;
+    const possibleNumbers = getAllOptions(gameType);
+    const displayedNumbers = sortBy(randomlyChoose(possibleNumbers, getTotalSlots(gameType)));
 
     return {
       ...state,
@@ -70,20 +92,25 @@ const sherlockGameplay = {
     };
   },
   [actions.ELIMINATE]: (state, { numberDisplayed }) => {
+    const { gameType } = state;
+    const totalSlots = getTotalSlots(gameType);
+    const allOptions = getAllOptions(gameType);
     const possibleNumbers = numberDisplayed ?
       intersection(state.possibleNumbers, state.displayedNumbers)
       :
       difference(state.possibleNumbers, state.displayedNumbers)
       ;
 
-    const eliminatedNumbers = difference(oneTo100(), possibleNumbers);
+    const eliminatedNumbers = difference(allOptions, possibleNumbers);
 
-    const possibleSlots = possibleNumbers.length / 2 > 25 ? 25 : Math.floor(possibleNumbers.length / 2);
+    const possibleSlots = possibleNumbers.length / 2 > totalSlots ?
+      totalSlots :
+      Math.floor(possibleNumbers.length / 2);
 
     const displayedNumbers = sortBy(
       concat(
         randomlyChoose(possibleNumbers, possibleSlots),
-        randomlyChoose(eliminatedNumbers, 25 - possibleSlots)
+        randomlyChoose(eliminatedNumbers, totalSlots - possibleSlots)
       )
     );
 

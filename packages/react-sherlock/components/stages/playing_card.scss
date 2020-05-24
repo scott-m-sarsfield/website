@@ -1,0 +1,30 @@
+.playing-card {
+  display: inline-block;
+  margin: auto;
+  background: white;
+  color: black;
+  width: 100px;
+  height: 50px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  .center-content {
+    display: flex;
+    align-items: center;
+  }
+
+  .card {
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 32px;
+    position: relative;
+    right: 2px;
+  }
+  img {
+    height: 24px;
+    width: 24px;
+    margin-left: 5px;
+  }
+}

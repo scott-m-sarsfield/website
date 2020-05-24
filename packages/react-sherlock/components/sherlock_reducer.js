@@ -5,6 +5,7 @@ import sortBy from 'lodash/sortBy';
 
 export const stages = {
   INTRO: 'intro',
+  INSTRUCTION: 'instruction',
   LINEUP: 'lineup',
   REVEAL: 'reveal'
 };
@@ -13,7 +14,13 @@ export const actions = {
   RESET: 'reset',
   START: 'start',
   ELIMINATE: 'eliminate',
-  TOGGLE_ANIMATION: 'toggleAnimation'
+  TOGGLE_ANIMATION: 'toggleAnimation',
+  CHOOSE_GAME_TYPE: 'chooseGameType'
+};
+
+export const gameTypes = {
+  NUMBERS: 'numbers',
+  CARDS: 'cards'
 };
 
 export const initialState = {
@@ -21,7 +28,7 @@ export const initialState = {
   possibleNumbers: [],
   displayedNumbers: [],
   animated: true,
-  gameType: 'cards' // should be null
+  gameType: null
 };
 
 function oneTo100() {
@@ -68,16 +75,26 @@ const NUMBERS_PER_LINEUP = 25;
 const CARDS_PER_LINEUP = 16;
 
 function getTotalSlots(gameType) {
-  return gameType === 'cards' ? CARDS_PER_LINEUP : NUMBERS_PER_LINEUP;
+  return gameType === gameTypes.CARDS ? CARDS_PER_LINEUP : NUMBERS_PER_LINEUP;
 }
 
 function getAllOptions(gameType) {
-  return gameType === 'cards' ? standardDeck() : oneTo100();
+  return gameType === gameTypes.CARDS ? standardDeck() : oneTo100();
 }
 
 const sherlockGameplay = {
-  [actions.RESET]: () => {
-    return { ...initialState };
+  [actions.RESET]: ({ animated }) => {
+    return {
+      ...initialState,
+      animated
+    };
+  },
+  [actions.CHOOSE_GAME_TYPE]: (state, { gameType }) => {
+    return {
+      ...state,
+      gameType,
+      stage: stages.INSTRUCTION
+    };
   },
   [actions.START]: (state) => {
     const { gameType } = state;

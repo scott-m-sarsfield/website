@@ -3,22 +3,22 @@ import types from 'prop-types';
 import Dialogue from '../dialogue';
 import SherlockButton from './sherlock_button';
 
-const NumberGuessIntroContent = ({ onStart, animated }) => (
+const CardGuessInstructionContent = ({ onStart, animated }) => (
   <React.Fragment>
     <Dialogue className="jrpg" animated={animated}>
       {`
-            Hi.  I want you to think of a number between 1 and 100. 
+            I want you to think of a card in a standard playing card deck. 
           `}
       <br />
       <br />
       {
         `
-          Then I will show you several line ups of numbers, and you will tell me if your number is in each line up.
+          Then I will show you several line ups of cards, and you will tell me if your card is in each line up.
         `}
       <br />
       <br />
       {`
-        Then I will know your number.
+        Then I will know your card.
       `}
       <br />
       <br />
@@ -30,9 +30,9 @@ const NumberGuessIntroContent = ({ onStart, animated }) => (
   </React.Fragment>
 );
 
-NumberGuessIntroContent.propTypes = {
+CardGuessInstructionContent.propTypes = {
   onStart: types.func.isRequired,
   animated: types.bool
 };
 
-export default NumberGuessIntroContent;
+export default CardGuessInstructionContent;

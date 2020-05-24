@@ -1,12 +1,13 @@
 import React, { useReducer } from 'react';
-import NumberGuessIntroContent from './stages/number_guess_intro_content';
+import NumberGuessInstructionContent from './stages/number_guess_instruction_content';
 import NumberGuessLineupContent from './stages/number_guess_lineup_content';
 import NumberGuessRevealContent from './stages/number_guess_reveal_content';
-import CardGuessIntroContent from './stages/card_guess_intro_content';
+import CardGuessInstructionContent from './stages/card_guess_instruction_content';
 import CardGuessLineupContent from './stages/card_guess_lineup_content';
 import CardGuessRevealContent from './stages/card_guess_reveal_content';
 import SherlockFrame from './sherlock_frame';
 import sherlockReducer, { initialState, actions, stages } from './sherlock_reducer';
+import IntroContent from './stages/intro_content';
 
 function exit() {
   window.location.href = '/games' ;
@@ -58,20 +59,27 @@ const SherlockGame = () => {
           />
         );
       break;
-    case stages.INTRO:
-    default:
+    case stages.INSTRUCTION:
       content = gameType === 'cards' ? (
-        <CardGuessIntroContent
+        <CardGuessInstructionContent
           onStart={() => dispatch({ type: actions.START })}
           animated={animated}
         />
       ) : (
-        <NumberGuessIntroContent
+        <NumberGuessInstructionContent
           onStart={() => dispatch({ type: actions.START })}
           animated={animated}
         />
       );
       break;
+    case stages.INTRO:
+    default:
+      content = (
+        <IntroContent
+          onChooseGameType={(gameType) => dispatch({ type: actions.CHOOSE_GAME_TYPE, gameType })}
+          animated={animated}
+        />
+      );
   }
 
   return (

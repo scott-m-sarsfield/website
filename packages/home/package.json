@@ -26,7 +26,9 @@
     "nuka-carousel": "^4.6.7",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-helmet": "^6.0.0"
+    "react-helmet": "^6.0.0",
+    "@scott-m-sarsfield/pool": "0.0.1",
+    "@scott-m-sarsfield/sherlock": "0.0.1"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",

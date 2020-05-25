@@ -1,0 +1,29 @@
+.sherlock-button {
+  font-family: inherit;
+  color: inherit;
+  font-size: inherit;
+  padding: 0 15px;
+  border: none;
+  background: none;
+
+  &::before {
+    content: '> ';
+    color: transparent;
+  }
+  &:after {
+    content: ' <';
+    color: transparent;
+  }
+
+  &:focus,
+  &:hover {
+    color: yellow;
+
+    &::before {
+      color: yellow;
+    }
+    &:after {
+      color: yellow;
+    }
+  }
+}

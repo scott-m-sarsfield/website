@@ -1,0 +1,45 @@
+.playing-card {
+  display: inline-block;
+  margin: auto;
+  background: white;
+  color: black;
+  width: 50px;
+  height: 36px;
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+
+  .center-content {
+    display: flex;
+    align-items: center;
+  }
+
+  .card {
+    font-weight: bold;
+    font-size: 18px;
+    line-height: 24px;
+    position: relative;
+    right: 2px;
+  }
+  img {
+    width: 16px;
+    height: 16px;
+    margin-left: 5px;
+  }
+
+  @media screen and (min-width: 850px) {
+    width: 100px;
+    height: 50px;
+    border-radius: 4px;
+
+    .card {
+      font-size: 28px;
+      line-height: 32px;
+    }
+    img {
+      height: 24px;
+      width: 24px;
+    }
+  }
+}

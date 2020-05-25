@@ -1,3 +1,5 @@
+$grid-width: 15 * 25px + 32px;
+
 .floodit-game {
   background: white;
   position: absolute;
@@ -5,9 +7,37 @@
   right: 0;
   bottom: 0;
   left: 0;
-  padding: 20px;
+  display: flex;
 
-  .floodit-buttons {
-    margin-top: 20px;
+  .premise-menu {
+    flex: 0 1 50%;
+    height: 100%;
+    background: #333;
+    padding: 20px;
+    box-sizing: border-box;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .game-area {
+    flex: 0 0 $grid-width;
+    margin: auto;
+    padding: 0 30px;
+    .floodit-buttons {
+      margin-top: 20px;
+    }
+  }
+
+  .restart-button {
+    align-self: flex-end;
+    button {
+      background: none;
+      border: none;
+      outline: none;
+      color: inherit;
+      font-size: inherit;
+      text-decoration: underline;
+    }
   }
 }

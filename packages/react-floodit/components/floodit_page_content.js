@@ -5,6 +5,6 @@ const FloodItPageContent = () => (
   <div className="floodit-page-content">
     <FloodItGame />
   </div>
-)
+);
 
 export default FloodItPageContent;

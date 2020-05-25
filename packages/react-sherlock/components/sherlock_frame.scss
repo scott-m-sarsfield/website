@@ -1,21 +1,44 @@
 .sherlock-frame {
-  height: 500px;
-  position: relative;
+  min-height: 500px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
 
-  .jrpg.location {
-    background: rgb(9, 90, 16);
-    margin: 10px;
-    display: flex;
-    justify-content: space-between;
-    align-content: center;
+  .jrpg {
+    background: #1111a7;
+    color: white;
+    padding: 10px 15px;
+    border: 1px outset;
+    border-radius: 4px;
+    font-family: 'Ubuntu Mono', sans-serif;
+    letter-spacing: 2px;
+    margin: 10px 0;
 
-    button {
-      padding: 0;
-      font-size: 12px;
+    &.location {
+      background: rgb(9, 90, 16);
+      margin: 10px;
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
+
+      button {
+        padding: 0;
+        font-size: 12px;
+      }
     }
+  }
+
+  .dialogue-character {
+    position: absolute;
+    top: 0;
+    transform: translate(10px, -65%);
+    width: 80px;
+    z-index: 0;
   }
 
   .character-play-area {
@@ -40,6 +63,10 @@
   }
 
   @media screen and (min-width: 850px) {
+    .dialogue-character {
+      display: none;
+    }
+
     .character-play-area {
       flex-direction: row;
       align-items: flex-end;

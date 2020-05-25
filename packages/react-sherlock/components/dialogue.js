@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from 'react';
 import types from 'prop-types';
 import isString from 'lodash/isString';
 import noop from 'lodash/noop';
+import bigbear from './bigbear_sherlock.png';
 
 const DialogueText = ({ children, onFinish = noop }) => {
   const finished = useRef(false);
@@ -58,21 +59,28 @@ const DialogueText = ({ children, onFinish = noop }) => {
   return currentChildren;
 };
 
-const Dialogue = ({ children, style, animated, ...otherProps }) => {
-  return animated ? (
-    <div {...otherProps} style={{ ...style, position: 'relative' }}>
-      <div style={{ visibility: 'hidden' }}>
-        {children}
-      </div>
-      <div style={{ position: 'absolute', top: 10, left: 15, right: 15 }}>
-        <DialogueText>
-          {children}
-        </DialogueText>
-      </div>
-    </div>
-  ) : (
-    <div {...otherProps} style={{ ...style, position: 'relative' }}>
-      {children}
+const Dialogue = ({ children, style, animated, showCharacter, ...otherProps }) => {
+  return (
+    <div style={{ position: 'relative' }}>
+      {showCharacter && <img className="dialogue-character" src={bigbear} alt="Big Bear dressed as Sherlock" />}
+      {
+        animated ? (
+          <div {...otherProps} style={{ ...style, position: 'relative' }}>
+            <div style={{ visibility: 'hidden' }}>
+              {children}
+            </div>
+            <div style={{ position: 'absolute', top: 10, left: 15, right: 15 }}>
+              <DialogueText>
+                {children}
+              </DialogueText>
+            </div>
+          </div>
+        ) : (
+          <div {...otherProps} style={{ ...style, position: 'relative' }}>
+            {children}
+          </div>
+        )
+      }
     </div>
   );
 };
@@ -80,7 +88,8 @@ const Dialogue = ({ children, style, animated, ...otherProps }) => {
 Dialogue.propTypes = {
   children: types.node,
   style: types.object,
-  animated: types.bool
+  animated: types.bool,
+  showCharacter: types.bool
 };
 
 export default Dialogue;

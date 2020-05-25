@@ -5,34 +5,19 @@ import bigbear from './bigbear_sherlock.png';
 import DynamicBackground from './dynamic_background';
 import SherlockButton from './stages/sherlock_button';
 
-const bigBearStyles = {
-  position: 'absolute',
-  bottom: 0,
-  left: 0,
-  right: 0,
-  transform: 'translateY(20%)',
-  maxWidth: '100%'
-};
+import './sherlock_frame.scss';
 
 const SherlockFrame = ({ children, animated, onToggleAnimation }) => (
-  <DynamicBackground src={background} style={{ height: 500, position: 'relative', overflow: 'hidden', display: 'flex', flexDirection: 'column' }}>
+  <DynamicBackground src={background} className="sherlock-frame">
     <div className="jrpg location">
       <div>221B Baker St.</div>
       <SherlockButton onClick={onToggleAnimation}>{animated ? 'Disable Animation' : 'Enable Animation'}</SherlockButton>
     </div>
-    <div style={{ display: 'flex', alignItems: 'flex-end', flex: '1 1 auto' }}>
-      <div style={{ flex: '0 0 33.333%' }}>
-        <img src={bigbear} alt="Big Bear dressed as Sherlock" style={bigBearStyles} />
+    <div className="character-play-area">
+      <div className="character">
+        <img src={bigbear} alt="Big Bear dressed as Sherlock" />
       </div>
-      <div style={{
-        height: '100%',
-        flex: '1 1 auto',
-        display: 'flex',
-        flexDirection: 'column',
-        justifyContent: 'flex-end',
-        padding: 10,
-        boxSizing: 'border-box'
-      }}>
+      <div className="play-area">
         {children}
       </div>
     </div>

@@ -6,7 +6,7 @@ import { gameTypes } from '../sherlock_reducer';
 
 const IntroContent = ({ onChooseGameType, animated }) => (
   <React.Fragment>
-    <Dialogue className="jrpg" animated={animated}>
+    <Dialogue className="jrpg" animated={animated} showCharacter={true}>
       {`
             Hi.  I'm not Sherlock, but I have the ability to guess your number or card.
           `}

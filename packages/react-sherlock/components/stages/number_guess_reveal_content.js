@@ -6,7 +6,7 @@ import SherlockButton from './sherlock_button';
 
 const NumberGuessRevealContent = ({ number, onPlayAgain, onExit, animated }) => (
   <React.Fragment>
-    <Dialogue className="jrpg" animated={animated}>
+    <Dialogue className="jrpg" animated={animated} showCharacter={true}>
       {`
             I have determined that your number is...
           `}

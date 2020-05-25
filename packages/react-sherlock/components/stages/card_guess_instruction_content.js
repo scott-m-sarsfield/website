@@ -5,7 +5,7 @@ import SherlockButton from './sherlock_button';
 
 const CardGuessInstructionContent = ({ onStart, animated }) => (
   <React.Fragment>
-    <Dialogue className="jrpg" animated={animated}>
+    <Dialogue className="jrpg" animated={animated} showCharacter={true}>
       {`
             I want you to think of a card in a standard playing card deck. 
           `}

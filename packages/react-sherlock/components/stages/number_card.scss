@@ -3,8 +3,8 @@
   margin: auto;
   background: white;
   color: black;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 36px;
   border-radius: 4px;
   display: flex;
   align-items: center;
@@ -13,8 +13,19 @@
   .number {
     font-weight: bold;
     font-style: italic;
-    font-size: 28px;
+    font-size: 18px;
     position: relative;
-    right: 2px;
+    right: 1px;
+  }
+
+  @media screen and (min-width: 850px) {
+    height: 50px;
+    width: 50px;
+
+    .number {
+      font-size: 28px;
+      line-height: 32px;
+      right: 2px;
+    }
   }
 }

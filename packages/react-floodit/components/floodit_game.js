@@ -9,7 +9,8 @@ const FloodItGame = () => {
   const [state, dispatch] = useReducer(floodItReducer, initialState);
   const {
     grid,
-    moveCount
+    moveCount,
+    gameOver
   } = state;
   return (
     <div className="floodit-game">
@@ -32,9 +33,23 @@ const FloodItGame = () => {
         </div>
       </div>
       <div className="game-area">
-        <div style={{ textAlign: 'right' }}>{moveCount}</div>
-        <FloodItGrid grid={grid} />
-        <FloodItButtons onSelectColor={(color) => dispatch({ type: actions.SELECT_COLOR, color })} />
+        <div className="playable-area">
+          <div style={{ textAlign: 'right' }}>{moveCount}</div>
+          <FloodItGrid grid={grid} />
+          <FloodItButtons onSelectColor={(color) => dispatch({ type: actions.SELECT_COLOR, color })} />
+        </div>
+        {gameOver && (
+          <div className="game-over-screen">
+            <span>
+              Well done!
+              <br />
+              <br />
+              {`You flooded the board in ${moveCount} moves!`}
+              <br />
+              <button onClick={() => dispatch({ type: actions.NEW_GAME })}>Play Again</button>
+            </span>
+          </div>
+        )}
       </div>
     </div>
   );

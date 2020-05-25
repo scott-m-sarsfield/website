@@ -21,11 +21,41 @@ $grid-width: 15 * 25px + 32px;
     justify-content: space-between;
   }
   .game-area {
-    flex: 0 0 $grid-width;
+    flex: 1 0 $grid-width;
+    height: 100%;
     margin: auto;
     padding: 0 30px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    .playable-area {
+      width: $grid-width;
+    }
+
     .floodit-buttons {
       margin-top: 20px;
+    }
+
+    .game-over-screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(#000, 0.6);
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+      button {
+        font-size: inherit;
+        margin-top: 60px;
+      }
     }
   }
 

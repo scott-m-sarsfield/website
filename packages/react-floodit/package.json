@@ -1,11 +1,11 @@
 {
-  "name": "@scott-m-sarsfield/sherlock",
+  "name": "@scott-m-sarsfield/floodit",
   "version": "0.0.1",
   "license": "UNLICENSED",
   "scripts": {
     "build:static": "# built through home package"
   },
-  "main": "./components/sherlock_page_content.js",
+  "main": "./components/floodit_page_content.js",
   "dependencies": {
     "prop-types": "^15.7.2",
     "react": "^16.13.1",

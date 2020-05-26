@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react';
+import React, { useReducer, useEffect } from 'react';
 import { GlobalHotKeys } from 'react-hotkeys';
 import FloodItGrid from './floodit_grid';
 import FloodItButtons from './floodit_buttons';
@@ -23,6 +23,10 @@ const FloodItGame = () => {
     moveCount,
     gameOver
   } = state;
+
+  useEffect(() => {
+    dispatch({ type: actions.NEW_GAME });
+  }, []);
 
   const keyHandlers = {
     RESET: () => dispatch({ type: actions.NEW_GAME }),

@@ -1,4 +1,5 @@
 import reduce from 'lodash/reduce';
+import fill from 'lodash/fill';
 import { DIMENSION, COLORS } from '../constants';
 
 export const actions = {
@@ -19,7 +20,7 @@ function randomGrid() {
 }
 
 export const initialState = {
-  grid: randomGrid(),
+  grid: fill(new Array(DIMENSION * DIMENSION), 0),
   moveCount: 0,
   gameOver: false
 };

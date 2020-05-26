@@ -1,0 +1,145 @@
+$desktop-grid-width: 15 * 25px + 32px;
+$mobile-grid-width: 15 * 19px + 32px;
+
+.floodit-game {
+  background: white;
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+
+  .premise-menu {
+    flex: 0 1 50%;
+    background: #333;
+    padding: 20px;
+    box-sizing: border-box;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .game-area {
+    height: 100%;
+    padding: 10px 5px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    .playable-area {
+      width: $mobile-grid-width;
+    }
+
+    .floodit-buttons {
+      margin-top: 20px;
+    }
+
+    .game-over-screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(#000, 0.6);
+      color: white;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+
+      button {
+        font-size: inherit;
+        margin-top: 60px;
+        color: black;
+        background: white;
+        border: none;
+        border-radius: 2px;
+        min-height: 30px;
+      }
+    }
+  }
+
+  .restart-button {
+    align-self: flex-end;
+
+    button {
+      background: none;
+      border: none;
+      outline: none;
+      color: inherit;
+      font-size: inherit;
+      text-decoration: underline;
+    }
+  }
+
+  .shortcuts-and-actions {
+    display: flex;
+    flex-direction: column;
+    margin-top: 10px;
+  }
+
+  .keyboard-shortcut-info {
+    display: none;
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      font-size: 16px;
+
+      li {
+        margin: 5px 0;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        border-top: 1px solid rgba(#fff, 0.2);
+        margin-top: 2px;
+        padding-top: 2px;
+
+        &:first-child {
+          border-top: none;
+        }
+
+        > span {
+          &:first-child {
+            margin-right: 10px;
+          }
+        }
+      }
+
+      .key {
+        font-family: monospace;
+        padding: 0 2px;
+        border-radius: 2px;
+        background: white;
+        color: black;
+
+        + .key {
+          margin-left: 2px;
+        }
+      }
+    }
+  }
+
+  @media screen and (min-width: 850px) {
+    flex-direction: row;
+
+    .keyboard-shortcut-info {
+      display: block;
+    }
+    .restart-button button {
+      margin-top: 20px;
+    }
+
+    .game-area {
+      margin: auto;
+      padding: 15px 30px;
+      flex: 1 0 $desktop-grid-width;
+
+      .playable-area {
+        width: $desktop-grid-width;
+      }
+    }
+  }
+}

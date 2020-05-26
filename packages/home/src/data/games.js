@@ -1,4 +1,5 @@
 import sherlockIcon from '../img/sherlock_icon.png';
+import flooditIcon from '../img/floodit_icon.png';
 
 export default [
   {
@@ -22,10 +23,10 @@ export default [
     name: 'Flood It',
     description: 'A simple game where you attempt to change the color the fewest number of times to fill the entire grid.',
     tags: [
-      'Archived'
+      'Remastered'
     ],
     href: '/games/floodit',
-    imgSrc: 'http://scottmsarsfield.com/games/floodit/img/favicon.png'
+    imgSrc: flooditIcon
   },
   {
     name: 'Tetris',

@@ -17,19 +17,20 @@
   "dependencies": {
     "@material-ui/core": "^4.9.14",
     "@material-ui/icons": "^4.9.1",
+    "@scott-m-sarsfield/floodit": "0.0.1",
+    "@scott-m-sarsfield/pool": "0.0.1",
+    "@scott-m-sarsfield/sherlock": "0.0.1",
     "classnames": "^2.2.6",
-    "gatsby": "^2.21.13",
+    "gatsby": "^2.24.50",
     "gatsby-plugin-favicon": "^3.1.6",
     "gatsby-plugin-react-helmet": "^3.3.1",
     "gatsby-plugin-sass": "^2.3.1",
+    "lodash": "^4.17.20",
     "node-sass": "^4.14.1",
     "nuka-carousel": "^4.6.7",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
-    "react-helmet": "^6.0.0",
-    "@scott-m-sarsfield/pool": "0.0.1",
-    "@scott-m-sarsfield/sherlock": "0.0.1",
-    "@scott-m-sarsfield/floodit": "0.0.1"
+    "react-helmet": "^6.0.0"
   },
   "devDependencies": {
     "babel-eslint": "^10.1.0",
@@ -41,7 +42,6 @@
     "eslint-plugin-react": "^7.19.0",
     "eslint-plugin-react-hooks": "^4.0.0",
     "gatsby-plugin-eslint": "^2.0.8",
-    "lodash": "^4.17.15",
     "prettier": "2.0.5"
   },
   "repository": {

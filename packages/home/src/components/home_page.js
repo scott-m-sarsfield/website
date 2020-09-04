@@ -24,7 +24,7 @@ const HomePage = () => (
         {
           'Graduated with a Masters in Computer Science and Engineering from Santa Clara University. '
         }
-        {'Currently working full-time for EY\'s '}
+        {'Working full-time on EY\'s '}
         <a href="https://www.gignow.com/">GigNow</a>
         {' team since February 2018.'}
         <br />

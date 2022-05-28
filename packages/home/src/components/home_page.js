@@ -1,6 +1,6 @@
 import React from "react";
 import PageWithHeader from "./shared/page_with_header";
-import profileImage from "../img/profile-image.jpeg";
+import profileImage from "../img/profile.png";
 
 import "./home_page.scss";
 

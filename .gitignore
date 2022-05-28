@@ -107,3 +107,4 @@ github_action.pub
 dist/
 
 .idea/
+.vscode/

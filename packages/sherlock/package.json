@@ -2,9 +2,6 @@
   "name": "@scott-m-sarsfield/sherlock",
   "version": "0.0.1",
   "license": "UNLICENSED",
-  "scripts": {
-    "build:static": "# built through home package"
-  },
   "main": "./components/sherlock_page_content.js",
   "dependencies": {
     "prop-types": "^15.7.2",

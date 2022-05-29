@@ -3,9 +3,6 @@
   "description": "Shared ESLint config for personal projects",
   "version": "0.1.1",
   "license": "UNLICENSED",
-  "scripts": {
-    "build:static": "# no build"
-  },
   "dependencies": {
     "babel-eslint": "^10.1.0",
     "eslint": "^7.0.0",

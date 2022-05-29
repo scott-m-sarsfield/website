@@ -22,7 +22,7 @@
     "@scott-m-sarsfield/sherlock": "0.0.1",
     "classnames": "^2.2.6",
     "eslint-webpack-plugin": "^3.1.1",
-    "gatsby": "^2.24.50",
+    "gatsby": "3.14.6",
     "gatsby-plugin-eslint": "^4.0.2",
     "gatsby-plugin-react-helmet": "^3.3.1",
     "gatsby-plugin-sass": "^5.15.0",

@@ -25,6 +25,8 @@ jobs:
       - image: cimg/node:16.13
     steps:
       - checkout
+      - restore_cache:
+          key: dep-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           command: yarn build
       

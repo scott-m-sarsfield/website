@@ -30,6 +30,8 @@ jobs:
       - run:
           command: yarn set version stable
       - run:
+          command: yarn
+      - run:
           command: yarn run build
       
 

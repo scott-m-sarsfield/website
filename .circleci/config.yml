@@ -11,7 +11,7 @@ jobs:
     steps:
      - checkout
      - restore_cache:
-        key: dep-{{ .Branch }}-{{ checksum yarn.lock }}
+        key: dep-{{ .Branch }}-{{ checksum "yarn.lock" }}
      - run:
         command: yarn set version stable
      - run:
@@ -19,7 +19,7 @@ jobs:
      - save_cache:
          paths:
            - "node_modules"
-         key: dep-{{ .Branch }}-{{ checksum yarn.lock }}
+         key: dep-{{ .Branch }}-{{ checksum "yarn.lock" }}
 
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows

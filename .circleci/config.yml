@@ -22,7 +22,7 @@ jobs:
          key: dep-{{ .Branch }}-{{ checksum "yarn.lock" }}
   build:
     docker:
-      - image: cimg/node:16:13
+      - image: cimg/node:16.13
     steps:
       - checkout
       - run:

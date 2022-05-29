@@ -110,3 +110,4 @@ dist/
 .vscode/
 .yarn/
 .yarnrc.yml
+.yarnrc

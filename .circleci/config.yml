@@ -5,21 +5,6 @@ version: 2.1
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
-  install_dependencies:
-    docker:
-      - image: cimg/node:16.13
-    steps:
-     - checkout
-     - restore_cache:
-        key: dep-{{ .Branch }}-{{ checksum "yarn.lock" }}
-     - run:
-        command: yarn set version stable
-     - run:
-        command: yarn
-     - save_cache:
-         paths:
-           - "node_modules"
-         key: dep-{{ .Branch }}-{{ checksum "yarn.lock" }}
   build:
     docker:
       - image: cimg/node:16.13
@@ -31,6 +16,10 @@ jobs:
           command: yarn set version stable
       - run:
           command: yarn
+      - save_cache:
+          paths:
+            - "node_modules"
+          key: dep-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           command: yarn run build
       
@@ -40,7 +29,4 @@ jobs:
 workflows:
   commit-pushed:
     jobs:
-      - install_dependencies
-      - build:
-          requires:
-             - install_dependencies
+      - build

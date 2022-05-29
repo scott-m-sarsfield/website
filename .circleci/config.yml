@@ -13,6 +13,8 @@ jobs:
      - restore_cache:
         key: dep-{{ .Branch }}-{{ checksum yarn.lock }}
      - run:
+        command: yarn set version stable
+     - run:
         command: yarn
      - save_cache:
          paths:

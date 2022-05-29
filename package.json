@@ -1,6 +1,6 @@
 {
   "name": "@scott-m-sarsfield/website",
-  "version": "1.0.0",
+  "version": "1.22.19",
   "description": "My website",
   "main": "index.js",
   "author": "Scott Sarsfield <scott.m.sarsfield@gmail.com>",
@@ -17,5 +17,5 @@
     "build": "yarn run build:workspaces",
     "clean": "rm -rf dist/*"
   },
-  "packageManager": "yarn@3.2.1"
+  "packageManager": "yarn@1.22.0"
 }

@@ -2,9 +2,6 @@
   "name": "@scott-m-sarsfield/floodit",
   "version": "0.0.1",
   "license": "UNLICENSED",
-  "scripts": {
-    "build:static": "# built through home package"
-  },
   "main": "./components/floodit_page_content.js",
   "dependencies": {
     "lodash": "^4.17.15",

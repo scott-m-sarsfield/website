@@ -21,7 +21,7 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-plugin-favicon',
+      resolve: 'gatsby-plugin-sharp',
       options: {
         logo: './src/img/favicon.png'
       }

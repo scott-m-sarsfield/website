@@ -12,13 +12,6 @@ const HomePage = () => (
         <br />
         <br />
         {"Thanks for checking out my website. "}
-        {
-          "I'm in the process of overhauling it a bit during the quarantine and will likely "
-        }
-        <a href="https://www.amazon.com/Life-Changing-Magic-Tidying-Decluttering-Organizing/dp/1607747308">
-          tidy up
-        </a>
-        {" a couple of my legacy projects."}
         <br />
         <br />
         {

@@ -30,7 +30,7 @@ jobs:
       - run:
           command: yarn set version stable
       - run:
-          command: yarn build
+          command: yarn run build
       
 
 # Invoke jobs via workflows

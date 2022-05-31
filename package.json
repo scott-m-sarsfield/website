@@ -15,6 +15,7 @@
     "deploy": "rsync -avzhe ssh dist/ scottmsarsfield@scottmsarsfield.com:/home/scottmsarsfield/public_html",
     "build:workspaces": "yarn workspace home build:static && yarn workspace @scott-m-sarsfield/pool build:static && yarn workspace snake build:static && yarn workspace sudoku build:static && yarn workspace tetris build:static",
     "build": "yarn run build:workspaces",
+    "lint": "yarn workspace home lint",
     "clean": "rm -rf dist/*"
   },
   "packageManager": "yarn@1.22.0"

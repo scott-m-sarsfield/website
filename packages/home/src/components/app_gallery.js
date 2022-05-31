@@ -12,7 +12,7 @@ import './app_gallery.scss';
 const ArchiveNotice = () => (
   <div className="archive-notice">
     <strong>Archived</strong><br />
-    This app no longer serves any practical purpose.  Nonethless, I will grant access to the repository upon request.
+    This app no longer serves any practical purpose.  Nonetheless, I will grant access to the repository upon request.
   </div>
 );
 

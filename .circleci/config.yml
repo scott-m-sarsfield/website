@@ -20,6 +20,22 @@ jobs:
           key: dep-{{ .Branch }}-{{ checksum "yarn.lock" }}
       - run:
           command: yarn run build
+
+  lint:
+    docker:
+      - image: cimg/node:16.13
+    steps:
+      - checkout
+      - restore_cache:
+          key: dep-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - run:
+          command: yarn
+      - save_cache:
+          paths:
+            - "node_modules"
+          key: dep-{{ .Branch }}-{{ checksum "yarn.lock" }}
+      - run:
+          command: yarn run lint
       
 
 # Invoke jobs via workflows
@@ -28,3 +44,4 @@ workflows:
   commit-pushed:
     jobs:
       - build
+      - lint

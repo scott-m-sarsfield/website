@@ -11,7 +11,8 @@
     "start": "npm run develop",
     "serve": "npx gatsby serve",
     "clean": "npx gatsby clean",
-    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1",
+    "lint": "npx eslint .",
+    "test": "echo 'no tests'",
     "build:static": "yarn run build && mkdir -p ../../dist && cp -R public/* ../../dist/"
   },
   "dependencies": {

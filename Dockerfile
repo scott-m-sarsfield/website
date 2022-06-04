@@ -27,3 +27,6 @@ RUN yarn build
 FROM php:8.1.6-apache
 
 COPY --from=build /app/dist/ /var/www/html/
+
+COPY ./docker/run-apache2.sh /usr/local/bin/
+CMD [ "run-apache2.sh" ]

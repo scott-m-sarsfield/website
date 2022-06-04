@@ -14,10 +14,24 @@ const Carousel = ({ children }) => (
     renderCenterLeftControls={() => null}
     renderCenterRightControls={() => null}
     renderTopLeftControls={({ previousSlide, currentSlide }) => (
-      <button className={cx('carousel-navigation-button', { disabled: currentSlide === 0 })} onClick={previousSlide}><NavigateBeforeIcon fontSize="large"/></button>
+      <button
+        className={cx('carousel-navigation-button', {
+          disabled: currentSlide === 0,
+        })}
+        onClick={previousSlide}
+      >
+        <NavigateBeforeIcon fontSize="large" />
+      </button>
     )}
     renderTopRightControls={({ nextSlide, currentSlide, slideCount }) => (
-      <button className={cx('carousel-navigation-button', { disabled: currentSlide + 1 >= slideCount })} onClick={nextSlide}><NavigateNextIcon fontSize="large"/></button>
+      <button
+        className={cx('carousel-navigation-button', {
+          disabled: currentSlide + 1 >= slideCount,
+        })}
+        onClick={nextSlide}
+      >
+        <NavigateNextIcon fontSize="large" />
+      </button>
     )}
     getControlsContainerStyles={(key) => {
       switch (key) {
@@ -25,18 +39,19 @@ const Carousel = ({ children }) => (
         case 'TopRight':
           return {
             top: 0,
-            bottom: 0
+            bottom: 0,
           };
         default:
           return {};
       }
-    }}>
+    }}
+  >
     {children}
   </NukaCarousel>
 );
 
 Carousel.propTypes = {
-  children: types.node
+  children: types.node,
 };
 
 export default Carousel;

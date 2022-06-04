@@ -7,7 +7,7 @@ export const stages = {
   INTRO: 'intro',
   INSTRUCTION: 'instruction',
   LINEUP: 'lineup',
-  REVEAL: 'reveal'
+  REVEAL: 'reveal',
 };
 
 export const actions = {
@@ -15,12 +15,12 @@ export const actions = {
   START: 'start',
   ELIMINATE: 'eliminate',
   TOGGLE_ANIMATION: 'toggleAnimation',
-  CHOOSE_GAME_TYPE: 'chooseGameType'
+  CHOOSE_GAME_TYPE: 'chooseGameType',
 };
 
 export const gameTypes = {
   NUMBERS: 'numbers',
-  CARDS: 'cards'
+  CARDS: 'cards',
 };
 
 export const initialState = {
@@ -28,7 +28,7 @@ export const initialState = {
   possibleNumbers: [],
   displayedNumbers: [],
   animated: true,
-  gameType: null
+  gameType: null,
 };
 
 function oneTo100() {
@@ -86,43 +86,43 @@ const sherlockGameplay = {
   [actions.RESET]: ({ animated }) => {
     return {
       ...initialState,
-      animated
+      animated,
     };
   },
   [actions.CHOOSE_GAME_TYPE]: (state, { gameType }) => {
     return {
       ...state,
       gameType,
-      stage: stages.INSTRUCTION
+      stage: stages.INSTRUCTION,
     };
   },
   [actions.START]: (state) => {
     const { gameType } = state;
     const possibleNumbers = getAllOptions(gameType);
-    const displayedNumbers = sortBy(randomlyChoose(possibleNumbers, getTotalSlots(gameType)));
+    const displayedNumbers = sortBy(
+      randomlyChoose(possibleNumbers, getTotalSlots(gameType))
+    );
 
     return {
       ...state,
       stage: stages.LINEUP,
       possibleNumbers,
-      displayedNumbers
+      displayedNumbers,
     };
   },
   [actions.ELIMINATE]: (state, { numberDisplayed }) => {
     const { gameType } = state;
     const totalSlots = getTotalSlots(gameType);
     const allOptions = getAllOptions(gameType);
-    const possibleNumbers = numberDisplayed ?
-      intersection(state.possibleNumbers, state.displayedNumbers)
-      :
-      difference(state.possibleNumbers, state.displayedNumbers)
-      ;
-
+    const possibleNumbers = numberDisplayed
+      ? intersection(state.possibleNumbers, state.displayedNumbers)
+      : difference(state.possibleNumbers, state.displayedNumbers);
     const eliminatedNumbers = difference(allOptions, possibleNumbers);
 
-    const possibleSlots = possibleNumbers.length / 2 > totalSlots ?
-      totalSlots :
-      Math.floor(possibleNumbers.length / 2);
+    const possibleSlots =
+      possibleNumbers.length / 2 > totalSlots
+        ? totalSlots
+        : Math.floor(possibleNumbers.length / 2);
 
     const displayedNumbers = sortBy(
       concat(
@@ -135,16 +135,14 @@ const sherlockGameplay = {
       ...state,
       stage: possibleNumbers.length === 1 ? stages.REVEAL : stages.LINEUP,
       possibleNumbers,
-      displayedNumbers
+      displayedNumbers,
     };
   },
 
-  [actions.TOGGLE_ANIMATION]: (state) => (
-    {
-      ...state,
-      animated: !state.animated
-    }
-  )
+  [actions.TOGGLE_ANIMATION]: (state) => ({
+    ...state,
+    animated: !state.animated,
+  }),
 };
 
 function sherlockReducer(state, action) {

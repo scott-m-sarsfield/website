@@ -2,6 +2,4 @@
 import React from 'react';
 import NotFoundPage from '../components/not_found_page';
 
-export default () => (
-  <NotFoundPage />
-);
+export default () => <NotFoundPage />;

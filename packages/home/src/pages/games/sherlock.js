@@ -14,6 +14,4 @@ const SherlockPage = () => (
   </PageWithHeader>
 );
 
-export default () => (
-  <SherlockPage />
-);
+export default () => <SherlockPage />;

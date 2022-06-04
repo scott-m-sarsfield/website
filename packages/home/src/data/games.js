@@ -4,9 +4,7 @@ import flooditIcon from '../img/floodit_icon.png';
 export default [
   {
     name: 'Sherlock',
-    tags: [
-      'Remastered'
-    ],
+    tags: ['Remastered'],
     description: `
       My original Sherlock game, dubbed 'Sherlock Holmes and the Random Number', was my first venture into
       programming my own web-based games.  Inspired by a memory I had of a game I played at my aunt's that
@@ -17,35 +15,30 @@ export default [
       as simply 'Sherlock', written in React.
     `,
     href: '/games/sherlock',
-    imgSrc: sherlockIcon
+    imgSrc: sherlockIcon,
   },
   {
     name: 'Flood It',
-    description: 'A simple game where you attempt to change the color the fewest number of times to fill the entire grid.',
-    tags: [
-      'Remastered'
-    ],
+    description:
+      'A simple game where you attempt to change the color the fewest number of times to fill the entire grid.',
+    tags: ['Remastered'],
     href: '/games/floodit',
-    imgSrc: flooditIcon
+    imgSrc: flooditIcon,
   },
   {
     name: 'Tetris',
-    description: 'Blocks come crashing down and it\'s your job to guide them down so that complete [horizontal] lines can be formed (and magically vanish).',
-    tags: [
-      'Archived',
-      'Arcade'
-    ],
+    description:
+      "Blocks come crashing down and it's your job to guide them down so that complete [horizontal] lines can be formed (and magically vanish).",
+    tags: ['Archived', 'Arcade'],
     href: '/games/tetris',
-    imgSrc: 'http://scottmsarsfield.com/games/tetris/img/favicon.png'
+    imgSrc: 'http://scottmsarsfield.com/games/tetris/img/favicon.png',
   },
   {
     name: 'Snake',
-    description: 'A classic arcade game where the goal is to get to each colored red dot to grow the "snake" as long as you can before running into yourself.',
-    tags: [
-      'Archived',
-      'Arcade'
-    ],
+    description:
+      'A classic arcade game where the goal is to get to each colored red dot to grow the "snake" as long as you can before running into yourself.',
+    tags: ['Archived', 'Arcade'],
     href: '/games/snake',
-    imgSrc: 'http://scottmsarsfield.com/games/snake/img/favicon.png'
-  }
+    imgSrc: 'http://scottmsarsfield.com/games/snake/img/favicon.png',
+  },
 ];

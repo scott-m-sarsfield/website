@@ -3,6 +3,4 @@ import React from 'react';
 
 import AppsPage from '../components/apps_page';
 
-export default () => (
-  <AppsPage />
-);
+export default () => <AppsPage />;

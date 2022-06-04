@@ -12,11 +12,11 @@ Dialog.propTypes = {
   children: types.node,
   onClose: types.func.isRequired,
   open: types.bool,
-  scroll: types.oneOf(['paper', 'body'])
+  scroll: types.oneOf(['paper', 'body']),
 };
 
 Dialog.defaultProps = {
-  open: false
+  open: false,
 };
 
 export default Dialog;

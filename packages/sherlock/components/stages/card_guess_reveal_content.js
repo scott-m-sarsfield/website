@@ -21,7 +21,10 @@ const CardGuessRevealContent = ({ number, onPlayAgain, onExit, animated }) => (
         Do you want to play again?
       `}
     </Dialogue>
-    <div className="jrpg" style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+    <div
+      className="jrpg"
+      style={{ display: 'flex', justifyContent: 'space-evenly' }}
+    >
       <SherlockButton onClick={onExit}>Exit</SherlockButton>
       <SherlockButton onClick={onPlayAgain}>Play Again</SherlockButton>
     </div>
@@ -32,11 +35,11 @@ CardGuessRevealContent.propTypes = {
   number: types.number,
   onExit: types.func.isRequired,
   onPlayAgain: types.func.isRequired,
-  animated: types.bool
+  animated: types.bool,
 };
 
 CardGuessRevealContent.defaultProps = {
-  number: 15
+  number: 15,
 };
 
 export default CardGuessRevealContent;

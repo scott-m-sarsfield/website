@@ -16,9 +16,9 @@ module.exports = {
         stages: ['develop'],
         options: {
           emitWarning: true,
-          failOnError: false
-        }
-      }
+          failOnError: false,
+        },
+      },
     },
     {
       resolve: 'gatsby-plugin-manifest',
@@ -29,8 +29,8 @@ module.exports = {
         background_color: '#f7f0eb',
         theme_color: '#a2466c',
         display: 'standalone',
-        icon: './src/img/favicon.png'
-      }
-    }
-  ]
+        icon: './src/img/favicon.png',
+      },
+    },
+  ],
 };

@@ -5,14 +5,12 @@ import './number_card.scss';
 
 const NumberCard = ({ children }) => (
   <div className="number-card">
-    <span className="number">
-      {children}
-    </span>
+    <span className="number">{children}</span>
   </div>
 );
 
 NumberCard.propTypes = {
-  children: types.number
+  children: types.number,
 };
 
 export default NumberCard;

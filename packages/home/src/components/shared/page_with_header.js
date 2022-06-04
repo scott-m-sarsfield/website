@@ -13,10 +13,14 @@ const PageWithHeader = ({ className, children, title, activeNav }) => (
     <Helmet>
       <meta charset="utf-8" />
       <title>{title}</title>
-      <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poiret+One&display=swap" rel="stylesheet"/>      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poiret+One&display=swap"
+        rel="stylesheet"
+      />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
     </Helmet>
     <div className="page-header-and-content">
-      <HeaderBar activeNav={activeNav}/>
+      <HeaderBar activeNav={activeNav} />
       {children}
     </div>
     <Footer />
@@ -27,11 +31,11 @@ PageWithHeader.propTypes = {
   className: types.string,
   children: types.node,
   title: types.string,
-  activeNav: types.string
+  activeNav: types.string,
 };
 
 PageWithHeader.defaultProps = {
-  title: 'Home of Scott M Sarsfield'
+  title: 'Home of Scott M Sarsfield',
 };
 
 export default PageWithHeader;

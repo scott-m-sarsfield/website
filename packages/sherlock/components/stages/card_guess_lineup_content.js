@@ -10,24 +10,21 @@ import './number_guess_lineup_content.scss';
 const CardGuessLineupContent = ({ numbers, onResponse, animated }) => (
   <React.Fragment>
     <div className="number-lineup">
-      {
-        map(numbers, (number) => (
-          <div key={number} className="number-card-space">
-            <PlayingCard number={number} />
-          </div>
-        ))
-      }
+      {map(numbers, (number) => (
+        <div key={number} className="number-card-space">
+          <PlayingCard number={number} />
+        </div>
+      ))}
     </div>
     <Dialogue className="jrpg" animated={animated}>
       Is your card here?
     </Dialogue>
-    <div className="jrpg" style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-      <SherlockButton onClick={() => onResponse(false)}>
-        No
-      </SherlockButton>
-      <SherlockButton onClick={() => onResponse(true)}>
-        Yes
-      </SherlockButton>
+    <div
+      className="jrpg"
+      style={{ display: 'flex', justifyContent: 'space-evenly' }}
+    >
+      <SherlockButton onClick={() => onResponse(false)}>No</SherlockButton>
+      <SherlockButton onClick={() => onResponse(true)}>Yes</SherlockButton>
     </div>
   </React.Fragment>
 );
@@ -35,11 +32,11 @@ const CardGuessLineupContent = ({ numbers, onResponse, animated }) => (
 CardGuessLineupContent.propTypes = {
   numbers: types.arrayOf(types.number).isRequired,
   onResponse: types.func.isRequired,
-  animated: types.bool
+  animated: types.bool,
 };
 
 CardGuessLineupContent.defaultProps = {
-  numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]
+  numbers: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16],
 };
 
 export default CardGuessLineupContent;

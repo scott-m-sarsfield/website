@@ -15,23 +15,19 @@ const FloodItGrid = ({ grid }) => (
   <table className="floodit-grid">
     <thead />
     <tbody>
-      {
-        dimensionArray.map((_, i) => (
-          <tr key={i}>
-            {
-              dimensionArray.map((_, j) => (
-                <td key={j} style={{ background: getColor(grid, i, j) }} />
-              ))
-            }
-          </tr>
-        ))
-      }
+      {dimensionArray.map((_, i) => (
+        <tr key={i}>
+          {dimensionArray.map((_, j) => (
+            <td key={j} style={{ background: getColor(grid, i, j) }} />
+          ))}
+        </tr>
+      ))}
     </tbody>
   </table>
 );
 
 FloodItGrid.propTypes = {
-  grid: types.arrayOf(types.number).isRequired
+  grid: types.arrayOf(types.number).isRequired,
 };
 
 export default FloodItGrid;

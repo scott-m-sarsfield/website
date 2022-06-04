@@ -10,30 +10,44 @@ import './playing_card.scss';
 const SUITS = [
   {
     src: spadeIcon,
-    alt: 'of Spades'
+    alt: 'of Spades',
   },
   {
     src: heartIcon,
-    alt: 'of Hearts'
+    alt: 'of Hearts',
   },
   {
     src: clubIcon,
-    alt: 'of Clubs'
+    alt: 'of Clubs',
   },
   {
     src: diamondIcon,
-    alt: 'of Diamonds'
-  }
+    alt: 'of Diamonds',
+  },
 ];
 
-const CARDS = ['2', '3', '4', '5', '6', '7', '8', '9', '10', 'J', 'Q', 'K', 'A'];
+const CARDS = [
+  '2',
+  '3',
+  '4',
+  '5',
+  '6',
+  '7',
+  '8',
+  '9',
+  '10',
+  'J',
+  'Q',
+  'K',
+  'A',
+];
 
 function getCard(id) {
-  const suit = SUITS[ Math.floor(id / 13) ];
+  const suit = SUITS[Math.floor(id / 13)];
   return {
     card: CARDS[id % 13],
     src: suit.src,
-    alt: suit.alt
+    alt: suit.alt,
   };
 }
 
@@ -42,7 +56,7 @@ const PlayingCard = ({ number }) => {
   return (
     <div className="playing-card">
       <div className="center-content">
-        <span className="card">  {card} </span>
+        <span className="card"> {card} </span>
         <img src={src} alt={alt} />
       </div>
     </div>
@@ -50,7 +64,7 @@ const PlayingCard = ({ number }) => {
 };
 
 PlayingCard.propTypes = {
-  number: types.number
+  number: types.number,
 };
 
 export default PlayingCard;

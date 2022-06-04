@@ -13,16 +13,12 @@ const keyMap = {
   COLOR_2: ['f', '3'],
   COLOR_3: ['j', '4'],
   COLOR_4: ['k', '5'],
-  COLOR_5: ['l', '6']
+  COLOR_5: ['l', '6'],
 };
 
 const FloodItGame = () => {
   const [state, dispatch] = useReducer(floodItReducer, initialState);
-  const {
-    grid,
-    moveCount,
-    gameOver
-  } = state;
+  const { grid, moveCount, gameOver } = state;
 
   useEffect(() => {
     dispatch({ type: actions.NEW_GAME });
@@ -35,7 +31,7 @@ const FloodItGame = () => {
     COLOR_2: () => dispatch({ type: actions.SELECT_COLOR, color: 2 }),
     COLOR_3: () => dispatch({ type: actions.SELECT_COLOR, color: 3 }),
     COLOR_4: () => dispatch({ type: actions.SELECT_COLOR, color: 4 }),
-    COLOR_5: () => dispatch({ type: actions.SELECT_COLOR, color: 5 })
+    COLOR_5: () => dispatch({ type: actions.SELECT_COLOR, color: 5 }),
   };
 
   return (
@@ -45,12 +41,10 @@ const FloodItGame = () => {
         <div>
           <h5>Premise</h5>
           <span>
-            {
-              `
+            {`
           Starting at the top left corner, click the color buttons below the grid to
           change the color of the "flood" (the group of adjacent cells starting at the top-left).
-          `
-            }
+          `}
           </span>
           <br />
           <br />
@@ -89,7 +83,7 @@ const FloodItGame = () => {
           </div>
           <div className="restart-button">
             <button onClick={() => dispatch({ type: actions.NEW_GAME })}>
-          New Game
+              New Game
             </button>
           </div>
         </div>
@@ -98,7 +92,11 @@ const FloodItGame = () => {
         <div className="playable-area">
           <div style={{ textAlign: 'right' }}>{moveCount}</div>
           <FloodItGrid grid={grid} />
-          <FloodItButtons onSelectColor={(color) => dispatch({ type: actions.SELECT_COLOR, color })} />
+          <FloodItButtons
+            onSelectColor={(color) =>
+              dispatch({ type: actions.SELECT_COLOR, color })
+            }
+          />
         </div>
         {gameOver && (
           <div className="game-over-screen">
@@ -108,7 +106,9 @@ const FloodItGame = () => {
               <br />
               {`You flooded the board in ${moveCount} moves!`}
               <br />
-              <button onClick={() => dispatch({ type: actions.NEW_GAME })}>Play Again</button>
+              <button onClick={() => dispatch({ type: actions.NEW_GAME })}>
+                Play Again
+              </button>
             </span>
           </div>
         )}

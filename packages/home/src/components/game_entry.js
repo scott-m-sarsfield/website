@@ -12,37 +12,23 @@ const GameEntry = (props) => {
       <div className="logo-etc-play">
         <div className="logo-title-tags">
           <div className="logo">
-            <img
-              src={imgSrc}
-              alt={name}
-            />
+            <img src={imgSrc} alt={name} />
           </div>
 
           <div className="title-tags">
-            <div className="title">
-              {name}
-            </div>
-            <div className="tags">
-              {tags.sort().join(', ')}
-            </div>
+            <div className="title">{name}</div>
+            <div className="tags">{tags.sort().join(', ')}</div>
           </div>
-
         </div>
 
-        <a
-          className="play-button desktop"
-          href={href}>
+        <a className="play-button desktop" href={href}>
           <button>{buttonLabel}</button>
         </a>
       </div>
 
-      <div className="blurb description">
-        {description}
-      </div>
+      <div className="blurb description">{description}</div>
 
-      <a
-        className="play-button mobile"
-        href={href}>
+      <a className="play-button mobile" href={href}>
         <button>{buttonLabel}</button>
       </a>
     </div>
@@ -55,13 +41,13 @@ GameEntry.propTypes = {
   href: types.string.isRequired,
   tags: types.arrayOf(types.string),
   buttonLabel: types.string,
-  imgSrc: types.string
+  imgSrc: types.string,
 };
 
 GameEntry.defaultProps = {
   tags: [],
   buttonLabel: 'Play',
-  imgSrc: siteFavicon
+  imgSrc: siteFavicon,
 };
 
 export default GameEntry;

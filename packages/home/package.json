@@ -11,7 +11,6 @@
     "start": "npm run develop",
     "serve": "npx gatsby serve",
     "clean": "npx gatsby clean",
-    "lint": "npx eslint .",
     "test": "echo 'no tests'",
     "build:static": "yarn run build && mkdir -p ../../dist && cp -R public/* ../../dist/"
   },
@@ -36,7 +35,6 @@
     "sass": "^1.52.1"
   },
   "devDependencies": {
-    "@scott-m-sarsfield/eslint-config": "^0.1.0",
     "babel-eslint": "^10.1.0",
     "eslint": "^7.0.0",
     "eslint-loader": "^4.0.2",

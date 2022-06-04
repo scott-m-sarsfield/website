@@ -59,28 +59,34 @@ const DialogueText = ({ children, onFinish = noop }) => {
   return currentChildren;
 };
 
-const Dialogue = ({ children, style, animated, showCharacter, ...otherProps }) => {
+const Dialogue = ({
+  children,
+  style,
+  animated,
+  showCharacter,
+  ...otherProps
+}) => {
   return (
     <div style={{ position: 'relative' }}>
-      {showCharacter && <img className="dialogue-character" src={bigbear} alt="Big Bear dressed as Sherlock" />}
-      {
-        animated ? (
-          <div {...otherProps} style={{ ...style, position: 'relative' }}>
-            <div style={{ visibility: 'hidden' }}>
-              {children}
-            </div>
-            <div style={{ position: 'absolute', top: 10, left: 15, right: 15 }}>
-              <DialogueText>
-                {children}
-              </DialogueText>
-            </div>
+      {showCharacter && (
+        <img
+          className="dialogue-character"
+          src={bigbear}
+          alt="Big Bear dressed as Sherlock"
+        />
+      )}
+      {animated ? (
+        <div {...otherProps} style={{ ...style, position: 'relative' }}>
+          <div style={{ visibility: 'hidden' }}>{children}</div>
+          <div style={{ position: 'absolute', top: 10, left: 15, right: 15 }}>
+            <DialogueText>{children}</DialogueText>
           </div>
-        ) : (
-          <div {...otherProps} style={{ ...style, position: 'relative' }}>
-            {children}
-          </div>
-        )
-      }
+        </div>
+      ) : (
+        <div {...otherProps} style={{ ...style, position: 'relative' }}>
+          {children}
+        </div>
+      )}
     </div>
   );
 };
@@ -89,7 +95,7 @@ Dialogue.propTypes = {
   children: types.node,
   style: types.object,
   animated: types.bool,
-  showCharacter: types.bool
+  showCharacter: types.bool,
 };
 
 export default Dialogue;

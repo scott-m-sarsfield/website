@@ -13,7 +13,7 @@ const AppGalleryTag = ({ id, logoSrc, name }) => (
 AppGalleryTag.propTypes = {
   id: types.string.isRequired,
   logoSrc: types.string.isRequired,
-  name: types.string.isRequired
+  name: types.string.isRequired,
 };
 
 export default AppGalleryTag;

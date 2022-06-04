@@ -4,7 +4,7 @@ import { DIMENSION, COLORS } from '../constants';
 
 export const actions = {
   SELECT_COLOR: 'selectColor',
-  NEW_GAME: 'newGame'
+  NEW_GAME: 'newGame',
 };
 
 function randomInt(start, endExclusive) {
@@ -22,19 +22,19 @@ function randomGrid() {
 export const initialState = {
   grid: fill(new Array(DIMENSION * DIMENSION), 0),
   moveCount: 0,
-  gameOver: false
+  gameOver: false,
 };
 
 const floodItGameplay = {
   [actions.NEW_GAME]: () => ({
     grid: randomGrid(),
     moveCount: 0,
-    gameOver: false
+    gameOver: false,
   }),
   [actions.SELECT_COLOR]: (state, { color }) => {
     const { grid: oldGrid, moveCount } = state;
     const oldColor = oldGrid[0];
-    const cellsToChange = { };
+    const cellsToChange = {};
     const cellsToVisit = [0];
 
     if (color === oldColor) {
@@ -49,9 +49,12 @@ const floodItGameplay = {
       const y = Math.floor(cell / DIMENSION);
 
       const cellOnLeftHasSameColor = x !== 0 && oldGrid[cell - 1] === oldColor;
-      const cellOnRightHasSameColor = x !== DIMENSION - 1 && oldGrid[cell + 1] === oldColor;
-      const cellAboveHasSameColor = y !== 0 && oldGrid[cell - DIMENSION] === oldColor;
-      const cellBelowHasSameColor = y !== DIMENSION - 1 && oldGrid[cell + DIMENSION] === oldColor;
+      const cellOnRightHasSameColor =
+        x !== DIMENSION - 1 && oldGrid[cell + 1] === oldColor;
+      const cellAboveHasSameColor =
+        y !== 0 && oldGrid[cell - DIMENSION] === oldColor;
+      const cellBelowHasSameColor =
+        y !== DIMENSION - 1 && oldGrid[cell + DIMENSION] === oldColor;
 
       if (cellOnLeftHasSameColor && !cellsToChange[cell - 1]) {
         cellsToVisit.push(cell - 1);
@@ -67,18 +70,22 @@ const floodItGameplay = {
       }
     }
 
-    const grid = reduce(cellsToChange, (grid, _, index) => {
-      grid[index] = color;
-      return grid;
-    }, [...oldGrid]);
+    const grid = reduce(
+      cellsToChange,
+      (grid, _, index) => {
+        grid[index] = color;
+        return grid;
+      },
+      [...oldGrid]
+    );
 
     return {
       ...state,
       grid,
       gameOver: grid.every((value) => value === color),
-      moveCount: moveCount + 1
+      moveCount: moveCount + 1,
     };
-  }
+  },
 };
 
 const floodItReducer = (state, { type, ...otherArgs }) => {

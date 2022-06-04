@@ -2,6 +2,4 @@
 import React from 'react';
 import GamesPage from '../../components/games_page';
 
-export default () => (
-  <GamesPage />
-);
+export default () => <GamesPage />;

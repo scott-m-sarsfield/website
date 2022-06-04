@@ -12,21 +12,27 @@ const IntroContent = ({ onChooseGameType, animated }) => (
           `}
       <br />
       <br />
-      {
-        `
+      {`
           Which would you like me to guess?
         `}
     </Dialogue>
-    <div className="jrpg" style={{ display: 'flex', justifyContent: 'space-evenly' }}>
-      <SherlockButton onClick={() => onChooseGameType(gameTypes.NUMBERS)}>Number</SherlockButton>
-      <SherlockButton onClick={() => onChooseGameType(gameTypes.CARDS)}>Card</SherlockButton>
+    <div
+      className="jrpg"
+      style={{ display: 'flex', justifyContent: 'space-evenly' }}
+    >
+      <SherlockButton onClick={() => onChooseGameType(gameTypes.NUMBERS)}>
+        Number
+      </SherlockButton>
+      <SherlockButton onClick={() => onChooseGameType(gameTypes.CARDS)}>
+        Card
+      </SherlockButton>
     </div>
   </React.Fragment>
 );
 
 IntroContent.propTypes = {
   onChooseGameType: types.func.isRequired,
-  animated: types.bool
+  animated: types.bool,
 };
 
 export default IntroContent;

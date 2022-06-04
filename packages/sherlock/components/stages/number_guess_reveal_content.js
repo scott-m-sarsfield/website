@@ -4,7 +4,12 @@ import Dialogue from '../dialogue';
 import NumberCard from './number_card';
 import SherlockButton from './sherlock_button';
 
-const NumberGuessRevealContent = ({ number, onPlayAgain, onExit, animated }) => (
+const NumberGuessRevealContent = ({
+  number,
+  onPlayAgain,
+  onExit,
+  animated,
+}) => (
   <React.Fragment>
     <Dialogue className="jrpg" animated={animated} showCharacter={true}>
       {`
@@ -21,7 +26,10 @@ const NumberGuessRevealContent = ({ number, onPlayAgain, onExit, animated }) => 
         Do you want to play again?
       `}
     </Dialogue>
-    <div className="jrpg" style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+    <div
+      className="jrpg"
+      style={{ display: 'flex', justifyContent: 'space-evenly' }}
+    >
       <SherlockButton onClick={onExit}>Exit</SherlockButton>
       <SherlockButton onClick={onPlayAgain}>Play Again</SherlockButton>
     </div>
@@ -32,11 +40,11 @@ NumberGuessRevealContent.propTypes = {
   number: types.number,
   onExit: types.func.isRequired,
   onPlayAgain: types.func.isRequired,
-  animated: types.bool
+  animated: types.bool,
 };
 
 NumberGuessRevealContent.defaultProps = {
-  number: 15
+  number: 15,
 };
 
 export default NumberGuessRevealContent;

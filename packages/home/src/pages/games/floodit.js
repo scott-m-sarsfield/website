@@ -14,6 +14,4 @@ const FloodItPage = () => (
   </PageWithHeader>
 );
 
-export default () => (
-  <FloodItPage />
-);
+export default () => <FloodItPage />;

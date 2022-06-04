@@ -15,30 +15,37 @@ const AppsPage = () => {
     <PageWithHeader className="apps-page" activeNav="apps">
       <div className="content">
         <div className="tag-row">
-          {
-            orderedApps.map(({ name, logoSrc }, i) => (
-              <AppGalleryTag key={i} {...{
+          {orderedApps.map(({ name, logoSrc }, i) => (
+            <AppGalleryTag
+              key={i}
+              {...{
                 id: kebabCase(name),
                 name,
-                logoSrc
-              }} />
-            ))
-          }
+                logoSrc,
+              }}
+            />
+          ))}
         </div>
         <div className="row">
-          {
-            orderedApps.map(({ archived, name, description, href, logoSrc, screenshots }, i) => (
-              <AppGallery key={i} {...{
-                id: kebabCase(name),
-                archived,
-                name,
-                description,
-                href,
-                logoSrc,
-                screenshots
-              }} />
-            ))
-          }
+          {orderedApps.map(
+            (
+              { archived, name, description, href, logoSrc, screenshots },
+              i
+            ) => (
+              <AppGallery
+                key={i}
+                {...{
+                  id: kebabCase(name),
+                  archived,
+                  name,
+                  description,
+                  href,
+                  logoSrc,
+                  screenshots,
+                }}
+              />
+            )
+          )}
         </div>
       </div>
     </PageWithHeader>

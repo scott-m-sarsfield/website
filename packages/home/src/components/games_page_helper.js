@@ -1,6 +1,8 @@
 export function uniq(arr) {
-  let i, l = arr.length, o = {};
-  for (i = 0;i < l;i++) {
+  let i,
+    l = arr.length,
+    o = {};
+  for (i = 0; i < l; i++) {
     o[arr[i]] = true;
   }
   return Object.keys(o);

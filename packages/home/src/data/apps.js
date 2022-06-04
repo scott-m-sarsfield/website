@@ -34,17 +34,17 @@ export default [
     screenshots: [
       {
         src: cleanSlateAPScores,
-        alt: 'CleanSlate - AP Scores'
+        alt: 'CleanSlate - AP Scores',
       },
       {
         src: cleanSlateMiscQuestions,
-        alt: 'CleanSlate - Misc Questions'
+        alt: 'CleanSlate - Misc Questions',
       },
       {
         src: cleanSlateReview,
-        alt: 'CleanSlate - Review'
-      }
-    ]
+        alt: 'CleanSlate - Review',
+      },
+    ],
   },
 
   {
@@ -61,29 +61,29 @@ export default [
     screenshots: [
       {
         src: csfHomePage,
-        alt: 'Campus Smart Foods - Home Page'
+        alt: 'Campus Smart Foods - Home Page',
       },
       {
         src: csfHealthBlurb,
-        alt: 'Campus Smart Foods - Health Page'
+        alt: 'Campus Smart Foods - Health Page',
       },
       {
         src: csfMyAccount,
-        alt: 'Campus Smart Foods - My Account Settings Page'
+        alt: 'Campus Smart Foods - My Account Settings Page',
       },
       {
         src: csfOrderPage,
-        alt: 'Campus Smart Foods - Order Page'
+        alt: 'Campus Smart Foods - Order Page',
       },
       {
         src: csfReviewsPage,
-        alt: 'Campus Smart Foods - Reviews Page'
+        alt: 'Campus Smart Foods - Reviews Page',
       },
       {
         src: csfCalorieTracking,
-        alt: 'Campus Smart Foods - Calorie Tracking Page'
-      }
-    ]
+        alt: 'Campus Smart Foods - Calorie Tracking Page',
+      },
+    ],
   },
 
   {
@@ -95,7 +95,7 @@ export default [
     archived: false,
     href: '/apps/pool',
     logoSrc: poolLogo,
-    screenshots: []
+    screenshots: [],
   },
 
   {
@@ -111,25 +111,25 @@ export default [
     screenshots: [
       {
         src: poolTwoMenu,
-        alt: 'Pool Picker 2 - Menu'
+        alt: 'Pool Picker 2 - Menu',
       },
       {
         src: poolTwoCreateGame,
-        alt: 'Pool Picker 2 - Create Game'
+        alt: 'Pool Picker 2 - Create Game',
       },
       {
         src: poolTwoWaiting,
-        alt: 'Pool Picker 2 - Waiting'
+        alt: 'Pool Picker 2 - Waiting',
       },
       {
         src: poolTwoJoinGame,
-        alt: 'Pool Picker 2 - Join Game'
+        alt: 'Pool Picker 2 - Join Game',
       },
       {
         src: poolTwoBallsAssigned,
-        alt: 'Pool Picker 2 - Balls Assigned'
-      }
-    ]
+        alt: 'Pool Picker 2 - Balls Assigned',
+      },
+    ],
   },
 
   {
@@ -146,9 +146,8 @@ export default [
     screenshots: [
       {
         src: babypoolScreenshot,
-        alt: 'BabyPool'
-      }
-    ]
-  }
-
+        alt: 'BabyPool',
+      },
+    ],
+  },
 ];

@@ -11,8 +11,7 @@ const NumberGuessInstructionContent = ({ onStart, animated }) => (
           `}
       <br />
       <br />
-      {
-        `
+      {`
           Then I will show you several line ups of numbers, and you will tell me if your number is in each line up.
         `}
       <br />
@@ -22,9 +21,12 @@ const NumberGuessInstructionContent = ({ onStart, animated }) => (
       `}
       <br />
       <br />
-          Ready?
+      Ready?
     </Dialogue>
-    <div className="jrpg" style={{ display: 'flex', justifyContent: 'space-evenly' }}>
+    <div
+      className="jrpg"
+      style={{ display: 'flex', justifyContent: 'space-evenly' }}
+    >
       <SherlockButton onClick={onStart}>Ready!</SherlockButton>
     </div>
   </React.Fragment>
@@ -32,7 +34,7 @@ const NumberGuessInstructionContent = ({ onStart, animated }) => (
 
 NumberGuessInstructionContent.propTypes = {
   onStart: types.func.isRequired,
-  animated: types.bool
+  animated: types.bool,
 };
 
 export default NumberGuessInstructionContent;

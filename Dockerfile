@@ -24,6 +24,6 @@ RUN yarn install --frozen-lockfile
 
 RUN yarn build
 
-FROM php:7.2-apache
+FROM php:8.1.6-apache
 
 COPY --from=build /app/dist/ /var/www/html/

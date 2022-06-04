@@ -2,6 +2,9 @@
 # See: https://circleci.com/docs/2.0/configuration-reference
 version: 2.1
 
+orbs:
+  heroku: circleci/heroku@0.0.10 # Invoke the Heroku orb
+
 # Define a job to be invoked later in a workflow.
 # See: https://circleci.com/docs/2.0/configuration-reference/#jobs
 jobs:
@@ -45,3 +48,13 @@ workflows:
     jobs:
       - build
       - lint
+  
+  heroku_deploy:
+    jobs:
+      - build:
+          filters:
+            branches:
+              only: master
+      - heroku/deploy-via-git: # Use the pre-configured job, deploy-via-git
+          requires:
+            - build

@@ -12,8 +12,21 @@
   "scripts": {
     "build:workspaces": "yarn workspace home build:static && yarn workspace @scott-m-sarsfield/pool build:static && yarn workspace snake build:static && yarn workspace sudoku build:static && yarn workspace tetris build:static",
     "build": "yarn run build:workspaces",
-    "lint": "yarn workspace home lint",
+    "lint": "npx eslint .",
     "clean": "rm -rf dist/*"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.17.10",
+    "@babel/core": "^7.18.2",
+    "@babel/eslint-parser": "^7.18.2",
+    "@babel/preset-env": "^7.18.2",
+    "@babel/preset-react": "^7.17.12",
+    "eslint": "^8.17.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.5.1",
+    "eslint-plugin-lodash": "^7.1.0",
+    "eslint-plugin-react": "^7.30.0",
+    "eslint-plugin-react-hooks": "^4.5.0"
   },
   "packageManager": "yarn@1.22.0"
 }

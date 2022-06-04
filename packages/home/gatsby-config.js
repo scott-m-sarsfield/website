@@ -21,9 +21,15 @@ module.exports = {
       }
     },
     {
-      resolve: 'gatsby-plugin-sharp',
+      resolve: 'gatsby-plugin-manifest',
       options: {
-        logo: './src/img/favicon.png'
+        name: 'ScottMSarsfield',
+        short_name: 'scottmsarsfield',
+        start_url: '/',
+        background_color: '#f7f0eb',
+        theme_color: '#a2466c',
+        display: 'standalone',
+        icon: './src/img/favicon.png'
       }
     }
   ]

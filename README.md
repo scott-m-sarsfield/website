@@ -1,11 +1,8 @@
 # README
 
-Welcome to the code for my website. I fully understand that my website is essentially a vanity project, a portfolio of little games and gimicks -- most of which I developed while still in college.
+Actually, don't read me. What are you doing?  This is a repo for a software engineer's vanity / portfolio website.  Most of this stuff was made in college anyway.  It's not up-to-date.  If there was a worthwhile project, it'd probably be in a separate repo.  
 
-Given the quartantine, I thought it prudent to revise and improve upon my site to reflect how much I've grown technically in the past few years.
-
-Meanwhile, I understand that if I truly want a side project or anything to grow, it'll need to have it's separate site & repo anyway.
-
-So, with that in mind, I'm cleaning up my old repos and shoving anything to do with my website in this monorepo.
-
-\- Scott Sarsfield
+Ah, whatever.  Here's a cookie.
+```javascript
+document.cookie = "flavor=chocolate-chip";
+```

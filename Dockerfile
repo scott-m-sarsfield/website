@@ -24,9 +24,4 @@ RUN yarn install --frozen-lockfile
 
 RUN yarn build
 
-FROM php:8.1.6-apache
-COPY ./docker/start-apache.sh /usr/local/bin
-
-COPY --from=build /app/dist/ /var/www/html/
-
-CMD ["start-apache.sh"]
+# (just using docker to verify build works -- we don't actually deploy this anywhere)

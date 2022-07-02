@@ -1,8 +1,0 @@
-{
-  "name": "@scott-m-sarsfield/pool",
-  "version": "0.0.1",
-  "license": "UNLICENSED",
-  "scripts": {
-    "build:static": "mkdir -p ../../dist/apps/pool && cp -R * ../../dist/apps/pool/"
-  }
-}

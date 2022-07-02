@@ -111,3 +111,4 @@ dist/
 .yarn/
 .yarnrc.yml
 .yarnrc
+.firebase

@@ -10,10 +10,11 @@
     "packages/*"
   ],
   "scripts": {
-    "build:workspaces": "yarn workspace home build:static && yarn workspace @scott-m-sarsfield/pool build:static && yarn workspace snake build:static && yarn workspace sudoku build:static && yarn workspace tetris build:static",
+    "build:workspaces": "yarn workspace home build:static",
     "build": "yarn run build:workspaces",
     "lint": "npx eslint .",
-    "clean": "rm -rf dist/*"
+    "clean": "rm -rf dist/*",
+    "deploy": "firebase deploy"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",

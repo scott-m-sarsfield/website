@@ -1,8 +1,0 @@
-{
-    "name": "tetris",
-    "version": "0.0.1",
-    "license": "UNLICENSED",
-    "scripts": {
-        "build:static": "mkdir -p ../../dist/games/tetris && cp -R * ../../dist/games/tetris/"
-    }
-}

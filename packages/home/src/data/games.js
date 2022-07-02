@@ -25,20 +25,4 @@ export default [
     href: '/games/floodit',
     imgSrc: flooditIcon,
   },
-  {
-    name: 'Tetris',
-    description:
-      "Blocks come crashing down and it's your job to guide them down so that complete [horizontal] lines can be formed (and magically vanish).",
-    tags: ['Archived', 'Arcade'],
-    href: '/games/tetris',
-    imgSrc: 'http://scottmsarsfield.com/games/tetris/img/favicon.png',
-  },
-  {
-    name: 'Snake',
-    description:
-      'A classic arcade game where the goal is to get to each colored red dot to grow the "snake" as long as you can before running into yourself.',
-    tags: ['Archived', 'Arcade'],
-    href: '/games/snake',
-    imgSrc: 'http://scottmsarsfield.com/games/snake/img/favicon.png',
-  },
 ];

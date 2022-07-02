@@ -1,8 +1,0 @@
-{
-    "name": "snake",
-    "version": "0.0.1",
-    "license": "UNLICENSED",
-    "scripts": {
-        "build:static": "mkdir -p ../../dist/games/snake && cp -R * ../../dist/games/snake/"
-    }
-}

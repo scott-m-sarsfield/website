@@ -1,4 +1,3 @@
-import poolLogo from '@scott-m-sarsfield/pool/img/favicon.png';
 import cleanSlateAPScores from '../img/cleanslate_ap_credit.png';
 import cleanSlateMiscQuestions from '../img/cleanslate_misc.png';
 import cleanSlateReview from '../img/cleanslate_review.png';
@@ -84,18 +83,6 @@ export default [
         alt: 'Campus Smart Foods - Calorie Tracking Page',
       },
     ],
-  },
-
-  {
-    name: 'Pool Picker',
-    description: `
-      A utility for the billiards game Knockout. Select the number of players (3 or 5), 
-      then pass the device around until everyone knows their balls.
-    `,
-    archived: false,
-    href: '/apps/pool',
-    logoSrc: poolLogo,
-    screenshots: [],
   },
 
   {

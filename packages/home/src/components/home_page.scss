@@ -8,6 +8,8 @@
     background-color: transparent;
     border: none;
 
+    font-size: clamp(20px, 3vw, 2rem);
+
     a {
       color: #00aaba;
     }
@@ -48,6 +50,8 @@
 
       .profile-image-wrapper {
         flex: 0 0 auto;
+        justify-content: center;
+        flex-direction: column;
 
         .profile-image {
           padding-bottom: 4em;

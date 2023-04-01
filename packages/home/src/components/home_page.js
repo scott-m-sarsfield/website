@@ -1,8 +1,22 @@
 import React from 'react';
+import types from 'prop-types';
+import classNames from 'classnames';
 import PageWithHeader from './shared/page_with_header';
 import profileImage from '../img/profile.png';
 
 import './home_page.scss';
+
+const Egg = ({ color, letter }) => (
+  <div className={classNames('egg', color)}>
+    <div className="eggTop">{letter}</div>
+    <div className="eggBottom" />
+  </div>
+);
+
+Egg.propTypes = {
+  color: types.string,
+  letter: types.string.isRequired,
+};
 
 const HomePage = () => (
   <PageWithHeader className="main-page">
@@ -39,6 +53,13 @@ const HomePage = () => (
           </div>
         </div>
       </div>
+    </div>
+    <div className="eggWrapper">
+      <Egg letter="S" />
+      <Egg letter="C" color="pink" />
+      <Egg letter="O" color="purple" />
+      <Egg letter="T" color="blue" />
+      <Egg letter="T" color="green" />
     </div>
   </PageWithHeader>
 );

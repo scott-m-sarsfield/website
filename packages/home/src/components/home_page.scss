@@ -141,3 +141,39 @@
     --egg-color: plum;
   }
 }
+
+.flowerWrapper {
+  display: none;
+  padding: 20px 0;
+
+  @include whenDesktop {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+  }
+}
+
+.flower {
+  max-width: 160px;
+
+  .pedals {
+    fill: var(--pedal-color, #f37a7a);
+    stroke: var(--pedal-border-color, #c42f2f);
+  }
+  &.blue {
+    --pedal-color: paleturquoise;
+    --pedal-border-color: #20203f;
+  }
+
+  &.orange {
+    --pedal-color: orange;
+  }
+
+  &.pink {
+    --pedal-color: pink;
+  }
+
+  &.purple {
+    --pedal-color: plum;
+  }
+}

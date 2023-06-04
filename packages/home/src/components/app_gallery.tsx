@@ -26,6 +26,14 @@ const AppGallery = ({
   logoSrc,
   screenshots,
   href,
+}: {
+  id: any;
+  archived: any;
+  name: any;
+  description: any;
+  logoSrc: any;
+  screenshots: any;
+  href: any;
 }) => {
   const [modalOpen, setModalOpen] = useState(false);
   const isDesktop = useMediaQuery('(min-width: 850px)');
@@ -40,13 +48,13 @@ const AppGallery = ({
         <div className="carousel-wrapper">
           {isDesktop ? (
             <Carousel>
-              {screenshots.map(({ src, alt }, i) => (
+              {screenshots.map(({ src, alt }: any, i: number) => (
                 <img key={i} src={src} alt={alt} />
               ))}
             </Carousel>
           ) : (
             <React.Fragment>
-              {screenshots.map(({ src, alt }, i) => (
+              {screenshots.map(({ src, alt }: any, i: number) => (
                 <React.Fragment key={i}>
                   <img src={src} alt={alt} />
                   <hr />

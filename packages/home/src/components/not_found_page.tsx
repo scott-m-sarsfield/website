@@ -1,10 +1,12 @@
 import React from 'react';
-import PageWithHeader from './shared/page_with_header';
+import PageWithHeader, { Head as CommonHead } from './shared/page_with_header';
 
 import './not_found_page.scss';
 
+export const Head = () => <CommonHead title="File Not Found" />;
+
 const NotFoundPage = () => (
-  <PageWithHeader className="not-found-page main-page" title="File Not Found">
+  <PageWithHeader className="not-found-page main-page">
     <div className="pic-and-blurb">
       <div className="blurb">
         <h2>Heh... Not Quite There Yet</h2>

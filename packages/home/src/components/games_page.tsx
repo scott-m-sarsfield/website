@@ -1,8 +1,10 @@
 import React from 'react';
 import GamesPageContent from './games_page_content';
-import PageWithHeader from './shared/page_with_header';
+import PageWithHeader, { Head as CommonHead } from './shared/page_with_header';
 
 import './games_page.scss';
+
+export const Head = () => <CommonHead />;
 
 const GamesPage = () => (
   <PageWithHeader className="games-page" activeNav="games">

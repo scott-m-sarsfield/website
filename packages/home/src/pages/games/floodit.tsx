@@ -1,9 +1,13 @@
 /* eslint-disable react/display-name */
 import React from 'react';
 import FloodItPageContent from '@scott-m-sarsfield/floodit';
-import PageWithHeader from '../../components/shared/page_with_header';
+import PageWithHeader, {
+  Head as CommonHead,
+} from '../../components/shared/page_with_header';
 
 import './floodit.scss';
+
+export const Head = () => <CommonHead />;
 
 const FloodItPage = () => (
   <PageWithHeader className="floodit-page" activeNav="games">

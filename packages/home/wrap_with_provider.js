@@ -1,7 +1,7 @@
 import React from 'react';
-import { ThemeProvider, createMuiTheme } from '@material-ui/core/styles';
+import { ThemeProvider, createTheme } from '@material-ui/core/styles';
 
-const theme = createMuiTheme({
+const theme = createTheme({
   typography: {
     fontFamily: ['Lato', 'sans-serif'],
   },
@@ -13,6 +13,6 @@ const theme = createMuiTheme({
 });
 
 // eslint-disable-next-line react/display-name,react/prop-types
-export default ({ element }) => {
+export default function wrapWithProvider({ element }) {
   return <ThemeProvider theme={theme}>{element}</ThemeProvider>;
-};
+}

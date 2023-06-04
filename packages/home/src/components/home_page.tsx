@@ -1,12 +1,14 @@
 import React from 'react';
 import types from 'prop-types';
 import classNames from 'classnames';
-import PageWithHeader from './shared/page_with_header';
+import PageWithHeader, { Head as CommonHead } from './shared/page_with_header';
 import profileImage from '../img/profile.png';
 
 import './home_page.scss';
 
-const Egg = ({ color, letter }) => (
+export const Head = () => <CommonHead />;
+
+const Egg = ({ color, letter }: any) => (
   <div className={classNames('egg', color)}>
     <div className="eggTop">{letter}</div>
     <div className="eggBottom" />
@@ -18,7 +20,7 @@ Egg.propTypes = {
   letter: types.string.isRequired,
 };
 
-const Flower = ({ color, letter }) => (
+const Flower = ({ color, letter }: any) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 196 319"

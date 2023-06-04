@@ -5,7 +5,9 @@ import cx from 'classnames';
 
 import './header_bar.scss';
 
-const HeaderBar = ({ activeNav }) => (
+type Nav = 'games' | 'apps';
+
+const HeaderBar = ({ activeNav }: { activeNav?: Nav }) => (
   <div className="header-bar">
     <div className="logo">
       <Link to="/">

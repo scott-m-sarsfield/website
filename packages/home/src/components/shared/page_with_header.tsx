@@ -1,6 +1,5 @@
 import React from 'react';
 import types from 'prop-types';
-import { Helmet } from 'react-helmet';
 import cx from 'classnames';
 import HeaderBar from './header_bar';
 import Footer from './footer';
@@ -8,17 +7,23 @@ import Footer from './footer';
 import '../../styles/app.scss';
 import './page_with_header.scss';
 
-const PageWithHeader = ({ className, children, title, activeNav }) => (
+export const Head = ({ title }: { title?: string }) => (
+  <>
+    {title ? <title>{title}</title> : null}
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poiret+One&display=swap"
+      rel="stylesheet"
+    />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  </>
+);
+
+const PageWithHeader = ({
+  className,
+  children,
+  activeNav,
+}: React.PropsWithChildren<{ className?: string; activeNav: any }>) => (
   <div className={cx('page-with-header', className)}>
-    <Helmet>
-      <meta charset="utf-8" />
-      <title>{title}</title>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poiret+One&display=swap"
-        rel="stylesheet"
-      />
-      <meta name="viewport" content="width=device-width, initial-scale=1" />
-    </Helmet>
     <div className="page-header-and-content">
       <HeaderBar activeNav={activeNav} />
       {children}

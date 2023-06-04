@@ -3,7 +3,15 @@ import types from 'prop-types';
 
 import './app_gallery_tag.scss';
 
-const AppGalleryTag = ({ id, logoSrc, name }) => (
+const AppGalleryTag = ({
+  id,
+  logoSrc,
+  name,
+}: {
+  id: string;
+  logoSrc: string;
+  name: string;
+}) => (
   <a href={`#${id}`} className="app-gallery-tag">
     <img src={logoSrc} alt={`Skip to ${name}`} />
     <span>{name}</span>

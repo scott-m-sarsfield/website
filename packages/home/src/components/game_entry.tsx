@@ -4,7 +4,7 @@ import siteFavicon from '../img/favicon.png';
 
 import './game_entry.scss';
 
-const GameEntry = (props) => {
+const GameEntry = (props: any) => {
   const { name, description, href, tags, buttonLabel, imgSrc } = props;
 
   return (

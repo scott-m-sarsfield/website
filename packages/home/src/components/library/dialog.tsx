@@ -1,8 +1,13 @@
 import React from 'react';
 import types from 'prop-types';
-import MuiDialog from '@material-ui/core/Dialog';
+import MuiDialog, { DialogProps } from '@material-ui/core/Dialog';
 
-const Dialog = ({ children, onClose, open, scroll }) => (
+const Dialog = ({
+  children,
+  onClose,
+  open,
+  scroll,
+}: Pick<DialogProps, 'children' | 'onClose' | 'open' | 'scroll'>) => (
   <MuiDialog {...{ onClose, open, maxWidth: 'md', fullWidth: true, scroll }}>
     {children}
   </MuiDialog>

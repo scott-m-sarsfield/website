@@ -8,7 +8,8 @@ import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 
 import './carousel.scss';
 
-const Carousel = ({ children }) => (
+const Carousel = ({ children }: React.PropsWithChildren<{}>) => (
+  // @ts-ignore
   <NukaCarousel
     heightMode="current"
     renderCenterLeftControls={() => null}

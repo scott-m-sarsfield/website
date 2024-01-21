@@ -82,7 +82,8 @@ const HomePage = () => (
   <PageWithHeader>
     <StyledPicAndBlurb>
       <StyledBlurb>
-        Thanks for checking out my website.
+        Thanks for checking out my website. It's barely been updated since I
+        started working, but I hope to refine it over time.
         <br />
         <br />I graduated with a Masters in Computer Science and Engineering
         from Santa Clara University. Working full-time at{' '}

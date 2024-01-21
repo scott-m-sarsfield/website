@@ -1,36 +1,29 @@
 import React from 'react';
 import { Link } from 'gatsby';
+import { styled } from 'styled-components';
 
-import './footer.scss';
+const StyledFooter = styled.div`
+  /* margin-top: 30px; */
+  font-size: 16px;
+  display: flex;
+  justify-content: center;
+  font-family: 'Raleway', sans-serif;
+  flex-wrap: wrap;
+  margin: 16px 32px;
+`;
+
+const StyledCopyright = styled.div`
+  text-align: right;
+  background-color: white;
+  box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.4);
+  border-radius: 2px;
+  padding: 8px 16px;
+`;
 
 const Footer = () => (
-  <div className="footer">
-    <div className="navigation">
-      <Link className="nav-link" to="/games">
-        Games
-      </Link>
-      <Link className="nav-link" to="/apps">
-        Apps
-      </Link>
-      <a
-        className="nav-link"
-        href="https://github.com/scott-m-sarsfield"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        GitHub
-      </a>
-      <a
-        className="nav-link"
-        href="https://www.linkedin.com/in/scottmsarsfield"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        LinkedIn
-      </a>
-    </div>
-    <div className="copyright">&copy; 2020 Scott M Sarsfield</div>
-  </div>
+  <StyledFooter>
+    <StyledCopyright>&copy; 2024 Scott M Sarsfield</StyledCopyright>
+  </StyledFooter>
 );
 
 export default Footer;

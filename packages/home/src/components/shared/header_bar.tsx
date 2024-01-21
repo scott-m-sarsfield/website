@@ -19,8 +19,6 @@ const StyledHeaderBar = styled.div`
   }
 `;
 
-const DESKTOP = `(min-width: 850px)`;
-
 const StyledNavLink = styled(Link)`
   font-family: 'Gloria Hallelujah', sans-serif;
   padding: 10px 10px;
@@ -39,12 +37,10 @@ const StyledNavLink = styled(Link)`
 `;
 
 const StyledNavigation = styled.div`
-  display: none;
-
-  @media ${DESKTOP} {
-    display: flex;
-    gap: 16px;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
 `;
 
 const StyledLogo = styled.div`
@@ -52,6 +48,7 @@ const StyledLogo = styled.div`
   padding: 4px 32px;
   border-radius: 8px;
   box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.4);
+  text-align: center;
 `;
 
 const StyledHeader = styled.h1`

@@ -1,8 +1,8 @@
 {
-  "name": "website2",
+  "name": "home",
   "version": "1.0.0",
   "private": true,
-  "description": "website2",
+  "description": "home",
   "author": "Scott M Sarsfield",
   "keywords": [
     "gatsby"

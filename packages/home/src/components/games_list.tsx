@@ -1,6 +1,14 @@
 import React from 'react';
 import types from 'prop-types';
 import GameEntry from './game_entry';
+import { styled } from 'styled-components';
+
+const StyledList = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding: 0 16px;
+  gap: 32px;
+`;
 
 const GamesList = ({ games, buttonLabel }: any) => {
   const _games = games.map(
@@ -20,7 +28,7 @@ const GamesList = ({ games, buttonLabel }: any) => {
       );
     }
   );
-  return <div className="main-list">{_games}</div>;
+  return <StyledList>{_games}</StyledList>;
 };
 
 GamesList.propTypes = {

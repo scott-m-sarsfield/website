@@ -2,13 +2,15 @@
 
 .main-page {
   .blurb {
-    padding: 1em;
-    font-family: 'Lato', sans-serif;
-    color: white;
-    background-color: transparent;
+    padding: 32px 16px;
+    color: rgb(42, 42, 42);
+    background-color: white;
+    box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.4);
     border: none;
 
-    font-size: clamp(20px, 3vw, 2rem);
+    font-family: var(--font-raleway);
+    font-size: 20px;
+    line-height: 1.4em;
 
     a {
       color: #00aaba;
@@ -22,9 +24,9 @@
       display: block;
       position: relative;
       background: white;
-      border: 1px solid black;
+
       padding: 1em;
-      box-shadow: 0 3px 8px 5px rgba(0, 0, 0, 0.12);
+      box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.4);
       margin: auto;
 
       img {
@@ -43,10 +45,12 @@
   @include whenDesktop {
     .pic-and-blurb {
       margin: auto;
-      overflow: hidden;
       margin-top: 30px;
       max-width: 1200px;
       display: flex;
+      align-items: flex-start;
+      gap: 96px;
+      padding: 0 96px 32px;
 
       .profile-image-wrapper {
         flex: 0 0 auto;
@@ -54,9 +58,8 @@
         flex-direction: column;
 
         .profile-image {
-          padding-bottom: 4em;
+          padding-bottom: 5em;
           transform: rotate(5deg);
-          margin: 2em 2em 3em;
 
           .photo-label {
             display: block;
@@ -65,9 +68,10 @@
             left: 0;
             right: 0;
             font-size: 0.9em;
-            padding: 0.5em;
+            padding: 0.7em;
             text-align: center;
-            font-family: 'Lato', sans-serif;
+            font-family: var(--font-gloria);
+            line-height: 1.4em;
           }
         }
       }

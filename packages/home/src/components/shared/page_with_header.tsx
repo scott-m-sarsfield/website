@@ -11,7 +11,7 @@ export const Head = ({ title }: { title?: string }) => (
   <>
     {title ? <title>{title}</title> : null}
     <link
-      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Poiret+One&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
       rel="stylesheet"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

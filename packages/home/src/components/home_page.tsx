@@ -77,14 +77,10 @@ const HomePage = () => (
   <PageWithHeader className="main-page">
     <div className="pic-and-blurb">
       <div className="blurb">
-        <b>Hi there!</b>
-        <br />
-        <br />
         Thanks for checking out my website.
         <br />
-        <br />
-        Graduated with a Masters in Computer Science and Engineering from Santa
-        Clara University. Working full-time at{' '}
+        <br />I graduated with a Masters in Computer Science and Engineering
+        from Santa Clara University. Working full-time at{' '}
         <a href="https://www.verkada.com/">Verkada</a> since September 2021.
         <br />
         <br />
@@ -93,8 +89,6 @@ const HomePage = () => (
           scott.m.sarsfield@gmail.com
         </a>{' '}
         if you want to get in touch. (Or use any of the links above.)
-        <br />
-        <br />
       </div>
       <div className="profile-image-wrapper">
         <div className="profile-image">
@@ -108,13 +102,6 @@ const HomePage = () => (
           </div>
         </div>
       </div>
-    </div>
-    <div className="flowerWrapper">
-      <Flower letter="S" />
-      <Flower letter="C" color="pink" />
-      <Flower letter="O" color="purple" />
-      <Flower letter="T" color="blue" />
-      <Flower letter="T" color="orange" />
     </div>
   </PageWithHeader>
 );

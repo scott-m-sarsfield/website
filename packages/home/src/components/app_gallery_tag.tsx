@@ -1,7 +1,27 @@
 import React from 'react';
 import types from 'prop-types';
 
-import './app_gallery_tag.scss';
+import { styled } from 'styled-components';
+
+const StyledGalleryTag = styled.a`
+  background: white;
+  overflow: hidden;
+  display: inline-flex;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  padding: 10px;
+  font-size: 16px;
+  font-family: 'Raleway', sans-serif;
+  border-radius: 8px;
+
+  img {
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+    border-radius: 4px;
+  }
+`;
 
 const AppGalleryTag = ({
   id,
@@ -12,10 +32,10 @@ const AppGalleryTag = ({
   logoSrc: string;
   name: string;
 }) => (
-  <a href={`#${id}`} className="app-gallery-tag">
+  <StyledGalleryTag href={`#${id}`}>
     <img src={logoSrc} alt={`Skip to ${name}`} />
     <span>{name}</span>
-  </a>
+  </StyledGalleryTag>
 );
 
 AppGalleryTag.propTypes = {

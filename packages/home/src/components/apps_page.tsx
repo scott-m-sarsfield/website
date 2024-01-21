@@ -7,16 +7,45 @@ import AppGalleryTag from './app_gallery_tag';
 import PageWithHeader, { Head as CommonHead } from './shared/page_with_header';
 
 import './apps_page.scss';
+import { styled } from 'styled-components';
 
 export const Head = () => <CommonHead />;
+
+const StyledList = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+`;
+
+const StyledTagRow = styled.div`
+  display: none;
+
+  @media (min-width: 850px) {
+    display: flex;
+    gap: 16px;
+    padding: 16px 0;
+    overflow: hidden;
+    white-space: normal;
+  }
+`;
+
+const StyledContent = styled.div`
+  overflow: hidden;
+  padding-bottom: 2em;
+
+  @media (min-width: 850px) {
+    max-width: 1200px;
+    margin: auto;
+  }
+`;
 
 const AppsPage = () => {
   const orderedApps = orderBy(APPS, ['archived'], ['asc']);
 
   return (
-    <PageWithHeader className="apps-page" activeNav="apps">
-      <div className="content">
-        <div className="tag-row">
+    <PageWithHeader activeNav="apps">
+      <StyledContent>
+        <StyledTagRow>
           {orderedApps.map(({ name, logoSrc }, i) => (
             <AppGalleryTag
               key={i}
@@ -27,8 +56,8 @@ const AppsPage = () => {
               }}
             />
           ))}
-        </div>
-        <div className="row">
+        </StyledTagRow>
+        <StyledList>
           {orderedApps.map(
             (
               { archived, name, description, href, logoSrc, screenshots },
@@ -48,8 +77,8 @@ const AppsPage = () => {
               />
             )
           )}
-        </div>
-      </div>
+        </StyledList>
+      </StyledContent>
     </PageWithHeader>
   );
 };

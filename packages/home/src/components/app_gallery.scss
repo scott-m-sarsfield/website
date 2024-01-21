@@ -1,13 +1,11 @@
 @import '../styles/responsive_utilities.scss';
 
 .app-gallery {
-  margin: 0 15px;
   padding: 15px;
   background-color: white;
-
-  + .app-gallery {
-    margin-top: 15px;
-  }
+  font-family: 'Raleway', sans-serif;
+  border-radius: 4px;
+  box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.4);
 
   > * {
     margin: 15px 0;

@@ -1,7 +1,12 @@
-/* eslint-disable react/display-name */
-import React from 'react';
-import NotFoundPage, { Head } from '../components/NotFoundPage';
+import { navigate } from 'gatsby';
+import React, { useEffect } from 'react';
 
-export { Head };
+const NotFoundPage = () => {
+  useEffect(() => {
+    navigate('/');
+  }, []);
 
-export default () => <NotFoundPage />;
+  return <div />;
+};
+
+export default NotFoundPage;

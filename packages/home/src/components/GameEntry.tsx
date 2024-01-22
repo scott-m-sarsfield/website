@@ -1,37 +1,117 @@
 import React from 'react';
 import types from 'prop-types';
+import { styled } from 'styled-components';
 import siteFavicon from '../img/favicon.png';
 
-import './game_entry.scss';
+const StyledGameEntry = styled.div`
+  background: white;
+  box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+  overflow: hidden;
+  position: relative;
+  padding: 1em;
+  font-family: 'Raleway', sans-serif;
+
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+`;
+
+const StyledLogo = styled.div`
+  height: 50px;
+  width: auto;
+  max-width: 50px;
+
+  img {
+    max-height: 100%;
+  }
+
+  @media (min-width: 850px) {
+    height: 100px;
+    max-width: 100px;
+  }
+`;
+
+const StyledTitleTags = styled.div`
+  flex: 1 1 auto;
+  min-width: 200px;
+`;
+
+const StyledTags = styled.div`
+  font-size: 14px;
+  font-style: italic;
+  color: #444;
+`;
+
+const StyledPlayButton = styled.a`
+  display: block;
+  overflow: hidden;
+
+  button {
+    font-family: inherit;
+    letter-spacing: 1px;
+    background: #fc4;
+    border: none;
+    border-radius: 4px;
+    padding: 0.25em 1em;
+    font-size: 1.5em;
+    float: right;
+    width: 100%;
+  }
+
+  &:not([data-mobile]) {
+    display: none;
+  }
+
+  @media (min-width: 850px) {
+    &:not([data-mobile]) {
+      display: block;
+      flex: 0 0 auto;
+      margin-left: 15px;
+
+      button {
+        width: auto;
+        font-size: 1.5em;
+      }
+    }
+
+    &[data-mobile] {
+      display: none;
+    }
+  }
+`;
+
+const StyledTopBar = styled.div`
+  display: flex;
+  gap: 15px;
+`;
 
 const GameEntry = (props: any) => {
   const { name, description, href, tags, buttonLabel, imgSrc } = props;
 
   return (
-    <div className="game-entry">
-      <div className="logo-etc-play">
-        <div className="logo-title-tags">
-          <div className="logo">
-            <img src={imgSrc} alt={name} />
-          </div>
+    <StyledGameEntry>
+      <StyledTopBar>
+        <StyledLogo>
+          <img src={imgSrc} alt={name} />
+        </StyledLogo>
 
-          <div className="title-tags">
-            <div className="title">{name}</div>
-            <div className="tags">{tags.sort().join(', ')}</div>
-          </div>
-        </div>
+        <StyledTitleTags>
+          <div>{name}</div>
+          <StyledTags>{tags.sort().join(', ')}</StyledTags>
+        </StyledTitleTags>
 
-        <a className="play-button desktop" href={href}>
+        <StyledPlayButton href={href}>
           <button>{buttonLabel}</button>
-        </a>
-      </div>
+        </StyledPlayButton>
+      </StyledTopBar>
 
-      <div className="blurb description">{description}</div>
+      <div>{description}</div>
 
-      <a className="play-button mobile" href={href}>
+      <StyledPlayButton data-mobile="mobile" href={href}>
         <button>{buttonLabel}</button>
-      </a>
-    </div>
+      </StyledPlayButton>
+    </StyledGameEntry>
   );
 };
 

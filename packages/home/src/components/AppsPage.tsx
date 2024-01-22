@@ -30,6 +30,7 @@ const StyledTagRow = styled.div`
 const StyledContent = styled.div`
   overflow: hidden;
   padding-bottom: 2em;
+  padding: 0 16px;
 
   @media (min-width: 850px) {
     max-width: 1200px;

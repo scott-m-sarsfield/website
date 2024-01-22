@@ -2,8 +2,6 @@ import React from 'react';
 import GamesPageContent from './GamesPageContent';
 import PageWithHeader, { Head as CommonHead } from './shared/PageWithHeader';
 
-import './games_page.scss';
-
 export const Head = () => <CommonHead />;
 
 const GamesPage = () => (

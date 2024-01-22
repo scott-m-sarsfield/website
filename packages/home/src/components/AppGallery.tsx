@@ -53,10 +53,22 @@ const StyledLogoName = styled.div`
 
 const StyledViewGalleryButton = styled(Button)`
   max-width: 100%;
+  width: 100%;
   overflow: hidden;
   max-height: 56.25vmin;
   position: relative;
   text-transform: none;
+
+  .MuiButton-label {
+    max-height: inherit;
+  }
+
+  img {
+    width: 100%;
+    max-height: inherit;
+    object-fit: cover;
+    object-position: top;
+  }
 
   .screen {
     position: absolute;

@@ -21,7 +21,6 @@ const StyledTagRow = styled.div`
   @media (min-width: 850px) {
     display: flex;
     gap: 16px;
-    padding: 16px 0;
     overflow: hidden;
     white-space: normal;
   }
@@ -29,12 +28,14 @@ const StyledTagRow = styled.div`
 
 const StyledContent = styled.div`
   overflow: hidden;
-  padding-bottom: 2em;
-  padding: 0 16px;
+  padding: 0 32px 64px;
+  display: flex;
+  flex-direction: column;
 
   @media (min-width: 850px) {
-    max-width: 1200px;
+    max-width: 960px;
     margin: auto;
+    gap: 24px;
   }
 `;
 

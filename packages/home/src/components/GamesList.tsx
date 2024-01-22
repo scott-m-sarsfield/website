@@ -8,14 +8,13 @@ const StyledList = styled.div`
   display: flex;
   flex-direction: column;
   align-items: stretch;
-  padding: 0 16px;
+  padding: 0 32px 32px;
   gap: 32px;
 
   @media ${DESKTOP_SIZE} {
     max-width: 960px;
     align-self: center;
     margin: auto;
-    padding: 0 32px 32px;
   }
 `;
 

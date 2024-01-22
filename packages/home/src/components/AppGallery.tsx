@@ -3,9 +3,9 @@ import types from 'prop-types';
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 import AppsIcon from '@material-ui/icons/Apps';
 import isEmpty from 'lodash/isEmpty';
-import Button from './library/button';
-import Dialog from './library/dialog';
-import Carousel from './library/carousel';
+import Button from './library/Button';
+import Dialog from './library/Dialog';
+import Carousel from './library/Carousel';
 
 import './app_gallery.scss';
 

@@ -1,11 +1,14 @@
 import React from 'react';
-import types from 'prop-types';
-import cx from 'classnames';
-import HeaderBar from './header_bar';
-import Footer from './footer';
+import { styled } from 'styled-components';
+import HeaderBar from './HeaderBar';
+import Footer from './Footer';
 
-import '../../styles/app.scss';
-import './page_with_header.scss';
+const StyledPage = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+`;
 
 export const Head = ({ title }: { title?: string }) => (
   <>
@@ -22,22 +25,18 @@ const PageWithHeader = ({
   className,
   children,
   activeNav,
-}: React.PropsWithChildren<{ className?: string; activeNav: any }>) => (
-  <div className={cx('page-with-header', className)}>
+}: React.PropsWithChildren<{
+  className?: string;
+  activeNav?: React.ComponentProps<typeof HeaderBar>['activeNav'];
+}>) => (
+  <StyledPage className={className}>
     <div className="page-header-and-content">
       <HeaderBar activeNav={activeNav} />
       {children}
     </div>
     <Footer />
-  </div>
+  </StyledPage>
 );
-
-PageWithHeader.propTypes = {
-  className: types.string,
-  children: types.node,
-  title: types.string,
-  activeNav: types.string,
-};
 
 PageWithHeader.defaultProps = {
   title: 'Home of Scott M Sarsfield',

@@ -1,5 +1,5 @@
 import React from 'react';
-import PageWithHeader, { Head as CommonHead } from './shared/page_with_header';
+import PageWithHeader, { Head as CommonHead } from './shared/PageWithHeader';
 
 import './not_found_page.scss';
 

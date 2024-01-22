@@ -1,6 +1,8 @@
 import React from 'react';
 import types from 'prop-types';
-import MuiDialog, { DialogProps } from '@material-ui/core/Dialog';
+import MuiDialog from '@material-ui/core/Dialog';
+
+type DialogProps = React.ComponentProps<typeof MuiDialog>;
 
 const Dialog = ({
   children,

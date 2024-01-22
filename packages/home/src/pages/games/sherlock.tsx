@@ -3,7 +3,7 @@ import React from 'react';
 import SherlockPageContent from '@scott-m-sarsfield/sherlock';
 import PageWithHeader, {
   Head as CommonHead,
-} from '../../components/shared/page_with_header';
+} from '../../components/shared/PageWithHeader';
 
 import './sherlock.scss';
 

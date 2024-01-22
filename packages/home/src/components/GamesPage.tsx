@@ -1,6 +1,6 @@
 import React from 'react';
-import GamesPageContent from './games_page_content';
-import PageWithHeader, { Head as CommonHead } from './shared/page_with_header';
+import GamesPageContent from './GamesPageContent';
+import PageWithHeader, { Head as CommonHead } from './shared/PageWithHeader';
 
 import './games_page.scss';
 

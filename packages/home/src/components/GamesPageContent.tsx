@@ -1,6 +1,6 @@
 import React from 'react';
 import GAMES from '../data/games';
-import GamesList from './games_list';
+import GamesList from './GamesList';
 
 const GamesPageContent = () => (
   <div className="row">

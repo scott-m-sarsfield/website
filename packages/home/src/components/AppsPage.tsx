@@ -1,13 +1,11 @@
 import React from 'react';
 import orderBy from 'lodash/orderBy';
 import kebabCase from 'lodash/kebabCase';
-import APPS from '../data/apps';
-import AppGallery from './app_gallery';
-import AppGalleryTag from './app_gallery_tag';
-import PageWithHeader, { Head as CommonHead } from './shared/page_with_header';
-
-import './apps_page.scss';
 import { styled } from 'styled-components';
+import APPS from '../data/apps';
+import AppGallery from './AppGallery';
+import AppGalleryTag from './AppGalleryTag';
+import PageWithHeader, { Head as CommonHead } from './shared/PageWithHeader';
 
 export const Head = () => <CommonHead />;
 

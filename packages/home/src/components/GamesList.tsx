@@ -1,7 +1,7 @@
 import React from 'react';
 import types from 'prop-types';
-import GameEntry from './game_entry';
 import { styled } from 'styled-components';
+import GameEntry from './GameEntry';
 
 const StyledList = styled.div`
   display: flex;

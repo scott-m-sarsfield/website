@@ -1,7 +1,6 @@
 import React from 'react';
 import types from 'prop-types';
 import { Link } from 'gatsby';
-import cx from 'classnames';
 
 import { styled } from 'styled-components';
 

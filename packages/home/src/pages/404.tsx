@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 import React from 'react';
-import NotFoundPage, { Head } from '../components/not_found_page';
+import NotFoundPage, { Head } from '../components/NotFoundPage';
 
 export { Head };
 

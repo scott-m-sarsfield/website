@@ -132,5 +132,10 @@ module.exports = {
       version: '16.9',
     },
     'import/ignore': ['.scss$'],
+    'import/resolver': {
+      node: {
+        extensions: ['.js', '.jsx', '.ts', '.tsx'],
+      },
+    },
   },
 };

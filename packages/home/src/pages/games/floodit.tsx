@@ -3,7 +3,7 @@ import React from 'react';
 import FloodItPageContent from '@scott-m-sarsfield/floodit';
 import PageWithHeader, {
   Head as CommonHead,
-} from '../../components/shared/page_with_header';
+} from '../../components/shared/PageWithHeader';
 
 import './floodit.scss';
 

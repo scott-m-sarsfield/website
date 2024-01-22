@@ -1,11 +1,7 @@
 import React, { useState } from 'react';
-import useMediaQuery from '@material-ui/core/useMediaQuery';
-import AppsIcon from '@material-ui/icons/Apps';
 import { styled } from 'styled-components';
 import isEmpty from 'lodash/isEmpty';
-import Button from './library/Button';
 import Dialog from './library/Dialog';
-import Carousel from './library/Carousel';
 
 const StyledArchiveNotice = styled.div`
   border: solid 1px black;
@@ -51,55 +47,6 @@ const StyledLogoName = styled.div`
   align-items: center;
 `;
 
-const StyledViewGalleryButton = styled(Button)`
-  max-width: 100%;
-  width: 100%;
-  overflow: hidden;
-  max-height: 56.25vmin;
-  position: relative;
-  text-transform: none;
-
-  .MuiButton-label {
-    max-height: inherit;
-  }
-
-  img {
-    width: 100%;
-    max-height: inherit;
-    object-fit: cover;
-    object-position: top;
-  }
-
-  .screen {
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    display: flex;
-    justify-content: space-around;
-
-    .screen-label {
-      margin: auto;
-      font-size: 20px;
-      display: flex;
-      align-items: center;
-
-      > *:first-child {
-        margin-right: 10px;
-      }
-    }
-  }
-
-  @media (min-width: 850px) {
-    .screen {
-      background: rgba(0, 0, 0, 0.6);
-    }
-  }
-`;
-
 const StyledLaunchButton = styled.a`
   button {
     appearance: none;
@@ -123,7 +70,8 @@ const StyledLaunchButton = styled.a`
 `;
 
 const StyledCarouselWrapper = styled.div`
-  border: solid 1px black;
+  max-height: 90vh;
+  overflow: auto;
 
   img {
     width: 100%;
@@ -140,6 +88,58 @@ const ArchiveNotice = () => (
   </StyledArchiveNotice>
 );
 
+const StyledButton = styled.button`
+  appearance: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+
+  &::after {
+    content: 'View';
+    display: none;
+    justify-content: center;
+    align-items: center;
+    font-family: var(--font-raleway);
+    font-size: 16px;
+    letter-spacing: 2px;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+  }
+
+  &:hover {
+    &::after {
+      display: flex;
+    }
+  }
+`;
+
+const StyledImageGrid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 32px;
+
+  img {
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    object-position: top;
+    box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.4);
+  }
+`;
+
+type Screenshot = {
+  src: string;
+  alt: string;
+};
+
 const AppGallery = ({
   id,
   archived,
@@ -154,36 +154,22 @@ const AppGallery = ({
   name: any;
   description: any;
   logoSrc: any;
-  screenshots: any;
+  screenshots: Screenshot[];
   href: any;
 }) => {
-  const [modalOpen, setModalOpen] = useState(false);
-  const isDesktop = useMediaQuery('(min-width: 850px)');
+  const [modalScreenshot, setModalScreenshot] = useState<Screenshot | null>(
+    null
+  );
 
   return (
     <React.Fragment>
       <Dialog
-        onClose={() => setModalOpen(false)}
-        open={modalOpen}
+        onClose={() => setModalScreenshot(null)}
+        open={!!modalScreenshot}
         scroll="body"
       >
         <StyledCarouselWrapper>
-          {isDesktop ? (
-            <Carousel>
-              {screenshots.map(({ src, alt }: any, i: number) => (
-                <img key={i} src={src} alt={alt} />
-              ))}
-            </Carousel>
-          ) : (
-            <React.Fragment>
-              {screenshots.map(({ src, alt }: any, i: number) => (
-                <React.Fragment key={i}>
-                  <img src={src} alt={alt} />
-                  <hr />
-                </React.Fragment>
-              ))}
-            </React.Fragment>
-          )}
+          <img src={modalScreenshot?.src} alt={modalScreenshot?.alt} />
         </StyledCarouselWrapper>
       </Dialog>
       <StyledAppGallery id={id}>
@@ -204,17 +190,18 @@ const AppGallery = ({
         <div>{description}</div>
 
         {isEmpty(screenshots) ? null : (
-          <div>
-            <StyledViewGalleryButton onClick={() => setModalOpen(true)}>
-              <img src={screenshots[0].src} alt="View Gallery" />
-              <div className="screen">
-                <div className="screen-label">
-                  <AppsIcon fontSize="large" />
-                  <span>View Gallery</span>
-                </div>
-              </div>
-            </StyledViewGalleryButton>
-          </div>
+          <StyledImageGrid>
+            {screenshots.map((screenshot, i) => (
+              <StyledButton
+                key={i}
+                onClick={() => {
+                  setModalScreenshot(screenshot);
+                }}
+              >
+                <img src={screenshot.src} alt={screenshot.alt} />
+              </StyledButton>
+            ))}
+          </StyledImageGrid>
         )}
       </StyledAppGallery>
     </React.Fragment>

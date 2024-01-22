@@ -7,7 +7,7 @@ module.exports = {
     'eslint:recommended',
     'plugin:react/recommended',
   ],
-  parser: '@babel/eslint-parser',
+  parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaVersion: 9,
     sourceType: 'module',

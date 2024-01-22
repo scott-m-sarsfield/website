@@ -1,9 +1,7 @@
 import React from 'react';
-import { Link } from 'gatsby';
 import { styled } from 'styled-components';
 
 const StyledFooter = styled.div`
-  /* margin-top: 30px; */
   font-size: 16px;
   display: flex;
   justify-content: center;

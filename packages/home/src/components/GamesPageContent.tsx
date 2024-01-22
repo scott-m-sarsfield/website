@@ -3,13 +3,11 @@ import GAMES from '../data/games';
 import GamesList from './GamesList';
 
 const GamesPageContent = () => (
-  <div className="row">
-    <GamesList
-      {...{
-        games: GAMES,
-      }}
-    />
-  </div>
+  <GamesList
+    {...{
+      games: GAMES,
+    }}
+  />
 );
 
 export default GamesPageContent;

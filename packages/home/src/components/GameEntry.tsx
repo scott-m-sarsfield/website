@@ -9,18 +9,19 @@ const StyledGameEntry = styled.div`
   border-radius: 4px;
   overflow: hidden;
   position: relative;
-  padding: 1em;
+  padding: 32px;
   font-family: 'Raleway', sans-serif;
 
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 16px;
 `;
 
 const StyledLogo = styled.div`
   height: 50px;
   width: auto;
   max-width: 50px;
+  border: 1px inset rgba(0, 0, 0, 0.4);
 
   img {
     max-height: 100%;
@@ -45,7 +46,7 @@ const StyledTags = styled.div`
 
 const StyledPlayButton = styled.a`
   display: block;
-  overflow: hidden;
+  color: inherit;
 
   button {
     font-family: inherit;
@@ -53,8 +54,10 @@ const StyledPlayButton = styled.a`
     background: #fc4;
     border: none;
     border-radius: 4px;
-    padding: 0.25em 1em;
-    font-size: 1.5em;
+    padding: 4px 16px;
+    font-size: 24px;
+    font-weight: 600;
+    box-shadow: 1px 1px rgba(0, 0, 0, 0.4);
     float: right;
     width: 100%;
   }
@@ -67,11 +70,10 @@ const StyledPlayButton = styled.a`
     &:not([data-mobile]) {
       display: block;
       flex: 0 0 auto;
-      margin-left: 15px;
 
       button {
         width: auto;
-        font-size: 1.5em;
+        font-size: 24px;
       }
     }
 
@@ -83,7 +85,11 @@ const StyledPlayButton = styled.a`
 
 const StyledTopBar = styled.div`
   display: flex;
-  gap: 15px;
+  gap: 16px;
+`;
+
+const StyledDescription = styled.div`
+  font-size: 18px;
 `;
 
 const GameEntry = (props: any) => {
@@ -106,7 +112,7 @@ const GameEntry = (props: any) => {
         </StyledPlayButton>
       </StyledTopBar>
 
-      <div>{description}</div>
+      <StyledDescription>{description}</StyledDescription>
 
       <StyledPlayButton data-mobile="mobile" href={href}>
         <button>{buttonLabel}</button>

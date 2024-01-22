@@ -2,12 +2,21 @@ import React from 'react';
 import types from 'prop-types';
 import { styled } from 'styled-components';
 import GameEntry from './GameEntry';
+import { DESKTOP_SIZE } from './shared/constants';
 
 const StyledList = styled.div`
   display: flex;
   flex-direction: column;
+  align-items: stretch;
   padding: 0 16px;
   gap: 32px;
+
+  @media ${DESKTOP_SIZE} {
+    max-width: 960px;
+    align-self: center;
+    margin: auto;
+    padding: 0 32px 32px;
+  }
 `;
 
 const GamesList = ({ games, buttonLabel }: any) => {

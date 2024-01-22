@@ -5,8 +5,8 @@ import PageWithHeader, { Head as CommonHead } from './shared/PageWithHeader';
 export const Head = () => <CommonHead />;
 
 const GamesPage = () => (
-  <PageWithHeader className="games-page" activeNav="games">
-    <div className="content">
+  <PageWithHeader activeNav="games">
+    <div>
       <GamesPageContent />
     </div>
   </PageWithHeader>

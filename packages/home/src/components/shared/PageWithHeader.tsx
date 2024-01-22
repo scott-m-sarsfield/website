@@ -61,6 +61,17 @@ h6 {
 }
 `;
 
+export const BasePage = ({
+  className,
+  children,
+}: React.PropsWithChildren<{ className?: string }>) => (
+  <StyledPage className={className}>
+    <div className="page-header-and-content">{children}</div>
+    <Footer />
+    <GlobalStyles />
+  </StyledPage>
+);
+
 const PageWithHeader = ({
   className,
   children,
@@ -78,9 +89,5 @@ const PageWithHeader = ({
     <GlobalStyles />
   </StyledPage>
 );
-
-PageWithHeader.defaultProps = {
-  title: 'Home of Scott M Sarsfield',
-};
 
 export default PageWithHeader;

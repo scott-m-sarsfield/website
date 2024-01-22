@@ -37,7 +37,10 @@ const StyledProfileImage = styled.div`
   max-width: 350px;
 
   img {
-    width: 100%;
+    width: calc(84vw - 64px);
+    max-width: 350px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     border: 1px inset rgba(0, 0, 0, 0.4);
   }
 

@@ -1,7 +1,8 @@
 import React from 'react';
-import { styled } from 'styled-components';
+import { styled, createGlobalStyle } from 'styled-components';
 import HeaderBar from './HeaderBar';
 import Footer from './Footer';
+import corkboardBackground from '../../img/corkboard.jpg';
 
 const StyledPage = styled.div`
   display: flex;
@@ -21,6 +22,45 @@ export const Head = ({ title }: { title?: string }) => (
   </>
 );
 
+const GlobalStyles = createGlobalStyle`
+body {
+  background: url(${corkboardBackground});
+  background-position: top center;
+  font-family: 'Lato', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+button {
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+@media (min-width: 850px) {
+  body {
+    font-size: 20px;
+  }
+}
+
+:root {
+  --font-gloria: 'Gloria Hallelujah', sans-serif;
+  --font-raleway: 'Raleway', sans-serif;
+}
+`;
+
 const PageWithHeader = ({
   className,
   children,
@@ -35,6 +75,7 @@ const PageWithHeader = ({
       {children}
     </div>
     <Footer />
+    <GlobalStyles />
   </StyledPage>
 );
 

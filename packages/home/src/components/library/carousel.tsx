@@ -1,12 +1,27 @@
 import React from 'react';
 import types from 'prop-types';
-import cx from 'classnames';
 
 import NukaCarousel from 'nuka-carousel';
 import NavigateNextIcon from '@material-ui/icons/NavigateNext';
 import NavigateBeforeIcon from '@material-ui/icons/NavigateBefore';
 
-import './carousel.scss';
+import { styled } from 'styled-components';
+
+const StyledButton = styled.button`
+  height: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  border: none;
+  color: white;
+  outline: none;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.4);
+  }
+
+  &[data-disabled] {
+    display: none;
+  }
+`;
 
 const Carousel = ({ children }: React.PropsWithChildren<{}>) => (
   // @ts-ignore
@@ -15,24 +30,20 @@ const Carousel = ({ children }: React.PropsWithChildren<{}>) => (
     renderCenterLeftControls={() => null}
     renderCenterRightControls={() => null}
     renderTopLeftControls={({ previousSlide, currentSlide }) => (
-      <button
-        className={cx('carousel-navigation-button', {
-          disabled: currentSlide === 0,
-        })}
+      <StyledButton
+        data-disabled={currentSlide === 0 ?? undefined}
         onClick={previousSlide}
       >
         <NavigateBeforeIcon fontSize="large" />
-      </button>
+      </StyledButton>
     )}
     renderTopRightControls={({ nextSlide, currentSlide, slideCount }) => (
-      <button
-        className={cx('carousel-navigation-button', {
-          disabled: currentSlide + 1 >= slideCount,
-        })}
+      <StyledButton
+        data-disabled={currentSlide + 1 >= slideCount ?? undefined}
         onClick={nextSlide}
       >
         <NavigateNextIcon fontSize="large" />
-      </button>
+      </StyledButton>
     )}
     getControlsContainerStyles={(key) => {
       switch (key) {

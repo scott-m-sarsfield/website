@@ -26,6 +26,7 @@
     "classnames": "^2.2.6",
     "gatsby": "^5.10.0",
     "gatsby-plugin-image": "^3.10.0",
+    "gatsby-plugin-manifest": "^5.13.1",
     "gatsby-plugin-mdx": "^5.10.0",
     "gatsby-plugin-sass": "^6.10.0",
     "gatsby-plugin-sharp": "^5.10.0",

@@ -1,19 +1,11 @@
 import React from 'react';
-import types from 'prop-types';
-import MuiButton from '@material-ui/core/Button';
 
 const Button = ({
   onClick,
   className,
   children,
 }: React.PropsWithChildren<{ onClick: () => void; className?: string }>) => (
-  <MuiButton {...{ onClick, className }}>{children}</MuiButton>
+  <button {...{ onClick, className }}>{children}</button>
 );
-
-Button.propTypes = {
-  onClick: types.func,
-  className: types.string,
-  children: types.node,
-};
 
 export default Button;

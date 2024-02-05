@@ -1,6 +1,5 @@
 import React from 'react';
-import types from 'prop-types';
-import MuiDialog from '@material-ui/core/Dialog';
+import MuiDialog from '@mui/material/Dialog';
 
 type DialogProps = React.ComponentProps<typeof MuiDialog>;
 
@@ -14,16 +13,5 @@ const Dialog = ({
     {children}
   </MuiDialog>
 );
-
-Dialog.propTypes = {
-  children: types.node,
-  onClose: types.func.isRequired,
-  open: types.bool,
-  scroll: types.oneOf(['paper', 'body']),
-};
-
-Dialog.defaultProps = {
-  open: false,
-};
 
 export default Dialog;

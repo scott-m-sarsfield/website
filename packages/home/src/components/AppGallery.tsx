@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useRef, useState } from 'react';
 import { styled } from 'styled-components';
 import isEmpty from 'lodash/isEmpty';
 import Dialog from './library/Dialog';
@@ -157,19 +157,17 @@ const AppGallery = ({
   screenshots: Screenshot[];
   href: any;
 }) => {
-  const [modalScreenshot, setModalScreenshot] = useState<Screenshot | null>(
-    null
-  );
+  const modalScreenshot = useRef<Screenshot | null>(null);
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
 
   return (
     <React.Fragment>
-      <Dialog
-        onClose={() => setModalScreenshot(null)}
-        open={!!modalScreenshot}
-        scroll="body"
-      >
+      <Dialog onClose={() => setModalOpen(false)} open={modalOpen}>
         <StyledCarouselWrapper>
-          <img src={modalScreenshot?.src} alt={modalScreenshot?.alt} />
+          <img
+            src={modalScreenshot.current?.src}
+            alt={modalScreenshot.current?.alt}
+          />
         </StyledCarouselWrapper>
       </Dialog>
       <StyledAppGallery id={id}>
@@ -195,7 +193,8 @@ const AppGallery = ({
               <StyledButton
                 key={i}
                 onClick={() => {
-                  setModalScreenshot(screenshot);
+                  modalScreenshot.current = screenshot;
+                  setModalOpen(true);
                 }}
               >
                 <img src={screenshot.src} alt={screenshot.alt} />

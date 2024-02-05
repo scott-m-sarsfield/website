@@ -15,7 +15,7 @@ export const Head = ({ title }: { title?: string }) => (
   <>
     {title ? <title>{title}</title> : null}
     <link
-      href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Raleway:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&family=Raleway:ital,wght@0,100..900;1,100..900&family=Judson:ital,wght@0,400;0,700;1,400&display=swap"
       rel="stylesheet"
     />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -62,6 +62,7 @@ h6 {
 :root {
   --font-gloria: 'Gloria Hallelujah', sans-serif;
   --font-raleway: 'Raleway', sans-serif;
+  --font-judson: 'Judson', serif;
 }
 `;
 

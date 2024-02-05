@@ -72,6 +72,16 @@ export const BasePage = ({
 }: React.PropsWithChildren<{ className?: string }>) => (
   <StyledPage className={className}>
     <div className="page-header-and-content">{children}</div>
+    <GlobalStyles />
+  </StyledPage>
+);
+
+export const BasePageWithFooter = ({
+  className,
+  children,
+}: React.PropsWithChildren<{ className?: string }>) => (
+  <StyledPage className={className}>
+    <div className="page-header-and-content">{children}</div>
     <Footer />
     <GlobalStyles />
   </StyledPage>

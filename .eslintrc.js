@@ -116,15 +116,16 @@ module.exports = {
     'jsx-a11y/no-noninteractive-tabindex': 'warn',
 
     'lodash/prefer-noop': 'warn',
-    'react/display-name': 'warn',
     'react/no-deprecated': 'error',
     'react/no-unused-prop-types': 'warn',
 
     'import/no-unused-modules': 'off',
+    'import/no-named-as-default': 'off',
     'jsx-a11y/anchor-is-valid': 'off',
     'jsx-a11y/aria-role': 'off',
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
+    'react/display-name': 'off',
     'react/no-unescaped-entities': 'off',
     'react-hooks/exhaustive-deps': 'off',
   },

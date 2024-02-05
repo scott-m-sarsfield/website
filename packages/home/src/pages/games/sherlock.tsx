@@ -1,21 +1,16 @@
-/* eslint-disable react/display-name */
 import React from 'react';
 import SherlockPageContent from '@scott-m-sarsfield/sherlock';
-import PageWithHeader, {
-  Head as CommonHead,
-} from '../../components/shared/PageWithHeader';
-
-import './sherlock.scss';
+import { Head as CommonHead } from '../../components/shared/PageWithHeader';
+import BannerMenuPage from '../../components/BannerMenuPage';
 
 export const Head = () => <CommonHead />;
 
-const SherlockPage = () => (
-  <PageWithHeader className="sherlock-page" activeNav="games">
-    <div className="content">
-      <h3 className="title">Sherlock</h3>
+const SherlockPage = () => {
+  return (
+    <BannerMenuPage>
       <SherlockPageContent />
-    </div>
-  </PageWithHeader>
-);
+    </BannerMenuPage>
+  );
+};
 
-export default () => <SherlockPage />;
+export default SherlockPage;

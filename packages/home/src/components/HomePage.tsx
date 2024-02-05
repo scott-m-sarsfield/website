@@ -1,6 +1,9 @@
 import React from 'react';
 import { styled } from 'styled-components';
-import { BasePage, Head as CommonHead } from './shared/PageWithHeader';
+import {
+  BasePageWithFooter,
+  Head as CommonHead,
+} from './shared/PageWithHeader';
 import profileImage from '../img/profile.png';
 import { Logo, Navigation } from './shared/HeaderBar';
 import { DESKTOP_SIZE, TABLET_SIZE } from './shared/constants';
@@ -155,7 +158,7 @@ const StyledDesktop = styled.div`
 `;
 
 const HomePage = () => (
-  <BasePage>
+  <BasePageWithFooter>
     <StyledContent>
       <Logo />
       <StyledMobile>
@@ -171,7 +174,7 @@ const HomePage = () => (
         </StyledDesktop>
       </StyledPicAndBlurb>
     </StyledContent>
-  </BasePage>
+  </BasePageWithFooter>
 );
 
 export default HomePage;

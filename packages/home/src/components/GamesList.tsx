@@ -5,9 +5,9 @@ import GameEntry from './GameEntry';
 import { DESKTOP_SIZE } from './shared/constants';
 
 const StyledList = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 300px);
+  justify-content: center;
   padding: 0 32px 32px;
   gap: 32px;
 

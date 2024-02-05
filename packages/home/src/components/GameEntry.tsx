@@ -1,139 +1,136 @@
 import React from 'react';
-import types from 'prop-types';
 import { styled } from 'styled-components';
-import siteFavicon from '../img/favicon.png';
+import cardBackground from '../img/card.jpg';
 
-const StyledGameEntry = styled.div`
-  background: white;
-  box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.4);
+type GameEntryProps = {
+  name: string;
+  description: string;
+  href: string;
+  tags: string[];
+  imgSrc: string;
+};
+
+const StyledGameCard = styled.div`
+  aspect-ratio: 2 / 3;
+  background-color: #950;
+
+  background: url(${cardBackground});
+  font-family: var(--font-judson);
+  padding: 8px;
   border-radius: 4px;
-  overflow: hidden;
+  border: 6px solid #1f2935;
+  box-sizing: border-box;
   position: relative;
-  padding: 32px;
-  font-family: 'Raleway', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  overflow: hidden;
+
+  > * {
+    flex: 0;
+  }
+`;
+
+const StyledCardTitle = styled.div`
+  border: 3px outset;
+  border-color: rgba(255, 255, 255, 0.3) rgba(0, 0, 0, 0.3) rgba(0, 0, 0, 0.3)
+    rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  padding: 0 4px;
+  font-weight: 800;
+  color: white;
+  letter-spacing: 0.5px;
+
+  &::first-letter {
+    font-size: larger;
+  }
+`;
+
+const StyledCardImage = styled.div`
+  height: 250px;
+  width: 250px;
+  align-self: center;
+  margin-top: 16px;
+  margin-bottom: 8px;
+  border: 6px outset grey;
+  box-sizing: border-box;
+
+  > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;
+
+const StyledCardTags = styled.div`
+  font-size: 13px;
+  text-transform: uppercase;
+  font-weight: 800;
+`;
+
+const StyledCardDescription = styled.div`
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  min-height: 1px;
+
+  font-size: 12px;
+
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 4px;
+  padding: 4px 8px 12px;
+  overflow: auto;
+  text-overflow: ellipsis;
+  box-sizing: border-box;
 
   display: flex;
   flex-direction: column;
-  gap: 16px;
-`;
+  gap: 2px;
 
-const StyledLogo = styled.div`
-  height: 50px;
-  width: auto;
-  max-width: 50px;
-  border: 1px inset rgba(0, 0, 0, 0.4);
+  box-shadow: 0 0 0 5px rgba(0, 0, 0, 0.2);
+  margin: 5px;
 
-  img {
-    max-height: 100%;
-  }
-
-  @media (min-width: 850px) {
-    height: 100px;
-    max-width: 100px;
+  > :nth-child(2) {
+    flex: 1;
+    min-height: 0px;
+    text-align: justify;
   }
 `;
 
-const StyledTitleTags = styled.div`
-  flex: 1 1 auto;
-  min-width: 200px;
-`;
-
-const StyledTags = styled.div`
-  font-size: 14px;
-  font-style: italic;
-  color: #444;
-`;
-
-const StyledPlayButton = styled.a`
-  display: block;
+const StyledCardLink = styled.a`
   color: inherit;
+  display: inline-block;
+  position: relative;
+  transition: top 500ms, box-shadow 500ms;
+  top: 0;
+  box-shadow: 2px 2px 8px 2px rgba(0, 0, 0, 0.4);
 
-  button {
-    font-family: inherit;
-    letter-spacing: 1px;
-    background: #fc4;
-    border: none;
-    border-radius: 4px;
-    padding: 4px 16px;
-    font-size: 24px;
-    font-weight: 600;
-    box-shadow: 1px 1px rgba(0, 0, 0, 0.4);
-    float: right;
-    width: 100%;
-  }
-
-  &:not([data-mobile]) {
-    display: none;
-  }
-
-  @media (min-width: 850px) {
-    &:not([data-mobile]) {
-      display: block;
-      flex: 0 0 auto;
-
-      button {
-        width: auto;
-        font-size: 24px;
-      }
-    }
-
-    &[data-mobile] {
-      display: none;
-    }
+  &:hover {
+    top: -10px;
+    box-shadow: 2px 6px 16px 6px rgba(0, 0, 0, 0.4);
   }
 `;
 
-const StyledTopBar = styled.div`
-  display: flex;
-  gap: 16px;
-`;
-
-const StyledDescription = styled.div`
-  font-size: 18px;
-`;
-
-const GameEntry = (props: any) => {
-  const { name, description, href, tags, buttonLabel, imgSrc } = props;
-
+const GameCard = (props: GameEntryProps) => {
+  const { name, description, href, tags, imgSrc } = props;
   return (
-    <StyledGameEntry>
-      <StyledTopBar>
-        <StyledLogo>
+    <StyledCardLink href={href}>
+      <StyledGameCard>
+        <StyledCardTitle>{name} </StyledCardTitle>
+        <StyledCardImage>
           <img src={imgSrc} alt={name} />
-        </StyledLogo>
-
-        <StyledTitleTags>
-          <div>{name}</div>
-          <StyledTags>{tags.sort().join(', ')}</StyledTags>
-        </StyledTitleTags>
-
-        <StyledPlayButton href={href}>
-          <button>{buttonLabel}</button>
-        </StyledPlayButton>
-      </StyledTopBar>
-
-      <StyledDescription>{description}</StyledDescription>
-
-      <StyledPlayButton data-mobile="mobile" href={href}>
-        <button>{buttonLabel}</button>
-      </StyledPlayButton>
-    </StyledGameEntry>
+        </StyledCardImage>
+        <StyledCardDescription>
+          <StyledCardTags>[ {tags.sort().join(' / ')} ]</StyledCardTags>
+          <div>{description}</div>
+        </StyledCardDescription>
+      </StyledGameCard>
+    </StyledCardLink>
   );
 };
 
-GameEntry.propTypes = {
-  name: types.string.isRequired,
-  description: types.string,
-  href: types.string.isRequired,
-  tags: types.arrayOf(types.string),
-  buttonLabel: types.string,
-  imgSrc: types.string,
-};
-
-GameEntry.defaultProps = {
-  tags: [],
-  buttonLabel: 'Play',
-  imgSrc: siteFavicon,
+const GameEntry = (props: GameEntryProps) => {
+  return <GameCard {...props} />;
 };
 
 export default GameEntry;

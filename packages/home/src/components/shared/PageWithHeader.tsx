@@ -23,6 +23,10 @@ export const Head = ({ title }: { title?: string }) => (
 );
 
 const GlobalStyles = createGlobalStyle`
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: url(${corkboardBackground});
   background-position: top center;

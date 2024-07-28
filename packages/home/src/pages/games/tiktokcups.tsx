@@ -282,6 +282,7 @@ const TikTokCupsContent = () => {
       result: number;
     }[]
   >([]);
+  const [showAnalysis, setShowAnalysis] = useState(false);
 
   function submitGuess() {
     const result = check(guess.split(''));
@@ -327,10 +328,15 @@ const TikTokCupsContent = () => {
           ))}
         </div>
       </div>
-      <div>
-        <div>Analysis</div>
-        <SolutionSpace guesses={guesses} />
-      </div>
+      <button onClick={() => setShowAnalysis((show) => !show)}>
+        {showAnalysis ? 'Hide Analysis' : 'Show Analysis'}
+      </button>
+      {showAnalysis ? (
+        <div>
+          <div>Analysis</div>
+          <SolutionSpace guesses={guesses} />
+        </div>
+      ) : null}
     </StyledContent>
   );
 };

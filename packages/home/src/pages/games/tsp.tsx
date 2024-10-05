@@ -55,6 +55,22 @@ const StyledLine = styled.div`
   width: 3px;
 `;
 
+const StyledTopLabel = styled.div`
+  position: absolute;
+  top: -20px;
+  font-size: 10px;
+  transform: translate(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+`;
+
+const StyledBottomLabel = styled.div`
+  position: absolute;
+  bottom: -20px;
+  font-size: 10px;
+  transform: translate(-50%);
+  background-color: rgba(255, 255, 255, 0.8);
+`;
+
 type Path = [Vertex, Vertex];
 
 const Grid = ({ points, paths }: { points: Vertex[]; paths: Path[] }) => {
@@ -103,7 +119,14 @@ const Grid = ({ points, paths }: { points: Vertex[]; paths: Path[] }) => {
           <StyledPoint
             key={'point' + i}
             style={{ top: (50 - y) * 10, left: x * 10 }}
-          />
+          >
+            <StyledTopLabel>
+              ({x},{y})
+            </StyledTopLabel>
+            <StyledBottomLabel>
+              #{paths.findIndex(([[px, py]]) => px === x && py === y) + 1}
+            </StyledBottomLabel>
+          </StyledPoint>
         ))}
       </div>
     </div>
@@ -128,11 +151,100 @@ function makeNaivePath(points: Vertex[]): Path[] {
     return paths;
   }, [] as Path[]);
 }
+// eslint-disable-next-line complexity
+function getSmarterPath(points: Vertex[]): Path[] {
+  const distances: { [distance: number]: Path[] } = {};
+
+  for (let i = 0; i < points.length; i++) {
+    for (let j = i + 1; j < points.length; j++) {
+      const distance = getManhattanDistance(points[i], points[j]);
+
+      distances[distance] ??= [];
+      distances[distance].push([points[i], points[j]]);
+    }
+  }
+
+  const graphMap = new Map<Vertex, { chain: Vertex[] }>();
+
+  for (const point of points) {
+    graphMap.set(point, { chain: [point] });
+  }
+
+  const pathMap = new Map<Vertex, Vertex[]>();
+
+  for (const point of points) {
+    pathMap.set(point, []);
+  }
+
+  let nLinks = 0;
+
+  for (
+    let distance = 1;
+    distance <= 100 && nLinks < points.length;
+    distance++
+  ) {
+    if (!distances[distance]) {
+      continue;
+    }
+
+    const paths = distances[distance];
+
+    for (let p of paths) {
+      const [a, b] = p;
+
+      const entryA = graphMap.get(a);
+      const entryB = graphMap.get(b);
+
+      if (!entryA || !entryB) {
+        // already connected
+        continue;
+      }
+
+      if (entryA.chain[0] === b || entryA.chain.at(-1) === b) {
+        // no premature cycles
+        continue;
+      }
+
+      const newChain = [
+        ...(entryA.chain[0] === a ? entryA.chain.reverse() : entryA.chain),
+        ...(entryB.chain[0] === b ? entryB.chain : entryB.chain.reverse()),
+      ];
+
+      graphMap.delete(a);
+      graphMap.delete(b);
+
+      graphMap.set(newChain[0], { chain: newChain });
+      graphMap.set(newChain.at(-1)!, { chain: newChain });
+      nLinks++;
+    }
+  }
+
+  const chain = Array.from(graphMap.values())[0]!.chain;
+
+  const startIndex = chain.findIndex((v) => v === points[0]);
+
+  console.log({ points, chain });
+
+  return makeNaivePath([
+    ...chain.slice(startIndex),
+    ...chain.slice(0, startIndex),
+  ]);
+}
 
 function makeRandomPoints(): Vertex[] {
   return [[0, 0] as Vertex].concat(
     new Array(10).fill(1).map(() => [random(0, 50), random(0, 50)])
   );
+}
+
+function getManhattanDistance(a: Vertex, b: Vertex) {
+  return Math.abs(a[0] - b[0]) + Math.abs(a[1] - b[1]);
+}
+
+function getTotalPathDistance(paths: Path[]): number {
+  return paths.reduce((distance, path) => {
+    return distance + getManhattanDistance(path[0], path[1]);
+  }, 0);
 }
 
 const TravelingSalesmanContent = () => {
@@ -159,11 +271,15 @@ const TravelingSalesmanContent = () => {
     setPointText(JSON.stringify(points));
   };
 
-  const paths = useMemo(() => makeNaivePath(points), [points]);
+  // const paths = useMemo(() => makeNaivePath(points), [points]);
+  const paths = useMemo(() => getSmarterPath(points), [points]);
+
+  const distance = useMemo(() => getTotalPathDistance(paths), [paths]);
 
   return (
     <StyledContent>
       <Grid points={points} paths={paths} />
+      <div>Distance: {distance}</div>
       <div>Points</div>
       <div>
         <textarea value={pointText} onChange={handleChange} />

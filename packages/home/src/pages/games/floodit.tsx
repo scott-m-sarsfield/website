@@ -1,21 +1,33 @@
-/* eslint-disable react/display-name */
 import React from 'react';
+import styled from 'styled-components';
 import FloodItPageContent from '@scott-m-sarsfield/floodit';
-import PageWithHeader, {
-  Head as CommonHead,
-} from '../../components/shared/PageWithHeader';
-
-import './floodit.scss';
+import { Head as CommonHead } from '../../components/shared/PageWithHeader';
+import BannerMenuPage from '../../components/BannerMenuPage';
 
 export const Head = () => <CommonHead />;
 
-const FloodItPage = () => (
-  <PageWithHeader className="floodit-page" activeNav="games">
-    <div className="content">
-      <h3 className="title">Flood It</h3>
-      <FloodItPageContent />
-    </div>
-  </PageWithHeader>
-);
+const StyledWrapper = styled.div`
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
 
-export default () => <FloodItPage />;
+  .floodit-page-content {
+    height: 100%;
+  }
+
+  .floodit-game {
+    height: 100%;
+  }
+`;
+
+const FloodItPage = () => {
+  return (
+    <BannerMenuPage>
+      <StyledWrapper>
+        <FloodItPageContent />
+      </StyledWrapper>
+    </BannerMenuPage>
+  );
+};
+
+export default FloodItPage;

@@ -41,6 +41,12 @@ const config: GatsbyConfig = {
         icon: './src/img/favicon.png',
       },
     },
+    {
+      resolve: `gatsby-plugin-env-variables`,
+      options: {
+        allowList: ['GIT_BRANCH', 'GIT_HASH'],
+      },
+    },
   ],
 };
 

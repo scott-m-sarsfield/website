@@ -5,6 +5,7 @@
   "main": "./components/fiber_page_content.tsx",
   "dependencies": {
     "@react-three/fiber": "^8.17.10",
+    "@react-three/xr": "^6.4.12",
     "prop-types": "^15.7.2",
     "react": "^19.0.0",
     "react-helmet": "^6.0.0",

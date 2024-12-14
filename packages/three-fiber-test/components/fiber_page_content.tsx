@@ -1,8 +1,12 @@
+/* eslint-disable react/no-unknown-property */
 import React, { useRef, useState } from 'react';
-import * as THREE from 'three';
 import { Canvas, useFrame } from '@react-three/fiber';
-import type { ThreeElements } from '@react-three/fiber';
 import { styled } from 'styled-components';
+import * as THREE from 'three';
+import type { ThreeElements } from '@react-three/fiber';
+import { XR, createXRStore } from '@react-three/xr';
+
+const store = createXRStore();
 
 /* eslint-disable react/no-unknown-property */
 
@@ -36,24 +40,42 @@ const StyledWrapper = styled.div`
   height: calc(100vh - 100px);
 `;
 
-const FiberPageContent = () => (
-  <div>
-    <StyledWrapper>
-      <Canvas>
-        <ambientLight intensity={Math.PI / 2} />
-        <spotLight
-          position={[10, 10, 10]}
-          angle={0.15}
-          penumbra={1}
-          decay={0}
-          intensity={Math.PI}
-        />
-        <pointLight position={[-10, -10, -10]} decay={0} intensity={Math.PI} />
-        <Box position={[-1.2, 0, 0]} />
-        <Box position={[1.2, 0, 0]} />
-      </Canvas>
-    </StyledWrapper>
-  </div>
-);
+const FiberPageContent = () => {
+  const [red, setRed] = useState(false);
+  return (
+    <>
+      <button onClick={() => store.enterAR()}>Enter AR</button>
+      <StyledWrapper>
+        <Canvas>
+          <XR store={store}>
+            <mesh
+              pointerEventsType={{ deny: 'grab' }}
+              onClick={() => setRed(!red)}
+              position={[0, 1, -1]}
+            >
+              <boxGeometry />
+              <meshBasicMaterial color={red ? 'red' : 'blue'} />
+            </mesh>
+            <ambientLight intensity={Math.PI / 2} />
+            <spotLight
+              position={[10, 10, 10]}
+              angle={0.15}
+              penumbra={1}
+              decay={0}
+              intensity={Math.PI}
+            />
+            <pointLight
+              position={[-10, -10, -10]}
+              decay={0}
+              intensity={Math.PI}
+            />
+            <Box position={[-1.2, 0, 0]} />
+            <Box position={[1.2, 0, 0]} />
+          </XR>
+        </Canvas>
+      </StyledWrapper>
+    </>
+  );
+};
 
 export default FiberPageContent;

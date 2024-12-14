@@ -14,7 +14,8 @@
     "build": "yarn run build:workspaces",
     "lint": "npx eslint .",
     "clean": "rm -rf dist/*",
-    "deploy": "firebase deploy"
+    "deploy": "firebase deploy",
+    "develop": "yarn workspace home develop"
   },
   "devDependencies": {
     "@babel/cli": "^7.17.10",

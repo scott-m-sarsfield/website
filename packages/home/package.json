@@ -8,10 +8,10 @@
     "gatsby"
   ],
   "scripts": {
-    "develop": "gatsby develop",
-    "start": "gatsby develop",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
+    "develop": "GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD) GIT_HASH=$(git rev-parse HEAD) gatsby develop",
+    "start": "GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD) GIT_HASH=$(git rev-parse HEAD) gatsby develop",
+    "build": "GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD) GIT_HASH=$(git rev-parse HEAD) gatsby build",
+    "serve": "GIT_BRANCH=$(git rev-parse --abbrev-ref HEAD) GIT_HASH=$(git rev-parse HEAD) gatsby serve",
     "clean": "gatsby clean",
     "typecheck": "tsc --noEmit",
     "build:static": "yarn run build && mkdir -p ../../dist && cp -R public/* ../../dist/",
@@ -38,6 +38,7 @@
     "eslint-plugin-react": "^7.30.0",
     "eslint-plugin-react-hooks": "^4.5.0",
     "gatsby": "^5.10.0",
+    "gatsby-plugin-env-variables": "^2.3.0",
     "gatsby-plugin-image": "^3.10.0",
     "gatsby-plugin-manifest": "^5.13.1",
     "gatsby-plugin-mdx": "^5.10.0",

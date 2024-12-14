@@ -28,6 +28,7 @@
     "@mdx-js/react": "^2.3.0",
     "@mui/material": "^5.15.7",
     "@scott-m-sarsfield/sherlock": "0.0.1",
+    "@scott-m-sarsfield/three-fiber-test": "0.0.1",
     "@typescript-eslint/parser": "^6.19.0",
     "babel-plugin-styled-components": "^2.1.3",
     "classnames": "^2.2.6",

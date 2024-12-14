@@ -1,0 +1,11 @@
+{
+  "name": "@scott-m-sarsfield/three-fiber-test",
+  "version": "0.0.1",
+  "license": "UNLICENSED",
+  "main": "./components/fiber_page_content.tsx",
+  "dependencies": {
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-helmet": "^6.0.0"
+  }
+}

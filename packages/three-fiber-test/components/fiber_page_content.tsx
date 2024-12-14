@@ -1,37 +1,36 @@
 /* eslint-disable react/no-unknown-property */
-import React, { useRef, useState } from 'react';
-import { Canvas, useFrame } from '@react-three/fiber';
+import React, { useEffect, useMemo } from 'react';
+import { Canvas, useFrame, createPortal } from '@react-three/fiber';
 import { styled } from 'styled-components';
 import * as THREE from 'three';
-import type { ThreeElements } from '@react-three/fiber';
-import { XR, createXRStore } from '@react-three/xr';
+import { useGLTF, OrbitControls } from '@react-three/drei';
 
-const store = createXRStore();
+import { XR, createXRStore, XROrigin } from '@react-three/xr';
 
-/* eslint-disable react/no-unknown-property */
+const store = createXRStore({
+  controller: false,
+});
 
-const BOX_SIZE = 1;
+function RollerCoaster() {
+  const gltf = useGLTF('/rollercoaster.glb', true, false);
 
-function Box(props: ThreeElements['mesh']) {
-  const ref = useRef<THREE.Mesh>(null!);
-  const [hovered, hover] = useState(false);
-  const [clicked, click] = useState(false);
-  useFrame((state, delta) => {
-    ref.current.rotation.x += delta;
-  });
-
+  const mixer = useMemo(() => new THREE.AnimationMixer(gltf.scene), []);
+  useEffect(() => {
+    for (const animation of gltf.animations) {
+      mixer.clipAction(animation).play();
+    }
+  }, [gltf, mixer]);
+  useFrame((state, delta) => mixer.update(delta));
   return (
-    <mesh
-      {...props}
-      ref={ref}
-      scale={clicked ? 1.5 : 1}
-      onClick={() => click(!clicked)}
-      onPointerOver={() => hover(true)}
-      onPointerOut={() => hover(false)}
-    >
-      <boxGeometry args={[BOX_SIZE, BOX_SIZE, BOX_SIZE]} />
-      <meshStandardMaterial color={hovered ? 'hotpink' : 'orange'} />
-    </mesh>
+    <>
+      <primitive object={gltf.scene} />
+      {createPortal(
+        <group rotation-y={-Math.PI / 2} rotation-x={Math.PI / 2}>
+          <XROrigin scale={0.24} position-y={-0.1} />
+        </group>,
+        gltf.scene.getObjectByName('Sessel')!
+      )}
+    </>
   );
 }
 
@@ -41,36 +40,16 @@ const StyledWrapper = styled.div`
 `;
 
 const FiberPageContent = () => {
-  const [red, setRed] = useState(false);
   return (
     <>
-      <button onClick={() => store.enterAR()}>Enter AR</button>
+      <button onClick={() => store.enterVR()}>Enter VR</button>
       <StyledWrapper>
         <Canvas>
+          <directionalLight position={[1, 1, 1]} />
+          <ambientLight intensity={4} />
+          <OrbitControls />
           <XR store={store}>
-            <mesh
-              pointerEventsType={{ deny: 'grab' }}
-              onClick={() => setRed(!red)}
-              position={[0, 1, -1]}
-            >
-              <boxGeometry />
-              <meshBasicMaterial color={red ? 'red' : 'blue'} />
-            </mesh>
-            <ambientLight intensity={Math.PI / 2} />
-            <spotLight
-              position={[10, 10, 10]}
-              angle={0.15}
-              penumbra={1}
-              decay={0}
-              intensity={Math.PI}
-            />
-            <pointLight
-              position={[-10, -10, -10]}
-              decay={0}
-              intensity={Math.PI}
-            />
-            <Box position={[-1.2, 0, 0]} />
-            <Box position={[1.2, 0, 0]} />
+            <RollerCoaster />
           </XR>
         </Canvas>
       </StyledWrapper>

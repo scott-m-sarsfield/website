@@ -1,14 +1,9 @@
 import React, { useEffect, useMemo } from 'react';
 import { Canvas, useFrame, createPortal } from '@react-three/fiber';
-import { styled } from 'styled-components';
 import * as THREE from 'three';
 import { useGLTF, OrbitControls } from '@react-three/drei';
 
 import { XR, createXRStore, XROrigin } from '@react-three/xr';
-
-const store = createXRStore({
-  controller: false,
-});
 
 function RollerCoaster() {
   const gltf = useGLTF('/rollercoaster.glb', true, false);
@@ -33,27 +28,21 @@ function RollerCoaster() {
   );
 }
 
-const StyledWrapper = styled.div`
-  border: 1px solid black;
-  height: calc(100vh - 100px);
-`;
-
-const FiberPageContent = () => {
+const RollercoasterScene = ({
+  store,
+}: {
+  store: ReturnType<typeof createXRStore>;
+}) => {
   return (
-    <>
-      <button onClick={() => store.enterVR()}>Enter VR</button>
-      <StyledWrapper>
-        <Canvas>
-          <directionalLight position={[1, 1, 1]} />
-          <ambientLight intensity={4} />
-          <OrbitControls />
-          <XR store={store}>
-            <RollerCoaster />
-          </XR>
-        </Canvas>
-      </StyledWrapper>
-    </>
+    <Canvas>
+      <directionalLight position={[1, 1, 1]} />
+      <ambientLight intensity={4} />
+      <OrbitControls />
+      <XR store={store}>
+        <RollerCoaster />
+      </XR>
+    </Canvas>
   );
 };
 
-export default FiberPageContent;
+export default RollercoasterScene;

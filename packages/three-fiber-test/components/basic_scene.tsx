@@ -1,4 +1,3 @@
-/* eslint-disable react/no-unknown-property */
 import React, { useRef, useState } from 'react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { styled } from 'styled-components';
@@ -7,8 +6,6 @@ import type { ThreeElements } from '@react-three/fiber';
 import { XR, createXRStore } from '@react-three/xr';
 
 const store = createXRStore();
-
-/* eslint-disable react/no-unknown-property */
 
 const BOX_SIZE = 1;
 

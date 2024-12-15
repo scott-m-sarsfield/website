@@ -1,55 +1,80 @@
-/* eslint-disable react/no-unknown-property */
-import React, { useEffect, useMemo } from 'react';
-import { Canvas, useFrame, createPortal } from '@react-three/fiber';
+import React, { useRef, useState } from 'react';
+import { Canvas } from '@react-three/fiber';
 import { styled } from 'styled-components';
 import * as THREE from 'three';
-import { useGLTF, OrbitControls } from '@react-three/drei';
 
-import { XR, createXRStore, XROrigin } from '@react-three/xr';
+import { XR, createXRStore } from '@react-three/xr';
 
-const store = createXRStore({
-  controller: false,
-});
-
-function RollerCoaster() {
-  const gltf = useGLTF('/rollercoaster.glb', true, false);
-
-  const mixer = useMemo(() => new THREE.AnimationMixer(gltf.scene), []);
-  useEffect(() => {
-    for (const animation of gltf.animations) {
-      mixer.clipAction(animation).play();
-    }
-  }, [gltf, mixer]);
-  useFrame((state, delta) => mixer.update(delta));
-  return (
-    <>
-      <primitive object={gltf.scene} />
-      {createPortal(
-        <group rotation-y={-Math.PI / 2} rotation-x={Math.PI / 2}>
-          <XROrigin scale={0.24} position-y={-0.1} />
-        </group>,
-        gltf.scene.getObjectByName('Sessel')!
-      )}
-    </>
-  );
-}
+const store = createXRStore();
 
 const StyledWrapper = styled.div`
   border: 1px solid black;
   height: calc(100vh - 100px);
 `;
 
+/* 
+
+// wireframe
+var geo = new THREE.EdgesGeometry( mesh.geometry ); // or WireframeGeometry
+var mat = new THREE.LineBasicMaterial( { color: 0xffffff } );
+var wireframe = new THREE.LineSegments( geo, mat );
+mesh.add( wireframe );*/
+
+const TissueBox = () => {
+  const [red, setRed] = useState(false);
+
+  const myBoxGeometry = useRef(
+    new THREE.BoxGeometry(0.23, 0.12, 0.095)
+  ).current;
+  const myEdgesGeometry = useRef(
+    new THREE.EdgesGeometry(myBoxGeometry)
+  ).current;
+
+  return (
+    <>
+      <mesh
+        pointerEventsType={{ deny: 'grab' }}
+        onClick={() => setRed(!red)}
+        position={[0, 1, -1]}
+        geometry={myBoxGeometry}
+      >
+        <meshPhongMaterial
+          color={red ? 'red' : 'blue'}
+          opacity={0.7}
+          transparent
+          polygonOffset={true}
+          polygonOffsetFactor={1}
+          polygonOffsetUnits={1}
+        />
+        <lineSegments geometry={myEdgesGeometry}>
+          <lineBasicMaterial color="lightblue" />
+        </lineSegments>
+      </mesh>
+    </>
+  );
+};
+
 const FiberPageContent = () => {
   return (
     <>
-      <button onClick={() => store.enterVR()}>Enter VR</button>
+      <button onClick={() => store.enterAR()}>Enter AR</button>
       <StyledWrapper>
         <Canvas>
-          <directionalLight position={[1, 1, 1]} />
-          <ambientLight intensity={4} />
-          <OrbitControls />
           <XR store={store}>
-            <RollerCoaster />
+            <TissueBox />
+            <ambientLight intensity={Math.PI / 2} />
+            <spotLight
+              position={[10, 10, 10]}
+              angle={0.15}
+              penumbra={1}
+              decay={0}
+              intensity={Math.PI}
+            />
+            <pointLight
+              position={[-10, -10, -10]}
+              decay={0}
+              intensity={Math.PI}
+            />
           </XR>
         </Canvas>
       </StyledWrapper>

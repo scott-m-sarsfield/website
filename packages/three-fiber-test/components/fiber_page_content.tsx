@@ -4,7 +4,10 @@ import { styled } from 'styled-components';
 import { createXRStore } from '@react-three/xr';
 import FloatingTissueBoxScene from './scenes/FloatingTissueBoxScene';
 
-const store = createXRStore({ originReferenceSpace: 'local-floor' });
+const store = createXRStore({
+  originReferenceSpace: 'bounded-floor',
+  bounded: true,
+});
 
 const StyledWrapper = styled.div`
   border: 1px solid black;

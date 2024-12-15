@@ -2,7 +2,13 @@ import React, { useEffect, useRef, useState } from 'react';
 import { Canvas, useThree } from '@react-three/fiber';
 import * as THREE from 'three';
 
-import { XR, createXRStore } from '@react-three/xr';
+import {
+  XR,
+  createXRStore,
+  useXRPlanes,
+  XRSpace,
+  XRPlaneModel,
+} from '@react-three/xr';
 
 const TissueBox = () => {
   const [red, setRed] = useState(false);
@@ -92,13 +98,45 @@ const MyCamera = () => {
   const camera = useThree(({ camera }) => camera);
 
   useEffect(() => {
-    // console.log({ camera });
     camera.position.set(2, 1, 2);
     camera.rotation.set(0, Math.PI / 4, 0);
   }, [camera]);
 
   return null;
 };
+
+function RedWalls() {
+  const floorPlanes = useXRPlanes('floor');
+  const ceilingPlanes = useXRPlanes('ceiling');
+  return (
+    <>
+      {floorPlanes.map((plane, i) => (
+        <XRSpace space={plane.planeSpace} key={'floor' + i}>
+          <XRPlaneModel plane={plane}>
+            <meshPhongMaterial
+              color="green"
+              opacity={0.7}
+              transparent
+              side={THREE.DoubleSide}
+            />
+          </XRPlaneModel>
+        </XRSpace>
+      ))}
+      {ceilingPlanes.map((plane, i) => (
+        <XRSpace space={plane.planeSpace} key={'ceiling' + i}>
+          <XRPlaneModel plane={plane}>
+            <meshPhongMaterial
+              color="blue"
+              opacity={0.7}
+              transparent
+              side={THREE.DoubleSide}
+            />
+          </XRPlaneModel>
+        </XRSpace>
+      ))}
+    </>
+  );
+}
 
 const FloatingTissueBoxScene = ({
   store,
@@ -110,9 +148,10 @@ const FloatingTissueBoxScene = ({
       <MyCamera />
       <XR store={store}>
         <TissueBox />
-        <Ground />
+        {/* <Ground />
         <SideWall />
-        <BackWall />
+        <BackWall /> */}
+        <RedWalls />
         <ambientLight intensity={Math.PI / 2} />
         <spotLight
           position={[10, 10, 10]}

@@ -2,7 +2,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 
 import { createXRStore } from '@react-three/xr';
-import FloatingTissueBoxScene from './scenes/FloatingTissueBoxScene';
+import RollercoasterRevisitedScene from './scenes/RollercoasterRevisitedScene';
 
 const store = createXRStore({
   originReferenceSpace: 'bounded-floor',
@@ -45,9 +45,9 @@ const FiberPageContent = () => {
   return (
     <StyledContent>
       <StyledLayout>
-        <button onClick={() => store.enterVR()}>Enter VR</button>
+        <button onClick={() => store.enterAR()}>Enter AR</button>
         <StyledWrapper>
-          <FloatingTissueBoxScene store={store} />
+          <RollercoasterRevisitedScene store={store} />
         </StyledWrapper>
         <div />
       </StyledLayout>

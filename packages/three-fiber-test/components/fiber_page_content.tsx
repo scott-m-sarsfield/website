@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { styled } from 'styled-components';
 
 import { createXRStore } from '@react-three/xr';
@@ -11,17 +11,54 @@ const store = createXRStore({
 
 const StyledWrapper = styled.div`
   border: 1px solid black;
-  height: calc(100vh - 100px);
+`;
+
+const StyledContent = styled.div`
+  height: calc(100svh - 20px);
+  position: relative;
+`;
+
+const StyledLayout = styled.div`
+  height: 100%;
+  width: 100%;
+
+  display: grid;
+  grid-template-areas: 'button debug' 'canvas debug';
+  grid-template-columns: 200px 1fr;
+  grid-template-rows: 50px 1fr;
+  gap: 20px;
+
+  & > :first-child {
+    grid-area: button;
+  }
+
+  & > :nth-child(2) {
+    grid-area: canvas;
+  }
+
+  & > :last-child {
+    grid-area: debug;
+  }
+`;
+
+const StyledDebug = styled.div`
+  border: 1px solid black;
+  padding: 10px;
+  font-family: monospace;
 `;
 
 const FiberPageContent = () => {
+  const [log, setLog] = useState('');
   return (
-    <>
-      <button onClick={() => store.enterAR()}>Enter AR</button>
-      <StyledWrapper>
-        <FloatingTissueBoxScene store={store} />
-      </StyledWrapper>
-    </>
+    <StyledContent>
+      <StyledLayout>
+        <button onClick={() => store.enterAR()}>Enter AR</button>
+        <StyledWrapper>
+          <FloatingTissueBoxScene store={store} setLog={setLog} />
+        </StyledWrapper>
+        <StyledDebug>{log}</StyledDebug>
+      </StyledLayout>
+    </StyledContent>
   );
 };
 

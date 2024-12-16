@@ -71,7 +71,7 @@ module.exports = {
     'no-script-url': 'error',
     'no-self-compare': 'error',
     'no-unneeded-ternary': 'error',
-    'no-unused-vars': ['error', { ignoreRestSiblings: true }],
+    'no-unused-vars': ['warn', { ignoreRestSiblings: true }],
     'no-var': 'error',
     'no-void': 'error',
     'no-warning-comments': 'error',

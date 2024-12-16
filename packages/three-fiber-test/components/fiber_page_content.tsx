@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { styled } from 'styled-components';
 
 import { createXRStore } from '@react-three/xr';
@@ -23,8 +23,8 @@ const StyledLayout = styled.div`
   width: 100%;
 
   display: grid;
-  grid-template-areas: 'button debug' 'canvas debug';
-  grid-template-columns: 200px 1fr;
+  grid-template-areas: 'button canvas' 'debug canvas';
+  grid-template-columns: 1fr 2fr;
   grid-template-rows: 50px 1fr;
   gap: 20px;
 
@@ -41,22 +41,15 @@ const StyledLayout = styled.div`
   }
 `;
 
-const StyledDebug = styled.div`
-  border: 1px solid black;
-  padding: 10px;
-  font-family: monospace;
-`;
-
 const FiberPageContent = () => {
-  const [log, setLog] = useState('');
   return (
     <StyledContent>
       <StyledLayout>
         <button onClick={() => store.enterVR()}>Enter VR</button>
         <StyledWrapper>
-          <FloatingTissueBoxScene store={store} setLog={setLog} />
+          <FloatingTissueBoxScene store={store} />
         </StyledWrapper>
-        <StyledDebug>{log}</StyledDebug>
+        <div />
       </StyledLayout>
     </StyledContent>
   );

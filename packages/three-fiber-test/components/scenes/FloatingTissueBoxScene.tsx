@@ -10,7 +10,8 @@ const MyCamera = () => {
 
   useEffect(() => {
     camera.position.set(2, 1, 2);
-    camera.rotation.set(0, Math.PI / 4, 0);
+    camera.lookAt(0, 0, 0);
+    // camera.rotation.set(0, Math.PI / 4, 0);
   }, [camera]);
 
   return null;

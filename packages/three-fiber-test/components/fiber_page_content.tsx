@@ -52,7 +52,7 @@ const FiberPageContent = () => {
   return (
     <StyledContent>
       <StyledLayout>
-        <button onClick={() => store.enterAR()}>Enter AR</button>
+        <button onClick={() => store.enterVR()}>Enter VR</button>
         <StyledWrapper>
           <FloatingTissueBoxScene store={store} setLog={setLog} />
         </StyledWrapper>

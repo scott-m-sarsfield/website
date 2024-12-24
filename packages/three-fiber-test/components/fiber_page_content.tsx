@@ -2,7 +2,7 @@ import React from 'react';
 import { styled } from 'styled-components';
 
 import { createXRStore } from '@react-three/xr';
-import RollercoasterRevisitedScene from './scenes/RollercoasterRevisitedScene';
+import TennisCourtScene from './scenes/TennisCourtScene';
 
 const store = createXRStore({
   originReferenceSpace: 'bounded-floor',
@@ -41,13 +41,21 @@ const StyledLayout = styled.div`
   }
 `;
 
+const StyledButtons = styled.div`
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+`;
+
 const FiberPageContent = () => {
   return (
     <StyledContent>
       <StyledLayout>
-        <button onClick={() => store.enterAR()}>Enter AR</button>
+        <StyledButtons>
+          <button onClick={() => store.enterAR()}>Enter AR</button>
+          <button onClick={() => store.enterVR()}>Enter VR</button>
+        </StyledButtons>
         <StyledWrapper>
-          <RollercoasterRevisitedScene store={store} />
+          <TennisCourtScene store={store} />
         </StyledWrapper>
         <div />
       </StyledLayout>

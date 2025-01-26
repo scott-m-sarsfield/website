@@ -7749,7 +7749,7 @@ its-fine@^1.0.6:
   dependencies:
     "@types/react-reconciler" "^0.28.0"
 
-iwer@^1.0.3:
+iwer@^1.0.3, iwer@^1.0.4:
   version "1.0.4"
   resolved "https://registry.yarnpkg.com/iwer/-/iwer-1.0.4.tgz#d207a4eed6f75ddae53b41b339e84ef978b04cc9"
   integrity sha512-k5ABDKz28VN98nAwlZQuN62KR2ziBDOYJiFTy73rGk1UyaC01p3jdT8lVfWMF3yJTAz+872h9veuRVcUo6JXyg==
